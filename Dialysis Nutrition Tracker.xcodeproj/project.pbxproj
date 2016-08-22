@@ -7,14 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0D17781D2DB080000AED3A /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D17771D2DB080000AED3A /* Food.swift */; };
+		AD0D177A1D2EC063000AED3A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D17791D2EC063000AED3A /* DetailedViewController.swift */; };
+		AD165FFC1D5BF2AA00847B01 /* BreakfastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD165FFB1D5BF2AA00847B01 /* BreakfastCell.swift */; };
+		AD165FFE1D5D0D0600847B01 /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD165FFD1D5D0D0600847B01 /* OverviewCell.swift */; };
+		AD1660001D5F8B8100847B01 /* EditEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD165FFF1D5F8B8100847B01 /* EditEntryViewController.swift */; };
+		AD1660031D5F930E00847B01 /* EditViewFoodNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1660021D5F930E00847B01 /* EditViewFoodNameCell.swift */; };
+		AD1660051D5F933800847B01 /* EditViewServingSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1660041D5F933800847B01 /* EditViewServingSizeCell.swift */; };
+		AD1660071D5F934900847B01 /* EditViewNumberOfServingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1660061D5F934900847B01 /* EditViewNumberOfServingsCell.swift */; };
+		AD1660091D5F935600847B01 /* EditViewNutrientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1660081D5F935600847B01 /* EditViewNutrientCell.swift */; };
+		AD16600B1D5F936100847B01 /* EditViewOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16600A1D5F936100847B01 /* EditViewOverviewCell.swift */; };
+		AD16600D1D5F936C00847B01 /* EditViewMealTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16600C1D5F936C00847B01 /* EditViewMealTypeCell.swift */; };
+		AD16600F1D63A07F00847B01 /* AddLunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16600E1D63A07F00847B01 /* AddLunchCell.swift */; };
+		AD1660111D63A08900847B01 /* AddDinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1660101D63A08900847B01 /* AddDinnerCell.swift */; };
+		AD3074FA1D3599D900B4F8EA /* ServingSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */; };
+		AD68428F1D5252AE00BE429D /* NutrientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68428E1D5252AE00BE429D /* NutrientCell.swift */; };
+		AD6842911D52664100BE429D /* NutritionTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6842901D52664100BE429D /* NutritionTrackerViewController.swift */; };
+		AD6842951D53990B00BE429D /* MealsViewController_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6842941D53990B00BE429D /* MealsViewController_1.swift */; };
+		AD6842971D53995B00BE429D /* MealsViewController_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6842961D53995B00BE429D /* MealsViewController_2.swift */; };
+		AD68429B1D539C4A00BE429D /* AddBreakfastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68429A1D539C4A00BE429D /* AddBreakfastCell.swift */; };
+		AD68429D1D53AA0400BE429D /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68429C1D53AA0400BE429D /* CustomHeaderCell.swift */; };
+		AD6842A01D5640A100BE429D /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68429F1D5640A100BE429D /* CoreDataStackManager.swift */; };
+		AD6842A31D56418500BE429D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD6842A11D56418500BE429D /* Model.xcdatamodeld */; };
+		AD6842A51D5643F600BE429D /* Nutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6842A41D5643F600BE429D /* Nutrient.swift */; };
+		AD6842AA1D57D1BB00BE429D /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6842A91D57D1BB00BE429D /* Measurement.swift */; };
+		AD689AE61D42B304003C2EE4 /* FoodNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD689AE51D42B304003C2EE4 /* FoodNameCell.swift */; };
+		AD689AE81D43B696003C2EE4 /* ServingSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD689AE71D43B696003C2EE4 /* ServingSizeCell.swift */; };
+		ADB844121D46ADB2000B537F /* NumberOfServingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB844111D46ADB2000B537F /* NumberOfServingsCell.swift */; };
 		ADD046141D26DA0B009EE361 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046131D26DA0B009EE361 /* AppDelegate.swift */; };
-		ADD046161D26DA0B009EE361 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046151D26DA0B009EE361 /* ViewController.swift */; };
+		ADD046161D26DA0B009EE361 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046151D26DA0B009EE361 /* SearchViewController.swift */; };
 		ADD046191D26DA0B009EE361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADD046171D26DA0B009EE361 /* Main.storyboard */; };
 		ADD0461C1D26DA0B009EE361 /* Dialysis_Nutrition_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADD0461A1D26DA0B009EE361 /* Dialysis_Nutrition_Tracker.xcdatamodeld */; };
 		ADD0461E1D26DA0B009EE361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADD0461D1D26DA0B009EE361 /* Assets.xcassets */; };
 		ADD046211D26DA0B009EE361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADD0461F1D26DA0B009EE361 /* LaunchScreen.storyboard */; };
 		ADD0462C1D26DA0B009EE361 /* Dialysis_Nutrition_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0462B1D26DA0B009EE361 /* Dialysis_Nutrition_TrackerTests.swift */; };
 		ADD046371D26DA0B009EE361 /* Dialysis_Nutrition_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046361D26DA0B009EE361 /* Dialysis_Nutrition_TrackerUITests.swift */; };
+		ADD046461D26DA95009EE361 /* GDCBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046451D26DA95009EE361 /* GDCBlackBox.swift */; };
+		ADD046481D26DC13009EE361 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046471D26DC13009EE361 /* Constants.swift */; };
+		ADD0464A1D26DCA8009EE361 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046491D26DCA8009EE361 /* Client.swift */; };
+		ADDA3DE41D394FE700D55C9B /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA3DE31D394FE700D55C9B /* Animator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +66,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD0D17771D2DB080000AED3A /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		AD0D17791D2EC063000AED3A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		AD165FFB1D5BF2AA00847B01 /* BreakfastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakfastCell.swift; sourceTree = "<group>"; };
+		AD165FFD1D5D0D0600847B01 /* OverviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCell.swift; sourceTree = "<group>"; };
+		AD165FFF1D5F8B8100847B01 /* EditEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEntryViewController.swift; sourceTree = "<group>"; };
+		AD1660021D5F930E00847B01 /* EditViewFoodNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewFoodNameCell.swift; sourceTree = "<group>"; };
+		AD1660041D5F933800847B01 /* EditViewServingSizeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewServingSizeCell.swift; sourceTree = "<group>"; };
+		AD1660061D5F934900847B01 /* EditViewNumberOfServingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewNumberOfServingsCell.swift; sourceTree = "<group>"; };
+		AD1660081D5F935600847B01 /* EditViewNutrientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewNutrientCell.swift; sourceTree = "<group>"; };
+		AD16600A1D5F936100847B01 /* EditViewOverviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewOverviewCell.swift; sourceTree = "<group>"; };
+		AD16600C1D5F936C00847B01 /* EditViewMealTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewMealTypeCell.swift; sourceTree = "<group>"; };
+		AD16600E1D63A07F00847B01 /* AddLunchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLunchCell.swift; sourceTree = "<group>"; };
+		AD1660101D63A08900847B01 /* AddDinnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDinnerCell.swift; sourceTree = "<group>"; };
+		AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingSizeController.swift; sourceTree = "<group>"; };
+		AD68428E1D5252AE00BE429D /* NutrientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientCell.swift; sourceTree = "<group>"; };
+		AD6842901D52664100BE429D /* NutritionTrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionTrackerViewController.swift; sourceTree = "<group>"; };
+		AD6842941D53990B00BE429D /* MealsViewController_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealsViewController_1.swift; path = ../MealsViewController_1.swift; sourceTree = "<group>"; };
+		AD6842961D53995B00BE429D /* MealsViewController_2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsViewController_2.swift; sourceTree = "<group>"; };
+		AD68429A1D539C4A00BE429D /* AddBreakfastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBreakfastCell.swift; sourceTree = "<group>"; };
+		AD68429C1D53AA0400BE429D /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
+		AD68429F1D5640A100BE429D /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		AD6842A21D56418500BE429D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		AD6842A41D5643F600BE429D /* Nutrient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nutrient.swift; sourceTree = "<group>"; };
+		AD6842A91D57D1BB00BE429D /* Measurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		AD689AE51D42B304003C2EE4 /* FoodNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodNameCell.swift; sourceTree = "<group>"; };
+		AD689AE71D43B696003C2EE4 /* ServingSizeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingSizeCell.swift; sourceTree = "<group>"; };
+		ADB844111D46ADB2000B537F /* NumberOfServingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberOfServingsCell.swift; sourceTree = "<group>"; };
 		ADD046101D26DA0B009EE361 /* Dialysis Nutrition Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dialysis Nutrition Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADD046131D26DA0B009EE361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ADD046151D26DA0B009EE361 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ADD046151D26DA0B009EE361 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		ADD046181D26DA0B009EE361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADD0461B1D26DA0B009EE361 /* Dialysis_Nutrition_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dialysis_Nutrition_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		ADD0461D1D26DA0B009EE361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +107,10 @@
 		ADD046321D26DA0B009EE361 /* Dialysis Nutrition TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dialysis Nutrition TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADD046361D26DA0B009EE361 /* Dialysis_Nutrition_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialysis_Nutrition_TrackerUITests.swift; sourceTree = "<group>"; };
 		ADD046381D26DA0B009EE361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADD046451D26DA95009EE361 /* GDCBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GDCBlackBox.swift; sourceTree = "<group>"; };
+		ADD046471D26DC13009EE361 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ADD046491D26DCA8009EE361 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		ADDA3DE31D394FE700D55C9B /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +138,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD1660011D5F92FA00847B01 /* EditEntriViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				AD1660021D5F930E00847B01 /* EditViewFoodNameCell.swift */,
+				AD1660041D5F933800847B01 /* EditViewServingSizeCell.swift */,
+				AD1660061D5F934900847B01 /* EditViewNumberOfServingsCell.swift */,
+				AD1660081D5F935600847B01 /* EditViewNutrientCell.swift */,
+				AD16600A1D5F936100847B01 /* EditViewOverviewCell.swift */,
+				AD16600C1D5F936C00847B01 /* EditViewMealTypeCell.swift */,
+			);
+			name = EditEntriViewCells;
+			sourceTree = "<group>";
+		};
+		AD6842981D539BFD00BE429D /* DetailedViewTableCells */ = {
+			isa = PBXGroup;
+			children = (
+				AD689AE51D42B304003C2EE4 /* FoodNameCell.swift */,
+				AD689AE71D43B696003C2EE4 /* ServingSizeCell.swift */,
+				ADB844111D46ADB2000B537F /* NumberOfServingsCell.swift */,
+				AD68428E1D5252AE00BE429D /* NutrientCell.swift */,
+				AD165FFD1D5D0D0600847B01 /* OverviewCell.swift */,
+			);
+			name = DetailedViewTableCells;
+			sourceTree = "<group>";
+		};
+		AD6842991D539C2100BE429D /* MealsViewTableCells */ = {
+			isa = PBXGroup;
+			children = (
+				AD68429A1D539C4A00BE429D /* AddBreakfastCell.swift */,
+				AD16600E1D63A07F00847B01 /* AddLunchCell.swift */,
+				AD1660101D63A08900847B01 /* AddDinnerCell.swift */,
+				AD68429C1D53AA0400BE429D /* CustomHeaderCell.swift */,
+				AD165FFB1D5BF2AA00847B01 /* BreakfastCell.swift */,
+			);
+			name = MealsViewTableCells;
+			sourceTree = "<group>";
+		};
+		AD68429E1D56406A00BE429D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				AD68429F1D5640A100BE429D /* CoreDataStackManager.swift */,
+				AD6842A11D56418500BE429D /* Model.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		AD6842A61D56514B00BE429D /* NSManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				AD0D17771D2DB080000AED3A /* Food.swift */,
+				AD6842A41D5643F600BE429D /* Nutrient.swift */,
+				AD6842A91D57D1BB00BE429D /* Measurement.swift */,
+			);
+			name = NSManagedObjects;
+			sourceTree = "<group>";
+		};
 		ADD046071D26DA0B009EE361 = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +217,21 @@
 		ADD046121D26DA0B009EE361 /* Dialysis Nutrition Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				ADD046441D26DA87009EE361 /* API */,
+				AD68429E1D56406A00BE429D /* CoreData */,
+				AD6842A61D56514B00BE429D /* NSManagedObjects */,
 				ADD046131D26DA0B009EE361 /* AppDelegate.swift */,
-				ADD046151D26DA0B009EE361 /* ViewController.swift */,
+				AD6842901D52664100BE429D /* NutritionTrackerViewController.swift */,
+				ADD046151D26DA0B009EE361 /* SearchViewController.swift */,
+				AD0D17791D2EC063000AED3A /* DetailedViewController.swift */,
+				AD6842981D539BFD00BE429D /* DetailedViewTableCells */,
+				AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */,
+				AD6842941D53990B00BE429D /* MealsViewController_1.swift */,
+				AD6842961D53995B00BE429D /* MealsViewController_2.swift */,
+				AD6842991D539C2100BE429D /* MealsViewTableCells */,
+				AD165FFF1D5F8B8100847B01 /* EditEntryViewController.swift */,
+				AD1660011D5F92FA00847B01 /* EditEntriViewCells */,
+				ADDA3DE31D394FE700D55C9B /* Animator.swift */,
 				ADD046171D26DA0B009EE361 /* Main.storyboard */,
 				ADD0461D1D26DA0B009EE361 /* Assets.xcassets */,
 				ADD0461F1D26DA0B009EE361 /* LaunchScreen.storyboard */,
@@ -126,6 +257,16 @@
 				ADD046381D26DA0B009EE361 /* Info.plist */,
 			);
 			path = "Dialysis Nutrition TrackerUITests";
+			sourceTree = "<group>";
+		};
+		ADD046441D26DA87009EE361 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				ADD046451D26DA95009EE361 /* GDCBlackBox.swift */,
+				ADD046471D26DC13009EE361 /* Constants.swift */,
+				ADD046491D26DCA8009EE361 /* Client.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +400,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADD046161D26DA0B009EE361 /* ViewController.swift in Sources */,
+				AD6842A51D5643F600BE429D /* Nutrient.swift in Sources */,
+				ADDA3DE41D394FE700D55C9B /* Animator.swift in Sources */,
+				AD165FFE1D5D0D0600847B01 /* OverviewCell.swift in Sources */,
+				AD68429B1D539C4A00BE429D /* AddBreakfastCell.swift in Sources */,
+				AD0D17781D2DB080000AED3A /* Food.swift in Sources */,
+				ADB844121D46ADB2000B537F /* NumberOfServingsCell.swift in Sources */,
+				AD1660071D5F934900847B01 /* EditViewNumberOfServingsCell.swift in Sources */,
+				AD1660091D5F935600847B01 /* EditViewNutrientCell.swift in Sources */,
+				AD6842911D52664100BE429D /* NutritionTrackerViewController.swift in Sources */,
+				AD16600B1D5F936100847B01 /* EditViewOverviewCell.swift in Sources */,
+				AD3074FA1D3599D900B4F8EA /* ServingSizeController.swift in Sources */,
+				ADD046481D26DC13009EE361 /* Constants.swift in Sources */,
+				AD0D177A1D2EC063000AED3A /* DetailedViewController.swift in Sources */,
+				AD6842951D53990B00BE429D /* MealsViewController_1.swift in Sources */,
+				ADD046461D26DA95009EE361 /* GDCBlackBox.swift in Sources */,
+				ADD0464A1D26DCA8009EE361 /* Client.swift in Sources */,
+				AD68429D1D53AA0400BE429D /* CustomHeaderCell.swift in Sources */,
+				AD1660051D5F933800847B01 /* EditViewServingSizeCell.swift in Sources */,
+				ADD046161D26DA0B009EE361 /* SearchViewController.swift in Sources */,
+				AD1660001D5F8B8100847B01 /* EditEntryViewController.swift in Sources */,
+				AD6842A01D5640A100BE429D /* CoreDataStackManager.swift in Sources */,
+				AD689AE61D42B304003C2EE4 /* FoodNameCell.swift in Sources */,
+				AD1660031D5F930E00847B01 /* EditViewFoodNameCell.swift in Sources */,
+				AD1660111D63A08900847B01 /* AddDinnerCell.swift in Sources */,
+				AD16600D1D5F936C00847B01 /* EditViewMealTypeCell.swift in Sources */,
+				AD6842971D53995B00BE429D /* MealsViewController_2.swift in Sources */,
+				AD68428F1D5252AE00BE429D /* NutrientCell.swift in Sources */,
+				AD165FFC1D5BF2AA00847B01 /* BreakfastCell.swift in Sources */,
+				AD6842A31D56418500BE429D /* Model.xcdatamodeld in Sources */,
+				AD689AE81D43B696003C2EE4 /* ServingSizeCell.swift in Sources */,
 				ADD0461C1D26DA0B009EE361 /* Dialysis_Nutrition_Tracker.xcdatamodeld in Sources */,
+				AD6842AA1D57D1BB00BE429D /* Measurement.swift in Sources */,
+				AD16600F1D63A07F00847B01 /* AddLunchCell.swift in Sources */,
 				ADD046141D26DA0B009EE361 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +658,7 @@
 				ADD0463D1D26DA0B009EE361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADD0463E1D26DA0B009EE361 /* Build configuration list for PBXNativeTarget "Dialysis Nutrition TrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +667,7 @@
 				ADD046401D26DA0B009EE361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADD046411D26DA0B009EE361 /* Build configuration list for PBXNativeTarget "Dialysis Nutrition TrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,10 +676,21 @@
 				ADD046431D26DA0B009EE361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		AD6842A11D56418500BE429D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AD6842A21D56418500BE429D /* Model.xcdatamodel */,
+			);
+			currentVersion = AD6842A21D56418500BE429D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		ADD0461A1D26DA0B009EE361 /* Dialysis_Nutrition_Tracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

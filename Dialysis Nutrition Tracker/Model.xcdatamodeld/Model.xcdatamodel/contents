@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
+    <entity name="Food" representedClassName=".Food" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="mealType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ndbno" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberOfServings" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="servingSize" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="nutrients" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Nutrient" inverseName="food" inverseEntity="Nutrient" syncable="YES"/>
+    </entity>
+    <entity name="Measurement" representedClassName=".Measurement" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="nutrient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Nutrient" inverseName="measurements" inverseEntity="Nutrient" syncable="YES"/>
+    </entity>
+    <entity name="Nutrient" representedClassName=".Nutrient" syncable="YES">
+        <attribute name="nutrientName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" inverseName="nutrients" inverseEntity="Food" syncable="YES"/>
+        <relationship name="measurements" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Measurement" inverseName="nutrient" inverseEntity="Measurement" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Food" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Measurement" positionX="-36" positionY="63" width="128" height="90"/>
+        <element name="Nutrient" positionX="-54" positionY="18" width="128" height="105"/>
+    </elements>
+</model>
