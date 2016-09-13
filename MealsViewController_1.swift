@@ -35,10 +35,10 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         mealsTableView_1.delegate = self
         mealsTableView_1.dataSource = self
         meals = [breakfast, lunch , dinner]
-        cellCount = 2                                       // defualt number of cells
-        mealsTableView_1.tableFooterView = UIView()         // hides empty cells
+      //  mealsTableView_1.tableFooterView = UIView()         // hides empty cells
         self.mealsTableView_1.backgroundColor = UIColor(red: 209.0/255.0, green: 209.0/255.0, blue: 209.0/255.0, alpha: 1.0)
         foodIndex = 0
+        cellCount = 2                                       // defualt number of cells
 
         let fetched = fetchedResultsController
         fetched.delegate = self
@@ -198,6 +198,36 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             return 40
         }
     }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        var footerView : UIView?
+        footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
+        footerView?.backgroundColor = UIColor.blackColor()
+        
+        let dunamicButton = UIButton(frame: CGRectMake(0, 0, 100, 50))
+        dunamicButton.backgroundColor = UIColor.greenColor()
+        dunamicButton.setTitle("Button", forState: UIControlState.Normal)
+        dunamicButton.addTarget(self, action: #selector(MealsViewController_1.buttonTouched(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        footerView?.addSubview(dunamicButton)
+        
+        return footerView
+    }
+    
+    func buttonTouched(sender:UIButton!){
+        print("diklik")
+    }
+
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
+ //   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+   //     if section == 3{
+     //       print(section)
+       // }
+    //}
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
 
