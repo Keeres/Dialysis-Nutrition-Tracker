@@ -223,7 +223,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         summaryController.breakfast = self.breakfast
         summaryController.lunch = self.lunch
         summaryController.dinner = self.dinner
-        
         self.navigationController?.pushViewController(summaryController, animated: true)
     }
 

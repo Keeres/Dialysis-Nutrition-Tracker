@@ -114,19 +114,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtv-Wk-Ont">
-                                                    <rect key="frame" x="26" y="11" width="125" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtv-Wk-Ont">
+                                                    <rect key="frame" x="24.5" y="12" width="36" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPl-Bb-1gw">
-                                                    <rect key="frame" x="494" y="11" width="78" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPl-Bb-1gw">
+                                                    <rect key="frame" x="550" y="12" width="36" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LPl-Bb-1gw" firstAttribute="leading" secondItem="Rtv-Wk-Ont" secondAttribute="trailing" constant="489.5" id="0st-er-WiQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LPl-Bb-1gw" secondAttribute="bottom" constant="6.5" id="CsS-aw-hMI"/>
+                                                <constraint firstItem="Rtv-Wk-Ont" firstAttribute="leading" secondItem="XxD-87-z44" secondAttribute="leadingMargin" constant="16.5" id="ap4-tr-7r6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LPl-Bb-1gw" secondAttribute="trailing" constant="6" id="uJV-MY-B5D"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Rtv-Wk-Ont" secondAttribute="bottom" constant="6.5" id="w8o-Gj-giF"/>
+                                                <constraint firstItem="LPl-Bb-1gw" firstAttribute="leading" secondItem="Rtv-Wk-Ont" secondAttribute="trailing" constant="489.5" id="yRV-Y6-nCh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
