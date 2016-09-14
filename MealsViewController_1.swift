@@ -14,12 +14,12 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var mealsTableView_1: UITableView!
     
     var cellCount:Int?
-    var foods:[Food]?
+    var foods:[Food]?               // All Food consumed, out of order in terms of breakfast, lunch, dinner
     var loadFromDisk:Bool?
     var breakfast = [Food]()
     var lunch = [Food]()
     var dinner = [Food]()
-    var meals = [[Food]]()
+    var meals = [[Food]]()          // contains breakfast, lunch, and dinner array
     var addedFood:Food?
     var index:Int?
     var foodIndex:Int?
@@ -219,7 +219,12 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func buttonTouched(sender:UIButton!){
-        print("diklik")
+        let summaryController = storyboard!.instantiateViewControllerWithIdentifier("SummaryView") as! SummaryViewController
+        summaryController.breakfast = self.breakfast
+        summaryController.lunch = self.lunch
+        summaryController.dinner = self.dinner
+        
+        self.navigationController?.pushViewController(summaryController, animated: true)
     }
 
    
@@ -274,8 +279,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         editEntryController.food = meals[indexPath.section][indexPath.row]
         editEntryController.nutrients = meals[indexPath.section][indexPath.row].nutrients
         editEntryController.editViewDelegate = self
-        
-      
         
         self.navigationController?.pushViewController(editEntryController, animated: true)
     }
