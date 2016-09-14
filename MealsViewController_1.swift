@@ -188,29 +188,32 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
 
-        return meals[section].count + 2
+        return meals[section].count + 1
     }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
-        if indexPath.row == meals[indexPath.section].count + 1{
-            return 15
-        }else{
-            return 40
-        }
-    }
+  
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
         var footerView : UIView?
         footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
-        footerView?.backgroundColor = UIColor.blackColor()
+        footerView?.backgroundColor = UIColor(red: 209.0/255.0, green: 209.0/255.0, blue: 209.0/255.0, alpha: 1.0)
+
+        if section == 2 {
+            footerView?.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
+         //   footerView?.backgroundColor = UIColor.blueColor()
+            let dunamicButton = UIButton(type: UIButtonType.System) as UIButton
+            
+         //   let dunamicButton = UIButton(frame: CGRectMake(footerView!.center.x, footerView!.center.y, 200, 20))
+            dunamicButton.backgroundColor = UIColor.darkGrayColor()
+            dunamicButton.setTitle("Nutrition Summary", forState: UIControlState.Normal)
+            dunamicButton.frame = CGRectMake(footerView!.center.x/2, footerView!.center.y/2,  tableView.frame.size.width/2, 30)
+
+          //  dunamicButton.addTarget(self, action: Selector("buttonTouched"), forControlEvents: UIControlEvents.TouchUpInside)
+            dunamicButton.addTarget(self, action: #selector(MealsViewController_1.buttonTouched(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            footerView?.addSubview(dunamicButton)
+        }
+
         
-        let dunamicButton = UIButton(frame: CGRectMake(0, 0, 100, 50))
-        dunamicButton.backgroundColor = UIColor.greenColor()
-        dunamicButton.setTitle("Button", forState: UIControlState.Normal)
-        dunamicButton.addTarget(self, action: #selector(MealsViewController_1.buttonTouched(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        
-        footerView?.addSubview(dunamicButton)
         
         return footerView
     }
@@ -219,9 +222,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         print("diklik")
     }
 
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 50.0
-    }
+   
     
  //   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
    //     if section == 3{
@@ -229,52 +230,40 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
        // }
     //}
     
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 2{
+            return 50
+        }else{
+            return 10
+        }
+    }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-
-        if indexPath.section == 0 && indexPath.row == meals[indexPath.section].count {
+        
+        if  indexPath.row == meals[indexPath.section].count {
             let cell = tableView.dequeueReusableCellWithIdentifier("AddBreakfastCell")! as! AddBreakfastCell
             cell.layoutMargins = UIEdgeInsetsZero
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.addBreakfastButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
-
-
-            return cell
-        }else if indexPath.section == 1 && indexPath.row == meals[indexPath.section].count {
-            let cell = tableView.dequeueReusableCellWithIdentifier("AddLunchCell")! as! AddLunchCell
-            cell.layoutMargins = UIEdgeInsetsZero
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.addLunchButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
-
-            return cell
-        }else if indexPath.section == 2 && indexPath.row == meals[indexPath.section].count {
-            let cell = tableView.dequeueReusableCellWithIdentifier("AddDinnerCell")! as! AddDinnerCell
-            cell.layoutMargins = UIEdgeInsetsZero
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.addDinnerButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
-
-            return cell
-        }else if indexPath.row == meals[indexPath.section].count + 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("SeparatorCell")! as UITableViewCell
-            cell.layoutMargins = UIEdgeInsetsZero
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.userInteractionEnabled = false
-
+            
+            
             return cell
         }else{
             let cell = tableView.dequeueReusableCellWithIdentifier("BreakfastCell")! as! BreakfastCell
             cell.layoutMargins = UIEdgeInsetsZero
             cell.foodLabel!.text = meals[indexPath.section][indexPath.row].name
             cell.foodLabel!.numberOfLines = 2
-             cell.foodLabel!.minimumScaleFactor = 0.5
+            cell.foodLabel!.minimumScaleFactor = 0.5
             cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
-          cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+            cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
             cell.foodLabel!.adjustsFontSizeToFitWidth = true
-
-
+            
+            
             cell.servingSizeLabel.text = meals[indexPath.section][indexPath.row].servingSize
             cell.numberOfServingsLabel.text = "\(meals[indexPath.section][indexPath.row].numberOfServings)"
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-
+            
             return cell
         }
     }
