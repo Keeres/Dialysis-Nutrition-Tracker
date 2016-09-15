@@ -48,8 +48,8 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
    
         if foods!.count != 0{
             foodIndex = foods!.count
-            print(foodIndex)
-            print(foods?.count)
+        //    print(foodIndex)
+          //  print(foods?.count)
       //      print(foods![0].servingSize)
             print(foods![0].name)
 

@@ -17,7 +17,7 @@ class Client : NSObject{
     func searchFoodItemsUSDADatabase(searchString:String, completionHandler: (foodItemsArray:[[String:AnyObject]]?, error: String?) -> Void) {
 
         let methodParameters: [String: AnyObject] = [
-            "api_key":          "HVBePg5RGhFz8twmpGD2t2BZx7pW6XiTTNpNWwj2",
+            "api_key":          "ks5LV4Z1vYcfHfWBY3vu2cIOJi8SY77UkMab0LM2",
             "format":           "json",                     // result format
             "q"     :           searchString,               // Terms requested and used in the search
             "sort"  :           "r",                        // Sort the results by food name(n) or by search relevance(r)
@@ -76,7 +76,7 @@ class Client : NSObject{
     
     func getFoodNutrientUSDADatabase(ndbno:String, completionHandler: (foodName:String, ndbno:String, nutritionsArray:[[String:AnyObject]]?, error: String?) -> Void) {
         let methodParameters: [String: AnyObject] = [
-            "api_key":          "HVBePg5RGhFz8twmpGD2t2BZx7pW6XiTTNpNWwj2",
+            "api_key":          "ks5LV4Z1vYcfHfWBY3vu2cIOJi8SY77UkMab0LM2",
             "ndbno":            ndbno,                          // NDB no
             "type":             "b",                             // Report type: [b]asic, [f]ull, [s]tats
             "format":          "json"                          // report formt: xml or json

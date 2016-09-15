@@ -11,19 +11,28 @@ import UIKit
 class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var summaryTable: UITableView!
+    @IBOutlet weak var breakfastButton: UIButton!
+    @IBOutlet weak var lunchButton: UIButton!
+    @IBOutlet weak var dinnerButton: UIButton!
+    @IBOutlet weak var snackButton: UIButton!
+    @IBOutlet weak var totalButton: UIButton!
     
+    var buttons = [UIButton]()
     var breakfast = [Food]()
     var lunch = [Food]()
     var dinner = [Food]()
     var breakfastSummary = [Float]()
     
     var measurementsDictionary = [[String:String]]()
+    enum ButtonType: Int { case Breakfast = 0, Lunch, Dinner, Snack, Total, Count}
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         summaryTable.delegate = self
         summaryTable.dataSource = self
+        buttons = [breakfastButton, lunchButton, dinnerButton, snackButton, totalButton]
+        buttonSetup()
         
         breakfastSummary = summaryCalc(breakfast)
         test()
@@ -54,6 +63,19 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         return summary
+    }
+    
+    func buttonSetup(){
+        for i in 0..<buttons.count{
+            buttons[i].layer.borderWidth = 0.5
+            buttons[i].layer.borderColor = UIColor.grayColor().CGColor
+            buttons[i].backgroundColor = UIColor.clearColor()
+
+        }
+    }
+    
+    @IBAction func mealButton(sender: AnyObject) {
+        
     }
     
     func test(){
