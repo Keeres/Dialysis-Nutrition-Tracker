@@ -44,6 +44,7 @@
 		ADD046461D26DA95009EE361 /* GDCBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046451D26DA95009EE361 /* GDCBlackBox.swift */; };
 		ADD046481D26DC13009EE361 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046471D26DC13009EE361 /* Constants.swift */; };
 		ADD0464A1D26DCA8009EE361 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046491D26DCA8009EE361 /* Client.swift */; };
+		ADD9617D1D8C7762004332D6 /* summaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9617C1D8C7762004332D6 /* summaryCell.swift */; };
 		ADDA3DE41D394FE700D55C9B /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA3DE31D394FE700D55C9B /* Animator.swift */; };
 		ADEF58221D89F3090068105F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF58201D89F3090068105F /* SummaryViewController.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,7 @@
 		ADD046451D26DA95009EE361 /* GDCBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GDCBlackBox.swift; sourceTree = "<group>"; };
 		ADD046471D26DC13009EE361 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADD046491D26DCA8009EE361 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		ADD9617C1D8C7762004332D6 /* summaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = summaryCell.swift; sourceTree = "<group>"; };
 		ADDA3DE31D394FE700D55C9B /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		ADEF58201D89F3090068105F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,7 +140,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AD1660011D5F92FA00847B01 /* EditEntriViewCells */ = {
+		AD1660011D5F92FA00847B01 /* EditEntryViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				AD1660021D5F930E00847B01 /* EditViewFoodNameCell.swift */,
@@ -148,7 +150,7 @@
 				AD16600A1D5F936100847B01 /* EditViewOverviewCell.swift */,
 				AD16600C1D5F936C00847B01 /* EditViewMealTypeCell.swift */,
 			);
-			name = EditEntriViewCells;
+			name = EditEntryViewCells;
 			sourceTree = "<group>";
 		};
 		AD6842981D539BFD00BE429D /* DetailedViewTableCells */ = {
@@ -229,8 +231,9 @@
 				AD6842941D53990B00BE429D /* MealsViewController_1.swift */,
 				AD6842991D539C2100BE429D /* MealsViewTableCells */,
 				ADEF58201D89F3090068105F /* SummaryViewController.swift */,
+				ADD9617B1D8C773F004332D6 /* SummaryViewCells */,
 				AD165FFF1D5F8B8100847B01 /* EditEntryViewController.swift */,
-				AD1660011D5F92FA00847B01 /* EditEntriViewCells */,
+				AD1660011D5F92FA00847B01 /* EditEntryViewCells */,
 				ADDA3DE31D394FE700D55C9B /* Animator.swift */,
 				ADD046171D26DA0B009EE361 /* Main.storyboard */,
 				ADD0461D1D26DA0B009EE361 /* Assets.xcassets */,
@@ -267,6 +270,14 @@
 				ADD046491D26DCA8009EE361 /* Client.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		ADD9617B1D8C773F004332D6 /* SummaryViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				ADD9617C1D8C7762004332D6 /* summaryCell.swift */,
+			);
+			name = SummaryViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +434,7 @@
 				AD1660001D5F8B8100847B01 /* EditEntryViewController.swift in Sources */,
 				AD6842A01D5640A100BE429D /* CoreDataStackManager.swift in Sources */,
 				AD689AE61D42B304003C2EE4 /* FoodNameCell.swift in Sources */,
+				ADD9617D1D8C7762004332D6 /* summaryCell.swift in Sources */,
 				AD1660031D5F930E00847B01 /* EditViewFoodNameCell.swift in Sources */,
 				AD1660111D63A08900847B01 /* AddDinnerCell.swift in Sources */,
 				AD16600D1D5F936C00847B01 /* EditViewMealTypeCell.swift in Sources */,

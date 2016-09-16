@@ -99,24 +99,37 @@
                                 <rect key="frame" x="150" y="64" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Lunch"/>
+                                <connections>
+                                    <action selector="mealButton:" destination="Ubj-6t-ybg" eventType="touchUpInside" id="uuh-k6-Yuc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY9-fA-aeh">
                                 <rect key="frame" x="300" y="64" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.57764767589999999" blue="0.083531456769999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.32719646499999999" green="0.6313010818" blue="0.86272905759999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Dinner"/>
+                                <connections>
+                                    <action selector="mealButton:" destination="Ubj-6t-ybg" eventType="touchUpInside" id="xuV-kn-Dcs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjm-f2-tE5">
                                 <rect key="frame" x="450" y="64" width="150" height="30"/>
                                 <state key="normal" title="Snacks"/>
+                                <connections>
+                                    <action selector="mealButton:" destination="Ubj-6t-ybg" eventType="touchUpInside" id="oTA-ZX-hGu"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXa-fq-Nk1">
-                                <rect key="frame" x="0.0" y="96" width="600" height="30"/>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXa-fq-Nk1">
+                                <rect key="frame" x="0.0" y="94" width="600" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Total"/>
+                                <connections>
+                                    <action selector="mealButton:" destination="Ubj-6t-ybg" eventType="touchUpInside" id="klT-XJ-yY8"/>
+                                </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1dW-ob-VDa">
-                                <rect key="frame" x="0.0" y="134" width="600" height="466"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1dW-ob-VDa">
+                                <rect key="frame" x="0.0" y="123" width="600" height="477"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fcE-Mg-rbR">
@@ -156,20 +169,27 @@
                         <constraints>
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="height" secondItem="RCR-Wz-JIT" secondAttribute="height" id="0HW-M5-MKZ"/>
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="leading" secondItem="FzF-mt-9pW" secondAttribute="trailing" id="0sn-OL-k7i"/>
+                            <constraint firstItem="1dW-ob-VDa" firstAttribute="top" secondItem="Sjm-f2-tE5" secondAttribute="bottom" constant="29" id="1W5-fT-PDo"/>
                             <constraint firstItem="FzF-mt-9pW" firstAttribute="top" secondItem="Doc-Od-KPa" secondAttribute="bottom" id="4AB-CO-XDI"/>
+                            <constraint firstAttribute="trailing" secondItem="UXa-fq-Nk1" secondAttribute="trailing" id="4HJ-IR-lrS"/>
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="leading" secondItem="FzF-mt-9pW" secondAttribute="trailing" id="7qg-92-Sio"/>
                             <constraint firstItem="FzF-mt-9pW" firstAttribute="leading" secondItem="RCR-Wz-JIT" secondAttribute="trailing" id="EWg-dN-SCa"/>
                             <constraint firstItem="RCR-Wz-JIT" firstAttribute="leading" secondItem="Ung-fn-T0b" secondAttribute="leading" id="JiO-nk-Inq"/>
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="width" secondItem="RCR-Wz-JIT" secondAttribute="width" id="PzZ-2T-FgW"/>
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="width" secondItem="RCR-Wz-JIT" secondAttribute="width" id="Qpg-Nw-f0D"/>
+                            <constraint firstItem="UUL-P0-XUX" firstAttribute="top" secondItem="1dW-ob-VDa" secondAttribute="bottom" id="R1R-jY-dUg"/>
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="top" secondItem="Doc-Od-KPa" secondAttribute="bottom" id="SBG-9m-pVg"/>
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="leading" secondItem="oY9-fA-aeh" secondAttribute="trailing" id="Yt9-0D-XzG"/>
+                            <constraint firstItem="UXa-fq-Nk1" firstAttribute="top" secondItem="Sjm-f2-tE5" secondAttribute="bottom" id="gck-iy-vWV"/>
                             <constraint firstItem="RCR-Wz-JIT" firstAttribute="top" secondItem="Doc-Od-KPa" secondAttribute="bottom" id="lhY-3O-pOc"/>
                             <constraint firstItem="FzF-mt-9pW" firstAttribute="height" secondItem="RCR-Wz-JIT" secondAttribute="height" id="lsa-PK-ljF"/>
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="leading" secondItem="oY9-fA-aeh" secondAttribute="trailing" id="oHh-Hd-mhk"/>
                             <constraint firstAttribute="trailing" secondItem="Sjm-f2-tE5" secondAttribute="trailing" id="od3-r0-IXq"/>
                             <constraint firstItem="FzF-mt-9pW" firstAttribute="width" secondItem="RCR-Wz-JIT" secondAttribute="width" id="q5H-AL-Xfo"/>
+                            <constraint firstAttribute="trailing" secondItem="1dW-ob-VDa" secondAttribute="trailing" id="s4m-Hl-gUi"/>
+                            <constraint firstItem="1dW-ob-VDa" firstAttribute="leading" secondItem="Ung-fn-T0b" secondAttribute="leading" id="sO7-Um-NO7"/>
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="height" secondItem="RCR-Wz-JIT" secondAttribute="height" id="xK2-oR-ssF"/>
+                            <constraint firstItem="UXa-fq-Nk1" firstAttribute="leading" secondItem="Ung-fn-T0b" secondAttribute="leading" id="y8N-Dj-AWn"/>
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="top" secondItem="Doc-Od-KPa" secondAttribute="bottom" id="zA4-wZ-LUq"/>
                         </constraints>
                     </view>

@@ -22,9 +22,13 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var lunch = [Food]()
     var dinner = [Food]()
     var breakfastSummary = [Float]()
-    
+    var lunchSummary = [Float]()
+    var dinnerSummary = [Float]()
+    var summary = [Float]()
+    var nutrientList : [[String]] = [[],[]]
+    var count = 0
     var measurementsDictionary = [[String:String]]()
-    enum ButtonType: Int { case Breakfast = 0, Lunch, Dinner, Snack, Total, Count}
+    enum ButtonType: Int { case Breakfast = 0, Lunch, Dinner, Snack, Total}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +39,15 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         buttonSetup()
         
         breakfastSummary = summaryCalc(breakfast)
-        test()
+        lunchSummary = summaryCalc(lunch)
+        dinnerSummary = summaryCalc(dinner)
+        print(nutrientList)
+        print(nutrientList.count)
     }
     
     
     func summaryCalc(meal:[Food]) -> [Float]{
-        var summary = [Float](count: meal[0].nutrients.count, repeatedValue: 0.0 )
+        var summary = [Float](count: nutrientList.count, repeatedValue: 0.0 )
 
         for food in meal{
             print(food.name)
@@ -65,17 +72,38 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         return summary
     }
     
+        
     func buttonSetup(){
         for i in 0..<buttons.count{
             buttons[i].layer.borderWidth = 0.5
             buttons[i].layer.borderColor = UIColor.grayColor().CGColor
             buttons[i].backgroundColor = UIColor.clearColor()
-
         }
     }
     
     @IBAction func mealButton(sender: AnyObject) {
-        
+        for i in 0..<buttons.count{
+            if i == sender.tag{
+                buttons[i].backgroundColor = UIColor.orangeColor()
+            }else{
+                buttons[i].backgroundColor = UIColor.clearColor()
+            }
+        }
+    }
+    
+    func foodCount(mealType:Int){
+        switch (ButtonType(rawValue: mealType)!) {
+        case .Breakfast:
+            summary = breakfastSummary
+        case .Lunch:
+            summary = lunchSummary
+        case .Dinner:
+            summary = dinnerSummary
+        case .Snack:
+            summary = breakfastSummary
+        case .Total:
+            summary = breakfastSummary + lunchSummary + dinnerSummary
+        }
     }
     
     func test(){
@@ -86,12 +114,12 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return breakfast.count
+       return summary.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
        // let cell = tableView.dequeueReusableCellWithIdentifier("AddBreakfastCell")! as! AddBreakfastCell
-let cell = UITableViewCell()
+        let cell = UITableViewCell()
         return cell
     }
     

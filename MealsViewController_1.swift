@@ -13,13 +13,13 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var mealsTableView_1: UITableView!
     
-    var cellCount:Int?
     var foods:[Food]?               // All Food consumed, out of order in terms of breakfast, lunch, dinner
     var loadFromDisk:Bool?
     var breakfast = [Food]()
     var lunch = [Food]()
     var dinner = [Food]()
     var meals = [[Food]]()          // contains breakfast, lunch, and dinner array
+    var nutrientList : [[String]]?
     var addedFood:Food?
     var index:Int?
     var foodIndex:Int?
@@ -35,10 +35,8 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         mealsTableView_1.delegate = self
         mealsTableView_1.dataSource = self
         meals = [breakfast, lunch , dinner]
-      //  mealsTableView_1.tableFooterView = UIView()         // hides empty cells
         self.mealsTableView_1.backgroundColor = UIColor(red: 209.0/255.0, green: 209.0/255.0, blue: 209.0/255.0, alpha: 1.0)
         foodIndex = 0
-        cellCount = 2                                       // defualt number of cells
 
         let fetched = fetchedResultsController
         fetched.delegate = self
@@ -48,14 +46,9 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
    
         if foods!.count != 0{
             foodIndex = foods!.count
-        //    print(foodIndex)
-          //  print(foods?.count)
-      //      print(foods![0].servingSize)
-            print(foods![0].name)
-
-            print(foods![0].servingSize)
-
             organizeMeals()
+            nutrientList = [[String]](count: foods![0].nutrients.count, repeatedValue: [String](count: 2, repeatedValue: ""))
+            getNutrientList(foods![0].nutrients)
         }
     
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -99,9 +92,17 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         self.navigationController?.pushViewController(searchViewController, animated: true)
     }
 
+    func summaryButton(sender:UIButton!){
+        let summaryController = storyboard!.instantiateViewControllerWithIdentifier("SummaryView") as! SummaryViewController
+        summaryController.breakfast = self.breakfast
+        summaryController.lunch = self.lunch
+        summaryController.dinner = self.dinner
+        summaryController.nutrientList = self.nutrientList!
+        self.navigationController?.pushViewController(summaryController, animated: true)
+    }
+
     // MARK: Organize Meals
     func organizeMeals(){
-        //  if foods!.count != 0 {
         for food in self.foods!{
             if food.mealType == "breakfast"{
                 self.breakfast.append(food)
@@ -114,6 +115,14 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         meals = [breakfast, lunch, dinner]
     }
     
+    func getNutrientList(nutrients:[Nutrient]){
+
+        for i in 0..<nutrients.count{
+            nutrientList![i][0] = nutrients[i].nutrientName
+            nutrientList![i][1] = nutrients[i].unit
+        }
+    }
+
     // MARK: NSNotification func
     // updates serving size that user seleceted
     func updateMeals(notification: NSNotification){
@@ -209,7 +218,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             dunamicButton.frame = CGRectMake(footerView!.center.x/2, footerView!.center.y/2,  tableView.frame.size.width/2, 30)
 
           //  dunamicButton.addTarget(self, action: Selector("buttonTouched"), forControlEvents: UIControlEvents.TouchUpInside)
-            dunamicButton.addTarget(self, action: #selector(MealsViewController_1.buttonTouched(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            dunamicButton.addTarget(self, action: #selector(MealsViewController_1.summaryButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             footerView?.addSubview(dunamicButton)
         }
 
@@ -218,14 +227,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         return footerView
     }
     
-    func buttonTouched(sender:UIButton!){
-        let summaryController = storyboard!.instantiateViewControllerWithIdentifier("SummaryView") as! SummaryViewController
-        summaryController.breakfast = self.breakfast
-        summaryController.lunch = self.lunch
-        summaryController.dinner = self.dinner
-        self.navigationController?.pushViewController(summaryController, animated: true)
-    }
-
+  
    
     
  //   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
