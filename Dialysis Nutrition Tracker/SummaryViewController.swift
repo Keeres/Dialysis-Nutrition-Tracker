@@ -51,16 +51,12 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func summaryCalc(meal:[Food]) -> [Float]{
         
         for food in meal{
-            print(food.name)
-            
             // for nutrient in food.nutrients{
             for i in 0..<food.nutrients.count{
                 for j in 0..<nutrientList.count{
                     if food.nutrients[i].nutrientName == nutrientList[j][0]{
-                        print(food.nutrients[i].nutrientName)
                         var dict = [String:String]()
                         
-                        //   print(nutrient.measurements.count)
                         for measurement in food.nutrients[i].measurements{
                             dict[measurement.valueForKey("key") as! String] = measurement.valueForKey("value") as? String
                             
@@ -71,11 +67,8 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                             }
                         }
                         measurementsDictionary.append(dict)
-                        
                     }
-                    
                 }
-                
             }
         }
         return summary
@@ -121,13 +114,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
     }
-    
-    func test(){
-        for i in 0..<breakfastSummary.count{
-            print(breakfastSummary[i])
-        }
-    }
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return nutrientList.count

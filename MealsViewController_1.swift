@@ -64,33 +64,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         self.mealsTableView_1.separatorInset  = UIEdgeInsetsZero
     }
     
-    // MARK: Buttons
-    @IBAction func BreakfastAddFoodButton(sender: AnyObject) {
-        let searchViewController = storyboard?.instantiateViewControllerWithIdentifier("searchViewController") as! SearchViewController
-        searchViewController.mealType = "breakfast"
-        searchViewController.foodIndex = self.foodIndex
-        searchViewController.delegate = self
-        
-        self.navigationController?.pushViewController(searchViewController, animated: true)
-    }
-    
-    @IBAction func lunchAddFoodButton(sender: AnyObject) {
-        let searchViewController = storyboard?.instantiateViewControllerWithIdentifier("searchViewController") as! SearchViewController
-        searchViewController.mealType = "lunch"
-        searchViewController.foodIndex = self.foodIndex
-        searchViewController.delegate = self
-        self.navigationController?.pushViewController(searchViewController, animated: true)
-
-    }
-    
-    @IBAction func dinnerAddFoodButton(sender: AnyObject) {
-        let searchViewController = storyboard?.instantiateViewControllerWithIdentifier("searchViewController") as! SearchViewController
-        searchViewController.mealType = "dinner"
-        searchViewController.foodIndex = self.foodIndex
-        searchViewController.delegate = self
-        self.navigationController?.pushViewController(searchViewController, animated: true)
-    }
-
+    // MARK: Buttonn
     func summaryButton(sender:UIButton!){
         let summaryController = storyboard!.instantiateViewControllerWithIdentifier("SummaryView") as! SummaryViewController
         summaryController.breakfast = self.breakfast
@@ -241,14 +215,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         return footerView
     }
     
-  
-   
-    
- //   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-   //     if section == 3{
-     //       print(section)
-       // }
-    //}
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 2{
