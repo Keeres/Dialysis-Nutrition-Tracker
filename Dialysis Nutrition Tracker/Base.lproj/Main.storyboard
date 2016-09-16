@@ -129,38 +129,40 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1dW-ob-VDa">
-                                <rect key="frame" x="0.0" y="123" width="600" height="477"/>
+                                <rect key="frame" x="0.0" y="132" width="600" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fcE-Mg-rbR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryCell" id="fcE-Mg-rbR" customClass="SummaryCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fcE-Mg-rbR" id="XxD-87-z44">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtv-Wk-Ont">
-                                                    <rect key="frame" x="24.5" y="12" width="36" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPl-Bb-1gw">
                                                     <rect key="frame" x="550" y="12" width="36" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtv-Wk-Ont">
+                                                    <rect key="frame" x="25" y="12" width="36" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="LPl-Bb-1gw" firstAttribute="leading" secondItem="Rtv-Wk-Ont" secondAttribute="trailing" constant="489.5" id="0st-er-WiQ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="LPl-Bb-1gw" secondAttribute="bottom" constant="6.5" id="CsS-aw-hMI"/>
                                                 <constraint firstItem="Rtv-Wk-Ont" firstAttribute="leading" secondItem="XxD-87-z44" secondAttribute="leadingMargin" constant="16.5" id="ap4-tr-7r6"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="LPl-Bb-1gw" secondAttribute="trailing" constant="6" id="uJV-MY-B5D"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Rtv-Wk-Ont" secondAttribute="bottom" constant="6.5" id="w8o-Gj-giF"/>
-                                                <constraint firstItem="LPl-Bb-1gw" firstAttribute="leading" secondItem="Rtv-Wk-Ont" secondAttribute="trailing" constant="489.5" id="yRV-Y6-nCh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="Rtv-Wk-Ont" id="9tv-Kk-dtZ"/>
+                                            <outlet property="valueLabel" destination="LPl-Bb-1gw" id="k8J-Jl-qgH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -169,7 +171,6 @@
                         <constraints>
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="height" secondItem="RCR-Wz-JIT" secondAttribute="height" id="0HW-M5-MKZ"/>
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="leading" secondItem="FzF-mt-9pW" secondAttribute="trailing" id="0sn-OL-k7i"/>
-                            <constraint firstItem="1dW-ob-VDa" firstAttribute="top" secondItem="Sjm-f2-tE5" secondAttribute="bottom" constant="29" id="1W5-fT-PDo"/>
                             <constraint firstItem="FzF-mt-9pW" firstAttribute="top" secondItem="Doc-Od-KPa" secondAttribute="bottom" id="4AB-CO-XDI"/>
                             <constraint firstAttribute="trailing" secondItem="UXa-fq-Nk1" secondAttribute="trailing" id="4HJ-IR-lrS"/>
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="leading" secondItem="FzF-mt-9pW" secondAttribute="trailing" id="7qg-92-Sio"/>
@@ -186,6 +187,7 @@
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="leading" secondItem="oY9-fA-aeh" secondAttribute="trailing" id="oHh-Hd-mhk"/>
                             <constraint firstAttribute="trailing" secondItem="Sjm-f2-tE5" secondAttribute="trailing" id="od3-r0-IXq"/>
                             <constraint firstItem="FzF-mt-9pW" firstAttribute="width" secondItem="RCR-Wz-JIT" secondAttribute="width" id="q5H-AL-Xfo"/>
+                            <constraint firstItem="1dW-ob-VDa" firstAttribute="top" secondItem="UXa-fq-Nk1" secondAttribute="bottom" constant="8" id="qA8-Z9-AiD"/>
                             <constraint firstAttribute="trailing" secondItem="1dW-ob-VDa" secondAttribute="trailing" id="s4m-Hl-gUi"/>
                             <constraint firstItem="1dW-ob-VDa" firstAttribute="leading" secondItem="Ung-fn-T0b" secondAttribute="leading" id="sO7-Um-NO7"/>
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="height" secondItem="RCR-Wz-JIT" secondAttribute="height" id="xK2-oR-ssF"/>
@@ -838,7 +840,7 @@
                         <constraints>
                             <constraint firstItem="1mS-qh-Th1" firstAttribute="top" secondItem="5hX-1z-xXG" secondAttribute="topMargin" id="3HG-Pv-2T3"/>
                             <constraint firstItem="1mS-qh-Th1" firstAttribute="leading" secondItem="5hX-1z-xXG" secondAttribute="leadingMargin" constant="-20" id="7xL-yA-aRa"/>
-                            <constraint firstItem="Ant-1L-nfB" firstAttribute="top" secondItem="1mS-qh-Th1" secondAttribute="bottom" constant="-44" id="GsZ-4P-jQs"/>
+                            <constraint firstItem="Ant-1L-nfB" firstAttribute="top" secondItem="1mS-qh-Th1" secondAttribute="bottom" id="GsZ-4P-jQs"/>
                             <constraint firstAttribute="trailing" secondItem="1mS-qh-Th1" secondAttribute="trailing" id="y3r-wB-JbP"/>
                         </constraints>
                     </view>
@@ -850,7 +852,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detailedTableView" destination="1mS-qh-Th1" id="agn-jg-6sr"/>
                         <outlet property="detailedView" destination="5hX-1z-xXG" id="I9z-lS-buY"/>
@@ -987,25 +989,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S6M-0f-YVo" id="q18-q5-jHQ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zak-SB-UtD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                                    <state key="normal" title="   + Add Food"/>
-                                                    <connections>
-                                                        <action selector="BreakfastAddFoodButton:" destination="QRk-Sz-M0S" eventType="touchUpInside" id="ikN-rM-1ig"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="zak-SB-UtD" secondAttribute="trailing" id="6g6-vI-Hb6"/>
-                                                <constraint firstItem="zak-SB-UtD" firstAttribute="leading" secondItem="q18-q5-jHQ" secondAttribute="leading" id="eQk-We-MU3"/>
-                                                <constraint firstItem="zak-SB-UtD" firstAttribute="top" secondItem="q18-q5-jHQ" secondAttribute="top" id="kna-fB-asQ"/>
-                                                <constraint firstItem="zak-SB-UtD" firstAttribute="centerY" secondItem="q18-q5-jHQ" secondAttribute="centerY" id="lqn-fp-Nnw"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="addBreakfastButton" destination="zak-SB-UtD" id="e5X-dl-XBm"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BreakfastCell" id="FhW-bG-3V2" userLabel="BreakfastCell" customClass="BreakfastCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="136" width="600" height="44"/>

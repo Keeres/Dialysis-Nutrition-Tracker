@@ -1,4 +1,4 @@
-//
+    //
 //  SummaryViewController.swift
 //  Dialysis Nutrition Tracker
 //
@@ -37,36 +37,45 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryTable.dataSource = self
         buttons = [breakfastButton, lunchButton, dinnerButton, snackButton, totalButton]
         buttonSetup()
-        
+        print(nutrientList.count)
+
+        summary = [Float](count: nutrientList.count, repeatedValue: 0.0 )
+    //    print(summary.count)
         breakfastSummary = summaryCalc(breakfast)
         lunchSummary = summaryCalc(lunch)
         dinnerSummary = summaryCalc(dinner)
-        print(nutrientList)
-        print(nutrientList.count)
+        foodCount(ButtonType.Total.rawValue)
     }
     
     
     func summaryCalc(meal:[Food]) -> [Float]{
-        var summary = [Float](count: nutrientList.count, repeatedValue: 0.0 )
-
+        
         for food in meal{
             print(food.name)
             
-           // for nutrient in food.nutrients{
+            // for nutrient in food.nutrients{
             for i in 0..<food.nutrients.count{
-                var dict = [String:String]()
-                
-                //   print(nutrient.measurements.count)
-                for measurement in food.nutrients[i].measurements{
-                    dict[measurement.valueForKey("key") as! String] = measurement.valueForKey("value") as? String
-                    
-                    if measurement.valueForKey("key") as! String == food.servingSize{
+                for j in 0..<nutrientList.count{
+                    if food.nutrients[i].nutrientName == nutrientList[j][0]{
+                        print(food.nutrients[i].nutrientName)
+                        var dict = [String:String]()
                         
-                        summary[i] += Float(measurement.valueForKey("value") as! String)!
-                        print(measurement.valueForKey("value") as? String)
+                        //   print(nutrient.measurements.count)
+                        for measurement in food.nutrients[i].measurements{
+                            dict[measurement.valueForKey("key") as! String] = measurement.valueForKey("value") as? String
+                            
+                            if measurement.valueForKey("key") as! String == food.servingSize{
+                                
+                                summary[i] += Float(measurement.valueForKey("value") as! String)!
+                                print(measurement.valueForKey("value") as? String)
+                            }
+                        }
+                        measurementsDictionary.append(dict)
+                        
                     }
+                    
                 }
-                measurementsDictionary.append(dict)
+                
             }
         }
         return summary
@@ -89,6 +98,10 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 buttons[i].backgroundColor = UIColor.clearColor()
             }
         }
+        foodCount(sender.tag)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.summaryTable.reloadData()
+        }
     }
     
     func foodCount(mealType:Int){
@@ -102,8 +115,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         case .Snack:
             summary = breakfastSummary
         case .Total:
-            summary = breakfastSummary + lunchSummary + dinnerSummary
+            for i in 0..<summary.count{
+                summary[i] = breakfastSummary[i] + lunchSummary[i] + dinnerSummary[i]
+            }
         }
+        
     }
     
     func test(){
@@ -114,12 +130,13 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return summary.count
+       return nutrientList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-       // let cell = tableView.dequeueReusableCellWithIdentifier("AddBreakfastCell")! as! AddBreakfastCell
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("SummaryCell")! as! SummaryCell
+        cell.titleLabel.text = nutrientList[indexPath.row][0]
+        cell.valueLabel.text = "\(summary[indexPath.row]) " + nutrientList[indexPath.row][1]
         return cell
     }
     

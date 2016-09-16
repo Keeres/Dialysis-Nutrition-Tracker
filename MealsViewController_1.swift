@@ -47,8 +47,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         if foods!.count != 0{
             foodIndex = foods!.count
             organizeMeals()
-            nutrientList = [[String]](count: foods![0].nutrients.count, repeatedValue: [String](count: 2, repeatedValue: ""))
-            getNutrientList(foods![0].nutrients)
+            getMaxNutrientCount(foods!)
         }
     
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -115,14 +114,29 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         meals = [breakfast, lunch, dinner]
     }
     
+    func getMaxNutrientCount(foods:[Food]){
+        var index = 0
+        var maxNurientCount = 0
+        for i in 0..<foods.count{
+            if foods[i].nutrients.count > maxNurientCount{
+                maxNurientCount = foods[i].nutrients.count
+                index = i
+            }
+        }
+        getNutrientList(foods[index].nutrients)
+    }
+    
     func getNutrientList(nutrients:[Nutrient]){
+        
+        nutrientList = [[String]](count: nutrients.count, repeatedValue: [String](count: 2, repeatedValue: ""))
 
         for i in 0..<nutrients.count{
             nutrientList![i][0] = nutrients[i].nutrientName
+            print(nutrients[i].nutrientName)
             nutrientList![i][1] = nutrients[i].unit
         }
     }
-
+    
     // MARK: NSNotification func
     // updates serving size that user seleceted
     func updateMeals(notification: NSNotification){
@@ -161,7 +175,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func entryUpdatedServingSize(newServingSize: String, newNumberOfServings:Float, updateIndex:Int) {
-        print(updateIndex)
+
         self.foods![updateIndex].servingSize = newServingSize
         self.foods![updateIndex].numberOfServings = newNumberOfServings
         foodIndex = self.foods?.count
@@ -251,7 +265,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             let cell = tableView.dequeueReusableCellWithIdentifier("AddBreakfastCell")! as! AddBreakfastCell
             cell.layoutMargins = UIEdgeInsetsZero
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.addBreakfastButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
+         //   cell.addBreakfastButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
             
             
             return cell
@@ -265,7 +279,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
             cell.foodLabel!.adjustsFontSizeToFitWidth = true
             
-            
             cell.servingSizeLabel.text = meals[indexPath.section][indexPath.row].servingSize
             cell.numberOfServingsLabel.text = "\(meals[indexPath.section][indexPath.row].numberOfServings)"
             cell.selectionStyle = UITableViewCellSelectionStyle.None
@@ -275,12 +288,32 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let editEntryController = storyboard!.instantiateViewControllerWithIdentifier("EditEntry") as! EditEntryViewController
-        print(meals[indexPath.section][indexPath.row].index)
-        editEntryController.food = meals[indexPath.section][indexPath.row]
-        editEntryController.nutrients = meals[indexPath.section][indexPath.row].nutrients
-        editEntryController.editViewDelegate = self
-        
-        self.navigationController?.pushViewController(editEntryController, animated: true)
+        print(indexPath.section)
+
+        if  indexPath.row == meals[indexPath.section].count {
+            let searchViewController = storyboard?.instantiateViewControllerWithIdentifier("searchViewController") as! SearchViewController
+            switch (indexPath.section) {
+            case 0:
+                searchViewController.mealType = "breakfast"
+            case 1:
+                searchViewController.mealType = "lunch"
+            case 2:
+                searchViewController.mealType = "dinner"
+            default:
+                searchViewController.mealType = "none"
+            }
+            searchViewController.foodIndex = self.foodIndex
+            searchViewController.delegate = self
+            self.navigationController?.pushViewController(searchViewController, animated: true)
+        }else{
+            
+            let editEntryController = storyboard!.instantiateViewControllerWithIdentifier("EditEntry") as! EditEntryViewController
+            print(meals[indexPath.section][indexPath.row].index)
+            editEntryController.food = meals[indexPath.section][indexPath.row]
+            editEntryController.nutrients = meals[indexPath.section][indexPath.row].nutrients
+            editEntryController.editViewDelegate = self
+            
+            self.navigationController?.pushViewController(editEntryController, animated: true)
+        }
     }
 }

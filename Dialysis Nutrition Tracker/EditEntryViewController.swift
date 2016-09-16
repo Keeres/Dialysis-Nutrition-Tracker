@@ -91,7 +91,7 @@ class EditEntryViewController: UIViewController, UITableViewDelegate, UITableVie
         for nutrient in nutrients{
             nutrientList.append(nutrient.nutrientName)
             nutrientUnit.append(nutrient.unit)
-            
+            print(nutrient.nutrientName)
             if nutrient.nutrientName == "Phosphorus, P"{
                 overviewIndexPath[0] = index
             }else if nutrient.nutrientName == "Potassium, K"{
@@ -170,8 +170,7 @@ class EditEntryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         let count = nutrientList.count
-        
-        return count
+        return count + 3
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
