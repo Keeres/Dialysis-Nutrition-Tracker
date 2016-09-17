@@ -1,5 +1,5 @@
 //
-//  AddBreakfastCell.swift
+//  AddFoodCell.swift
 //  Dialysis Nutrition Tracker
 //
 //  Created by Steven Chen on 8/4/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddBreakfastCell: UITableViewCell {
+class AddFoodCell: UITableViewCell {
 
     @IBOutlet weak var addBreakfastButton: UIButton!
 }

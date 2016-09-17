@@ -1,5 +1,5 @@
 //
-//  BreakfastCell.swift
+// MealsCell.swift
 //  Dialysis Nutrition Tracker
 //
 //  Created by Steven Chen on 8/10/16.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class BreakfastCell: UITableViewCell {
+class MealsCell: UITableViewCell {
     
     @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var numberOfServingsLabel: UILabel!

@@ -981,16 +981,8 @@
                                 <color key="separatorColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.001" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddBreakfastCell" id="S6M-0f-YVo" customClass="AddBreakfastCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MealsCell" id="FhW-bG-3V2" userLabel="MealsCell" customClass="MealsCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S6M-0f-YVo" id="q18-q5-jHQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BreakfastCell" id="FhW-bG-3V2" userLabel="BreakfastCell" customClass="BreakfastCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FhW-bG-3V2" id="H5z-EZ-Ohn">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1040,17 +1032,8 @@
                                             <outlet property="servingSizeLabel" destination="lQF-xv-Bsg" id="DGD-Of-bwz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SeparatorCell" id="noC-2N-nTq">
-                                        <rect key="frame" x="0.0" y="180" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="noC-2N-nTq" id="s3Z-p8-sZf">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HeaderCell" id="fcu-3V-mUn" customClass="CustomHeaderCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="224" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fcu-3V-mUn" id="Sfx-Ec-FYC">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1073,57 +1056,25 @@
                                             <outlet property="headerLabel" destination="NST-Zi-HXw" id="dxr-Yl-RuK"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddLunchCell" id="08z-fC-EP2" customClass="AddLunchCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="268" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddFoodCell" id="S6M-0f-YVo" userLabel="AddFoodCell" customClass="AddFoodCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="180" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="08z-fC-EP2" id="ubS-Ik-gpX">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S6M-0f-YVo" id="q18-q5-jHQ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHJ-mf-DIq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                                    <state key="normal" title="   + Add Food"/>
-                                                    <connections>
-                                                        <action selector="lunchAddFoodButton:" destination="QRk-Sz-M0S" eventType="touchUpInside" id="g1c-fq-ULI"/>
-                                                    </connections>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFF-Oq-MvW">
+                                                    <rect key="frame" x="269" y="13" width="62.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="IHJ-mf-DIq" firstAttribute="leading" secondItem="ubS-Ik-gpX" secondAttribute="leading" id="2lg-0D-CYo"/>
-                                                <constraint firstAttribute="trailing" secondItem="IHJ-mf-DIq" secondAttribute="trailing" id="44G-g5-3KS"/>
-                                                <constraint firstItem="IHJ-mf-DIq" firstAttribute="top" secondItem="ubS-Ik-gpX" secondAttribute="top" id="I33-mQ-Qy6"/>
-                                                <constraint firstItem="IHJ-mf-DIq" firstAttribute="centerY" secondItem="ubS-Ik-gpX" secondAttribute="centerY" id="vB6-Cl-swt"/>
+                                                <constraint firstItem="jFF-Oq-MvW" firstAttribute="centerX" secondItem="q18-q5-jHQ" secondAttribute="centerX" id="9bF-V4-Oy4"/>
+                                                <constraint firstItem="jFF-Oq-MvW" firstAttribute="centerY" secondItem="q18-q5-jHQ" secondAttribute="centerY" id="Hw8-yv-ytf"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="addLunchButton" destination="IHJ-mf-DIq" id="5Zy-8L-RA3"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddDinnerCell" id="ozz-nC-ci6" customClass="AddDinnerCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="312" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ozz-nC-ci6" id="Ist-Xf-K3c">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIV-G7-6W0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                                    <state key="normal" title="   + Add Food"/>
-                                                    <connections>
-                                                        <action selector="dinnerAddFoodButton:" destination="QRk-Sz-M0S" eventType="touchUpInside" id="dND-Uh-eIK"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ZIV-G7-6W0" firstAttribute="centerY" secondItem="Ist-Xf-K3c" secondAttribute="centerY" id="Ehn-El-jMV"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZIV-G7-6W0" secondAttribute="trailing" id="j3t-vf-sQC"/>
-                                                <constraint firstItem="ZIV-G7-6W0" firstAttribute="top" secondItem="Ist-Xf-K3c" secondAttribute="top" id="qhv-x0-IVy"/>
-                                                <constraint firstItem="ZIV-G7-6W0" firstAttribute="leading" secondItem="Ist-Xf-K3c" secondAttribute="leading" id="rV0-78-L7E"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="addDinnerButton" destination="ZIV-G7-6W0" id="VNa-cQ-Pra"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1155,50 +1106,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDC-3z-yEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1147" y="-11"/>
-        </scene>
-        <!--Meals View Controller2-->
-        <scene sceneID="7WF-DE-9Gz">
-            <objects>
-                <viewController id="keH-nl-0jM" customClass="MealsViewController_2" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2p1-7Z-Y3a"/>
-                        <viewControllerLayoutGuide type="bottom" id="eqP-OY-VuJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9yY-1h-V5h">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="0BJ-IZ-U7u">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BreakfastCell" id="rv6-DQ-gIq">
-                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rv6-DQ-gIq" id="uXF-Uk-OEo">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SeparatorCell" id="cnt-uM-H1c">
-                                        <rect key="frame" x="0.0" y="93.5" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cnt-uM-H1c" id="XCt-De-8Rv">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wsr-pg-not" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2386" y="-735"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZBZ-MR-a7m">

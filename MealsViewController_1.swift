@@ -227,13 +227,13 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         if  indexPath.row == meals[indexPath.section].count {
-            let cell = tableView.dequeueReusableCellWithIdentifier("AddBreakfastCell")! as! AddBreakfastCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("AddFoodCell")! as! AddFoodCell
             cell.layoutMargins = UIEdgeInsetsZero
             cell.selectionStyle = UITableViewCellSelectionStyle.None            
             
             return cell
         }else{
-            let cell = tableView.dequeueReusableCellWithIdentifier("BreakfastCell")! as! BreakfastCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("MealsCell")! as! MealsCell
             cell.layoutMargins = UIEdgeInsetsZero
             cell.foodLabel!.text = meals[indexPath.section][indexPath.row].name
             cell.foodLabel!.numberOfLines = 2
@@ -251,7 +251,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.section)
 
         if  indexPath.row == meals[indexPath.section].count {
             let searchViewController = storyboard?.instantiateViewControllerWithIdentifier("searchViewController") as! SearchViewController
@@ -271,7 +270,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         }else{
             
             let editEntryController = storyboard!.instantiateViewControllerWithIdentifier("EditEntry") as! EditEntryViewController
-            print(meals[indexPath.section][indexPath.row].index)
             editEntryController.food = meals[indexPath.section][indexPath.row]
             editEntryController.nutrients = meals[indexPath.section][indexPath.row].nutrients
             editEntryController.editViewDelegate = self

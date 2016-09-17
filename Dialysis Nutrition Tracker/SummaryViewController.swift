@@ -44,9 +44,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         summary = [Float](count: nutrientNames.count, repeatedValue: 0.0)
 
-        print(breakfast)
-        print(lunch)
-        print(dinner)
         breakfastSummary = summaryCalc(breakfast)
         lunchSummary = summaryCalc(lunch)
         dinnerSummary = summaryCalc(dinner)
