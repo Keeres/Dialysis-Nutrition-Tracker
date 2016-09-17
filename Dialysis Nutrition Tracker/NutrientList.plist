@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NutrientName</key>
+	<array>
+		<string>Water</string>
+		<string>Energy</string>
+		<string>Protein</string>
+		<string>Total lipid (fat)</string>
+		<string>Carbohydrate, by difference</string>
+		<string>Fiber, total dietary</string>
+		<string>Sugars, total</string>
+		<string>Calcium, Ca</string>
+		<string>Iron, Fe</string>
+		<string>Magnesium, Mg</string>
+		<string>Phosphorus, P</string>
+		<string>Potassium, K</string>
+		<string>Sodium, Na</string>
+		<string>Zinc, Zn</string>
+		<string>Vitamin C, total ascorbic acid</string>
+		<string>Thiamin</string>
+		<string>Riboflavin</string>
+		<string>Niacin</string>
+		<string>Vitamin B-6</string>
+		<string>Folate, DFE</string>
+		<string>Vitamin B-12</string>
+		<string>Vitamin A, RAE</string>
+		<string>Vitamin A, IU</string>
+		<string>Vitamin E (alpha-tocopherol)</string>
+		<string>Vitamin D (D2 + D3)</string>
+		<string>Vitamin D</string>
+		<string>Vitamin K (phylloquinone)</string>
+		<string>Fatty acids, total saturated</string>
+		<string>Fatty acids, total monounsaturated</string>
+		<string>Fatty acids, total polyunsaturated</string>
+		<string>Fatty acids, total trans</string>
+		<string>Cholesterol</string>
+		<string>Caffeine</string>
+	</array>
+	<key>NutrientUnit</key>
+	<array>
+		<string>g</string>
+		<string>kcal</string>
+		<string>g</string>
+		<string>g</string>
+		<string>g</string>
+		<string>g</string>
+		<string>g</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>mg</string>
+		<string>µg</string>
+		<string>µg</string>
+		<string>µg</string>
+		<string>IU</string>
+		<string>mg</string>
+		<string>µg</string>
+		<string>IU</string>
+		<string>µg</string>
+		<string>g</string>
+		<string>g</string>
+		<string>g</string>
+		<string>g</string>
+		<string>mg</string>
+		<string>mg</string>
+	</array>
+</dict>
+</plist>

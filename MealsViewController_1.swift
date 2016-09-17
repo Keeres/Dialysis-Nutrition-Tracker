@@ -108,6 +108,8 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             nutrientList![i][0] = nutrients[i].nutrientName
             print(nutrients[i].nutrientName)
             nutrientList![i][1] = nutrients[i].unit
+            print(nutrients[i].unit)
+
         }
     }
     
