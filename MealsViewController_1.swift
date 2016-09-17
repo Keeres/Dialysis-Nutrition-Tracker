@@ -229,9 +229,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         if  indexPath.row == meals[indexPath.section].count {
             let cell = tableView.dequeueReusableCellWithIdentifier("AddBreakfastCell")! as! AddBreakfastCell
             cell.layoutMargins = UIEdgeInsetsZero
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-         //   cell.addBreakfastButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None            
             
             return cell
         }else{

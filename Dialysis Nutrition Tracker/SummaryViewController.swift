@@ -25,7 +25,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var lunchSummary = [Float]()
     var dinnerSummary = [Float]()
     var summary = [Float]()
-    var nutrientList : [[String]] = [[],[]]
     var nutrientNames = [String]()
     var nutrientUnits = [String]()
 
@@ -43,12 +42,22 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         buttonSetup()
         readPropertyList()
 
-        summary = [Float](count: nutrientNames.count, repeatedValue: 0.0 )
+        summary = [Float](count: nutrientNames.count, repeatedValue: 0.0)
 
+        print(breakfast)
+        print(lunch)
+        print(dinner)
         breakfastSummary = summaryCalc(breakfast)
         lunchSummary = summaryCalc(lunch)
         dinnerSummary = summaryCalc(dinner)
         foodCount(ButtonType.Total.rawValue)  // Display summary for all meals as default
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.summaryTable.layoutMargins = UIEdgeInsetsZero
+        self.summaryTable.separatorInset  = UIEdgeInsetsZero
     }
     
     func readPropertyList(){
@@ -63,11 +72,12 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func summaryCalc(meal:[Food]) -> [Float]{
-        
+        var sum = [Float](count: nutrientNames.count, repeatedValue: 0.0)
+
         for food in meal{
             // for nutrient in food.nutrients{
             for i in 0..<food.nutrients.count{
-                for j in 0..<nutrientList.count{
+                for j in 0..<nutrientNames.count{
                     if food.nutrients[i].nutrientName == nutrientNames[j]{
                         var dict = [String:String]()
                         
@@ -76,7 +86,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                             
                             if measurement.valueForKey("key") as! String == food.servingSize{
                                 
-                                summary[i] += Float(measurement.valueForKey("value") as! String)!
+                                sum[j] += Float(measurement.valueForKey("value") as! String)!
                                 //print(measurement.valueForKey("value") as? String)
                             }
                         }
@@ -85,7 +95,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             }
         }
-        return summary
+        return sum
     }
     
     func foodCount(mealType:Int){
@@ -134,12 +144,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("SummaryCell")! as! SummaryCell
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         cell.titleLabel.text = nutrientNames[indexPath.row]
         cell.valueLabel.text = "\(summary[indexPath.row]) " + nutrientUnits[indexPath.row]
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        return cell
     }
 }
