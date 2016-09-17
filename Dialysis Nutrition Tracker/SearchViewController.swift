@@ -30,8 +30,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func USDARequest(){
         Client.sharedInstance().searchFoodItemsUSDADatabase(searchTextField.text!){(foodItemsArray, errorString) in
-         //   self.foodSearchResults = foodItemsArray!
-            
             if foodItemsArray != nil {
                 
                 for foodItem in foodItemsArray!{
@@ -52,24 +50,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     // MARK: Table Delgate Functions
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  //      return 1
+    //}
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-     //   let row = foodsSearch.count
-        let row = foodNames.count
-        print(row)
-        return row
+        return foodNames.count
     }
-  
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("FoodItemCell")! as UITableViewCell
-          cell.textLabel?.text = foodNames[indexPath.row]
+        cell.textLabel!.numberOfLines = 2
+        cell.textLabel!.minimumScaleFactor = 0.75
+        cell.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.textLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+        cell.textLabel!.adjustsFontSizeToFitWidth = true
+        cell.textLabel?.text = foodNames[indexPath.row]
         
-        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByTruncatingMiddle
-
         return cell
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 44;//Choose your custom row height
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -84,6 +85,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: Buttons
     @IBAction func searchButton(sender: AnyObject) {
+        foodNames.removeAll()
+        ndbnoList.removeAll()
         USDARequest()
     }
 }

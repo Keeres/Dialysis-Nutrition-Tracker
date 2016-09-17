@@ -237,7 +237,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             cell.layoutMargins = UIEdgeInsetsZero
             cell.foodLabel!.text = meals[indexPath.section][indexPath.row].name
             cell.foodLabel!.numberOfLines = 2
-            cell.foodLabel!.minimumScaleFactor = 0.5
+            cell.foodLabel!.minimumScaleFactor = 0.75
             cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
             cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
             cell.foodLabel!.adjustsFontSizeToFitWidth = true
