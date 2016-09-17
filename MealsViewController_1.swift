@@ -70,7 +70,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         summaryController.breakfast = self.breakfast
         summaryController.lunch = self.lunch
         summaryController.dinner = self.dinner
-        summaryController.nutrientList = self.nutrientList!
+    //    summaryController.nutrientList = self.nutrientList!
         self.navigationController?.pushViewController(summaryController, animated: true)
     }
 
@@ -106,10 +106,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
 
         for i in 0..<nutrients.count{
             nutrientList![i][0] = nutrients[i].nutrientName
-            print(nutrients[i].nutrientName)
             nutrientList![i][1] = nutrients[i].unit
-            print(nutrients[i].unit)
-
         }
     }
     

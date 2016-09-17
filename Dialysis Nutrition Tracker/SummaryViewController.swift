@@ -26,6 +26,9 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var dinnerSummary = [Float]()
     var summary = [Float]()
     var nutrientList : [[String]] = [[],[]]
+    var nutrientNames = [String]()
+    var nutrientUnits = [String]()
+
     var count = 0
     var measurementsDictionary = [[String:String]]()
     enum ButtonType: Int { case Breakfast = 0, Lunch, Dinner, Snack, Total}
@@ -36,17 +39,28 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         summaryTable.delegate = self
         summaryTable.dataSource = self
         buttons = [breakfastButton, lunchButton, dinnerButton, snackButton, totalButton]
-        buttonSetup()
-        print(nutrientList.count)
 
-        summary = [Float](count: nutrientList.count, repeatedValue: 0.0 )
-    //    print(summary.count)
+        buttonSetup()
+        readPropertyList()
+
+        summary = [Float](count: nutrientNames.count, repeatedValue: 0.0 )
+
         breakfastSummary = summaryCalc(breakfast)
         lunchSummary = summaryCalc(lunch)
         dinnerSummary = summaryCalc(dinner)
-        foodCount(ButtonType.Total.rawValue)
+        foodCount(ButtonType.Total.rawValue)  // Display summary for all meals as default
     }
     
+    func readPropertyList(){
+        var nutrientDic: NSDictionary?
+        if let path = NSBundle.mainBundle().pathForResource("NutrientList", ofType: "plist") {
+            nutrientDic = NSDictionary(contentsOfFile: path)
+        }
+        if let dict = nutrientDic {
+            nutrientNames = dict["NutrientName"] as! Array<String>
+            nutrientUnits = dict["NutrientUnit"] as! Array<String>
+        }
+    }
     
     func summaryCalc(meal:[Food]) -> [Float]{
         
@@ -54,7 +68,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
             // for nutrient in food.nutrients{
             for i in 0..<food.nutrients.count{
                 for j in 0..<nutrientList.count{
-                    if food.nutrients[i].nutrientName == nutrientList[j][0]{
+                    if food.nutrients[i].nutrientName == nutrientNames[j]{
                         var dict = [String:String]()
                         
                         for measurement in food.nutrients[i].measurements{
@@ -63,7 +77,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                             if measurement.valueForKey("key") as! String == food.servingSize{
                                 
                                 summary[i] += Float(measurement.valueForKey("value") as! String)!
-                                print(measurement.valueForKey("value") as? String)
+                                //print(measurement.valueForKey("value") as? String)
                             }
                         }
                         measurementsDictionary.append(dict)
@@ -72,29 +86,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         return summary
-    }
-    
-        
-    func buttonSetup(){
-        for i in 0..<buttons.count{
-            buttons[i].layer.borderWidth = 0.5
-            buttons[i].layer.borderColor = UIColor.grayColor().CGColor
-            buttons[i].backgroundColor = UIColor.clearColor()
-        }
-    }
-    
-    @IBAction func mealButton(sender: AnyObject) {
-        for i in 0..<buttons.count{
-            if i == sender.tag{
-                buttons[i].backgroundColor = UIColor.orangeColor()
-            }else{
-                buttons[i].backgroundColor = UIColor.clearColor()
-            }
-        }
-        foodCount(sender.tag)
-        dispatch_async(dispatch_get_main_queue()) {
-            self.summaryTable.reloadData()
-        }
     }
     
     func foodCount(mealType:Int){
@@ -112,17 +103,39 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 summary[i] = breakfastSummary[i] + lunchSummary[i] + dinnerSummary[i]
             }
         }
-        
     }
     
+    // MARK: Buttons
+    func buttonSetup(){
+        for i in 0..<buttons.count{
+            buttons[i].layer.borderWidth = 0.5
+            buttons[i].layer.borderColor = UIColor.grayColor().CGColor
+        }
+    }
+    
+    @IBAction func mealButton(sender: AnyObject) {
+        for i in 0..<buttons.count{
+            if i == sender.tag{
+                buttons[i].backgroundColor = UIColor.orangeColor()
+            }else{
+                buttons[i].backgroundColor = UIColor.clearColor()
+            }
+        }
+        foodCount(sender.tag)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.summaryTable.reloadData()
+        }
+    }
+
+    // MARK: Table View Delegates
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return nutrientList.count
+       return nutrientNames.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("SummaryCell")! as! SummaryCell
-        cell.titleLabel.text = nutrientList[indexPath.row][0]
-        cell.valueLabel.text = "\(summary[indexPath.row]) " + nutrientList[indexPath.row][1]
+        cell.titleLabel.text = nutrientNames[indexPath.row]
+        cell.valueLabel.text = "\(summary[indexPath.row]) " + nutrientUnits[indexPath.row]
         return cell
     }
     

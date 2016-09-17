@@ -97,7 +97,6 @@
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzF-mt-9pW">
                                 <rect key="frame" x="150" y="64" width="150" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Lunch"/>
                                 <connections>
                                     <action selector="mealButton:" destination="Ubj-6t-ybg" eventType="touchUpInside" id="uuh-k6-Yuc"/>
@@ -105,7 +104,6 @@
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oY9-fA-aeh">
                                 <rect key="frame" x="300" y="64" width="150" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.57764767589999999" blue="0.083531456769999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.32719646499999999" green="0.6313010818" blue="0.86272905759999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Dinner"/>
                                 <connections>
@@ -121,7 +119,7 @@
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXa-fq-Nk1">
                                 <rect key="frame" x="0.0" y="94" width="600" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.57764767589999999" blue="0.083531456769999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Total"/>
                                 <connections>
