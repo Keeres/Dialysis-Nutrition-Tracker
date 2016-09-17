@@ -48,6 +48,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         lunchSummary = summaryCalc(lunch)
         dinnerSummary = summaryCalc(dinner)
         foodCount(ButtonType.Total.rawValue)  // Display summary for all meals as default
+        totalButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green: 87.0/255.0, blue: 183.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,6 +60,10 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.summaryTable.layoutMargins = UIEdgeInsetsZero
         self.summaryTable.separatorInset  = UIEdgeInsetsZero
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        totalButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
     }
     
     func readPropertyList(){
@@ -80,10 +89,8 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                         
                         for measurement in food.nutrients[i].measurements{
                             dict[measurement.valueForKey("key") as! String] = measurement.valueForKey("value") as? String
-                            
                             if measurement.valueForKey("key") as! String == food.servingSize{
-                                
-                                sum[j] += Float(measurement.valueForKey("value") as! String)!
+                                sum[j] += Float(measurement.valueForKey("value") as! String)!*food.numberOfServings
                                 //print(measurement.valueForKey("value") as? String)
                             }
                         }
@@ -123,9 +130,13 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func mealButton(sender: AnyObject) {
         for i in 0..<buttons.count{
             if i == sender.tag{
-                buttons[i].backgroundColor = UIColor.orangeColor()
+                buttons[i].backgroundColor = UIColor(red: 0.0/255.0, green: 87.0/255.0, blue: 183.0/255.0, alpha: 1.0)
+                buttons[i].setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+
             }else{
                 buttons[i].backgroundColor = UIColor.clearColor()
+                buttons[i].setTitleColor(UIColor(red: 0.0/255.0, green: 87.0/255.0, blue: 183.0/255.0, alpha: 1.0)
+                , forState: UIControlState.Normal)
             }
         }
         foodCount(sender.tag)
