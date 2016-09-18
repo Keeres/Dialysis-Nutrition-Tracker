@@ -44,6 +44,7 @@
 		ADD0464A1D26DCA8009EE361 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046491D26DCA8009EE361 /* Client.swift */; };
 		ADD9617D1D8C7762004332D6 /* summaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9617C1D8C7762004332D6 /* summaryCell.swift */; };
 		ADD9617F1D8DA174004332D6 /* NutrientList.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADD9617E1D8DA174004332D6 /* NutrientList.plist */; };
+		ADD961811D8F3ABE004332D6 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD961801D8F3ABE004332D6 /* AlertView.swift */; };
 		ADDA3DE41D394FE700D55C9B /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDA3DE31D394FE700D55C9B /* Animator.swift */; };
 		ADEF58221D89F3090068105F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF58201D89F3090068105F /* SummaryViewController.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +110,7 @@
 		ADD046491D26DCA8009EE361 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		ADD9617C1D8C7762004332D6 /* summaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = summaryCell.swift; sourceTree = "<group>"; };
 		ADD9617E1D8DA174004332D6 /* NutrientList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NutrientList.plist; sourceTree = "<group>"; };
+		ADD961801D8F3ABE004332D6 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		ADDA3DE31D394FE700D55C9B /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		ADEF58201D89F3090068105F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +233,7 @@
 				AD165FFF1D5F8B8100847B01 /* EditEntryViewController.swift */,
 				AD1660011D5F92FA00847B01 /* EditEntryViewCells */,
 				ADDA3DE31D394FE700D55C9B /* Animator.swift */,
+				ADD961801D8F3ABE004332D6 /* AlertView.swift */,
 				ADD046171D26DA0B009EE361 /* Main.storyboard */,
 				ADD9617E1D8DA174004332D6 /* NutrientList.plist */,
 				ADD0461D1D26DA0B009EE361 /* Assets.xcassets */,
@@ -442,6 +445,7 @@
 				ADD0461C1D26DA0B009EE361 /* Dialysis_Nutrition_Tracker.xcdatamodeld in Sources */,
 				AD6842AA1D57D1BB00BE429D /* Measurement.swift in Sources */,
 				ADD046141D26DA0B009EE361 /* AppDelegate.swift in Sources */,
+				ADD961811D8F3ABE004332D6 /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ class Client : NSObject{
     let APIReportURL = "http://api.nal.usda.gov/ndb/reports/"
 
     
-    func searchFoodItemsUSDADatabase(searchString:String, completionHandler: (foodItemsArray:[[String:AnyObject]]?, error: String?) -> Void) {
+    func searchFoodItemsUSDADatabase(searchString:String, completionHandler: (success:Bool, foodItemsArray:[[String:AnyObject]]?, error: String?) -> Void) {
 
         let methodParameters: [String: AnyObject] = [
             "api_key":          "HVBePg5RGhFz8twmpGD2t2BZx7pW6XiTTNpNWwj2",
@@ -25,11 +25,8 @@ class Client : NSObject{
             "offset":           "0"                         // Beginning row in the result set to begin
         ]
         
-        
         let session = NSURLSession.sharedSession()
         let urlString = APISearchURL + escapedParameters(methodParameters)
-        
-
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         print(request)
@@ -38,11 +35,11 @@ class Client : NSObject{
             
             // if an error occurs, print it and re-enable the UI
             func displayError(error: String) {
-                print(error)
                 print("URL at time of error: \(url)")
-                completionHandler(foodItemsArray: nil, error: error)
+                completionHandler(success:false, foodItemsArray: nil, error: "Server error. Please try again laster")
                 return
             }
+            
             if error == nil{
                 let parsedResult: AnyObject!
                 
@@ -52,22 +49,26 @@ class Client : NSObject{
                         
                     } catch {
                         displayError("Could not parse the data as JSON: '\(data)'")
+                        completionHandler(success:false, foodItemsArray: nil, error: "Server error. Please try again laster")
+
                         return
                     }
 
                     guard let list = parsedResult["list"] as? [String: AnyObject] else {
                         print("food list not found")
-                        completionHandler(foodItemsArray: nil, error: "Search returns zero results")
+                        completionHandler(success:false, foodItemsArray: nil, error: "No results found")
 
                         return
                     }
               
                     guard let foodItems = list["item"] as? [[String:AnyObject]] else {
                         print("food items not found")
+                        completionHandler(success:false, foodItemsArray: nil, error: "No results found")
+
                         return
                     }
                     
-                    completionHandler(foodItemsArray: foodItems, error: nil)
+                    completionHandler(success:true, foodItemsArray: foodItems, error: nil)
                 }
             }
         }
@@ -84,18 +85,15 @@ class Client : NSObject{
         
         let session = NSURLSession.sharedSession()
         let urlString = APIReportURL + escapedParameters(methodParameters)
-        
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         print(request)
     
         let task = session.dataTaskWithRequest(request) {data, response, error in
-            print("ASDF")
+           
             // if an error occurs, print it and re-enable the UI
             func displayError(error: String) {
-                print(error)
-                print("URL at time of error: \(url)")
-                completionHandler(success:false, nutrientsArray: nil, error: error)
+                completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again laster")
                 return
             }
             if error == nil{
@@ -104,37 +102,29 @@ class Client : NSObject{
                 if let data = data {
                     do {
                         parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-                        
                     } catch {
-                        displayError("Could not parse the data as JSON: '\(data)'")
+                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again laster")
                         return
                     }
               //      print(parsedResult)
                     guard let report = parsedResult["report"] as? [String: AnyObject] else {
                         print("nutrient report not found")
-                        completionHandler(success: false, nutrientsArray: nil, error: "No report found")
+                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again laster")
                         
                         return
                     }
                     
                     guard let food = report["food"] as? [String:AnyObject] else {
                         print("error retriving food")
+                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again laster")
+
                         return
                     }
-                    
-               /*     guard let foodName = food["name"] as? String else {
-                        print("error retriving food name")
-                        return
-                    }
-                    
-                    guard let ndbno = food["ndbno"] as? String else {
-                        print("error retriving food name")
-                        return
-                    }
-                    print(ndbno)
-*/
+
                     guard let nutrients = food["nutrients"] as? [[String:AnyObject]] else {
                         print("error retriving nutrients")
+                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again laster")
+
                         return
                     }
 
