@@ -50,10 +50,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     // MARK: Table Delgate Functions
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-  //      return 1
-    //}
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return foodNames.count
     }
@@ -76,11 +72,36 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailedViewController = storyboard!.instantiateViewControllerWithIdentifier("DetailedView") as! DetailedViewController
         
-        detailedViewController.foodNdbno = ndbnoList[indexPath.row]
-        detailedViewController.mealType = self.mealType!
-        detailedViewController.foodIndex = self.foodIndex!
-        detailedViewController.delegate = mealsViewController
-        self.navigationController?.pushViewController(detailedViewController, animated: true)
+      //  detailedViewController.foodNdbno = ndbnoList[indexPath.row]
+        //detailedViewController.mealType = self.mealType!
+        //detailedViewController.foodIndex = self.foodIndex!
+        //print(foodNames[indexPath.row])
+        USDANutritionReuqest(ndbnoList[indexPath.row], foodName: foodNames[indexPath.row])
+     //   detailedViewController.delegate = mealsViewController
+       // self.navigationController?.pushViewController(detailedViewController, animated: true)
+    }
+    
+    
+    
+    func USDANutritionReuqest(foodNdbno:String, foodName:String){
+        Client.sharedInstance().getFoodNutrientUSDADatabase(foodNdbno) {(success, nutrientsArray, errorString) in
+            if nutrientsArray != nil{
+                let detailedViewController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailedView") as! DetailedViewController
+                
+                detailedViewController.foodNdbno = foodNdbno
+                detailedViewController.foodName = foodName
+                detailedViewController.mealType = self.mealType!
+                detailedViewController.foodIndex = self.foodIndex!
+                detailedViewController.nutrientsArray = nutrientsArray!
+                detailedViewController.delegate = self.mealsViewController
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.navigationController?.pushViewController(detailedViewController, animated: true)
+                });
+        }else{
+                print("server error, please try again later")
+            }
+        }
     }
     
     // MARK: Buttons

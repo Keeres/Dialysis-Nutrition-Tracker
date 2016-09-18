@@ -17,7 +17,7 @@ class Client : NSObject{
     func searchFoodItemsUSDADatabase(searchString:String, completionHandler: (foodItemsArray:[[String:AnyObject]]?, error: String?) -> Void) {
 
         let methodParameters: [String: AnyObject] = [
-            "api_key":          "ks5LV4Z1vYcfHfWBY3vu2cIOJi8SY77UkMab0LM2",
+            "api_key":          "HVBePg5RGhFz8twmpGD2t2BZx7pW6XiTTNpNWwj2",
             "format":           "json",                     // result format
             "q"     :           searchString,               // Terms requested and used in the search
             "sort"  :           "r",                        // Sort the results by food name(n) or by search relevance(r)
@@ -74,9 +74,9 @@ class Client : NSObject{
     task.resume();
     }
     
-    func getFoodNutrientUSDADatabase(ndbno:String, completionHandler: (foodName:String, ndbno:String, nutritionsArray:[[String:AnyObject]]?, error: String?) -> Void) {
+    func getFoodNutrientUSDADatabase(ndbno:String, completionHandler: (success:Bool, nutrientsArray:[[String:AnyObject]]?, error: String?) -> Void) {
         let methodParameters: [String: AnyObject] = [
-            "api_key":          "ks5LV4Z1vYcfHfWBY3vu2cIOJi8SY77UkMab0LM2",
+            "api_key":          "HVBePg5RGhFz8twmpGD2t2BZx7pW6XiTTNpNWwj2",
             "ndbno":            ndbno,                          // NDB no
             "type":             "b",                             // Report type: [b]asic, [f]ull, [s]tats
             "format":          "json"                          // report formt: xml or json
@@ -90,12 +90,12 @@ class Client : NSObject{
         print(request)
     
         let task = session.dataTaskWithRequest(request) {data, response, error in
-            
+            print("ASDF")
             // if an error occurs, print it and re-enable the UI
             func displayError(error: String) {
                 print(error)
                 print("URL at time of error: \(url)")
-                completionHandler(foodName: " ", ndbno:" ", nutritionsArray: nil, error: error)
+                completionHandler(success:false, nutrientsArray: nil, error: error)
                 return
             }
             if error == nil{
@@ -109,10 +109,10 @@ class Client : NSObject{
                         displayError("Could not parse the data as JSON: '\(data)'")
                         return
                     }
-                  //  print(parsedResult)
+              //      print(parsedResult)
                     guard let report = parsedResult["report"] as? [String: AnyObject] else {
                         print("nutrient report not found")
-                        completionHandler(foodName: " ", ndbno:" ", nutritionsArray: nil, error: "No report found")
+                        completionHandler(success: false, nutrientsArray: nil, error: "No report found")
                         
                         return
                     }
@@ -122,7 +122,7 @@ class Client : NSObject{
                         return
                     }
                     
-                    guard let foodName = food["name"] as? String else {
+               /*     guard let foodName = food["name"] as? String else {
                         print("error retriving food name")
                         return
                     }
@@ -132,13 +132,13 @@ class Client : NSObject{
                         return
                     }
                     print(ndbno)
-
+*/
                     guard let nutrients = food["nutrients"] as? [[String:AnyObject]] else {
                         print("error retriving nutrients")
                         return
                     }
 
-                    completionHandler(foodName:foodName, ndbno:ndbno, nutritionsArray: nutrients, error: nil)
+                    completionHandler(success:true, nutrientsArray: nutrients, error: nil)
                 }
             }
         

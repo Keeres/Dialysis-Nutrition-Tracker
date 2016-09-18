@@ -29,7 +29,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var nutrientUnits = [String]()
 
     var count = 0
-    var measurementsDictionary = [[String:String]]()
     enum ButtonType: Int { case Breakfast = 0, Lunch, Dinner, Snack, Total}
 
     override func viewDidLoad() {
@@ -85,16 +84,15 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
             for i in 0..<food.nutrients.count{
                 for j in 0..<nutrientNames.count{
                     if food.nutrients[i].nutrientName == nutrientNames[j]{
-                        var dict = [String:String]()
+                      //  var dict = [String:String]()
                         
                         for measurement in food.nutrients[i].measurements{
-                            dict[measurement.valueForKey("key") as! String] = measurement.valueForKey("value") as? String
+                        //    dict[measurement.valueForKey("key") as! String] = measurement.valueForKey("value") as? String
                             if measurement.valueForKey("key") as! String == food.servingSize{
                                 sum[j] += Float(measurement.valueForKey("value") as! String)!*food.numberOfServings
                                 //print(measurement.valueForKey("value") as? String)
                             }
                         }
-                        measurementsDictionary.append(dict)
                     }
                 }
             }

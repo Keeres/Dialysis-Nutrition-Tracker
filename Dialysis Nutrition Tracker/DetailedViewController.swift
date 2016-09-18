@@ -12,25 +12,26 @@ import CoreData
 class DetailedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var foodNdbno : String?
+    var foodIndex : Int?
+    var foodName: String?
+    var numberOfServings: Float?
+    var servingSize: String?
+    var mealType: String?
+    
     var food:Food!
     var nutrients = [Nutrient]()
     var servingSizes = [String]()           // serving sizes available for the food
     var nutrientList = [String]()           // list of nutrients in the food
     var nutrientUnit = [String]()           // units for the nutrients
+    var nutrientsArray = [[String:AnyObject]]()
     var measurementsDictionary = [[String:String]]()
+    var overviewValue : [Float] = [0, 0, 0 ,0]             // index path used retriving nutrient data in overviewCell
+
     weak var delegate:MyProtocol?
     
-    let cellHeight = 44
-    var frameHeight:CGFloat?
-    var servingSize:String?
     let transition = Animator()
-    var button:UIButton?
     var numberPadToolBar: UIToolbar?
-    var numberOfServings:Float?
-    var mealType = String()
-    var overviewIndexPath : [Int] = [0, 0, 0 ,0]             // index path used retriving nutrient data in overviewCell
-    var foodIndex : Int?
-    
+ 
     @IBOutlet weak var detailedTableView: UITableView!
     @IBOutlet var detailedView: UIView!
     
@@ -40,9 +41,9 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(foodName)
         self.detailedTableView.delegate = self
         self.detailedTableView.dataSource = self
-       // self.detailedTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.detailedTableView.layoutMargins = UIEdgeInsetsZero
         self.detailedTableView.separatorInset  = UIEdgeInsetsZero
         
@@ -51,55 +52,46 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green: 87.0/255.0, blue: 183.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         numberOfServings = 1
+    
+        parseNutrientsArray()
         
-        USDANutritionReuqest()
-  
-           NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DetailedViewController.updateTable(_:)),name:"updateTable", object: nil)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DetailedViewController.updateTable(_:)),name:"updateTable", object: nil)
     }
     
-    // Retrive nutrient information based on ndbno number
-    func USDANutritionReuqest(){
-        Client.sharedInstance().getFoodNutrientUSDADatabase(foodNdbno!) {(foodName, ndbno, nutritionsArray, errorString) in
-            print(nutritionsArray?.count)
-            if nutritionsArray != nil {
+    func parseNutrientsArray(){
+        
+        self.food = Food(name: foodName!, ndbno: foodNdbno!, mealType: self.mealType!, index: self.foodIndex!, numberOfServings:self.numberOfServings!, context: self.sharedContext)
+            
+            for nutrition in nutrientsArray{
+                let name = nutrition["name"] as? String
+                let unit = nutrition["unit"] as? String
+                let nutrient = Nutrient(nutrientName: name!, unit: unit!, context: self.sharedContext)
                 
-                self.food = Food(name: foodName, ndbno: ndbno, mealType: self.mealType, index: self.foodIndex!, numberOfServings:self.numberOfServings!, context: self.sharedContext)
-                print(self.food.numberOfServings)
-                print(self.food.mealType)
-                for nutrition in nutritionsArray!{
-                    let name = nutrition["name"] as? String
-                    let unit = nutrition["unit"] as? String
-                    let nutrient = Nutrient(nutrientName: name!, unit: unit!, context: self.sharedContext)
-                    
-                    guard let measurementsList = nutrition["measures"] as? [[String:AnyObject]] else {
-                        print("error parsing measurements")
-                        return
-                    }
-                    
-                    for measurement in measurementsList{
-                        
-                        let label = measurement["label"] as? String
-                        let value = measurement["value"] as? String
-                        
-                        let measure = Measurement(key: label!, value: value!, context:self.sharedContext)
-                        
-                        measure.nutrient = nutrient
-                    }
-                    nutrient.food = self.food
-                    self.nutrients.append(nutrient)
+                guard let measurementsList = nutrition["measures"] as? [[String:AnyObject]] else {
+                    print("error parsing measurements")
+                    return
                 }
+                for measurement in measurementsList{
+                    let label = measurement["label"] as? String
+                    let value = measurement["value"] as? String
+                    let measure = Measurement(key: label!, value: value!, context:self.sharedContext)
+                    
+                    measure.nutrient = nutrient
+                }
+                nutrient.food = self.food
+                self.nutrients.append(nutrient)
             }
-            self.getNutrientList()
-            self.servingSizesList()
-            self.setUpMeasurementsDictionary()
-     //   self.testing()
+        
+        self.getNutrientList()
+        self.servingSizesList()
+        self.setUpMeasurementsDictionary()
+        self.getOverviewValue()
+        
             dispatch_async(dispatch_get_main_queue(),{
-                self.detailedTableView.reloadData()
-            });
-        }
+              self.detailedTableView.reloadData()
+        });
     }
-    
+
     // MARK: NSNotification func
     // updates serving size that user seleceted
     func updateTable(notification: NSNotification){
@@ -109,11 +101,10 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // MARK: Set up
-    // Retrieve the serving sizes availabel for the food
+    // Retrieve the serving sizes available for the food
     func servingSizesList(){
         // valueForKey return NSSet, use allobject to conver to NSArray
         let measurements = nutrients[0].valueForKey("measurements")?.valueForKey("key")?.allObjects
-
         for measurement in measurements! {
             servingSizes.append(measurement as! String)
         }
@@ -121,13 +112,14 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func setUpMeasurementsDictionary(){
-
         for i in 0..<nutrients.count{
             let measurements = nutrients[i].valueForKey("measurements")?.allObjects
             var dict = [String:String]()
-
             for measurement in measurements!{
+
+              //  measurementsValue.append(Float(measurement.valueForKey("value") as! String)!)
                 dict[measurement.valueForKey("key") as! String] = measurement.valueForKey("value") as? String
+
             }
             measurementsDictionary.append(dict)
         }
@@ -135,27 +127,26 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     // retreive the list of nutrients from the food
     func getNutrientList(){
-        var index:Int = 0
-        
         for nutrient in nutrients{
             nutrientList.append(nutrient.nutrientName)
             nutrientUnit.append(nutrient.unit)
-            
-            if nutrient.nutrientName == "Phosphorus, P"{
-                overviewIndexPath[0] = index
-            }else if nutrient.nutrientName == "Potassium, K"{
-                overviewIndexPath[1] = index
-            }else if nutrient.nutrientName == "Protein"{
-                overviewIndexPath[2] = index
-            }else if nutrient.nutrientName == "Energy"{
-                overviewIndexPath[3] = index
-            }
-            
-            index = index + 1
         }
     }
     
-
+    func getOverviewValue(){
+        for i in 0..<nutrientList.count{
+            if nutrientList[i] == "Phosphorus, P"{
+                overviewValue[0] = Float(measurementsDictionary[i][servingSize!]!)!
+            }else if nutrientList[i] == "Potassium, K"{
+                overviewValue[1] = Float(measurementsDictionary[i][servingSize!]!)!
+            }else if nutrientList[i] == "Protein"{
+                overviewValue[2] = Float(measurementsDictionary[i][servingSize!]!)!
+            }else if nutrientList[i] == "Energy"{
+                overviewValue[3] = Float(measurementsDictionary[i][servingSize!]!)!
+            }
+        }
+    }
+    
     func addNumberPadToolBar(){
         numberPadToolBar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
         numberPadToolBar!.barStyle = UIBarStyle.Default
@@ -164,11 +155,9 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         let fillerButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         let doneButton =   UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(DetailedViewController.done))
         cacelButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
-         doneButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
-
+        doneButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
         
         numberPadToolBar!.items = [cacelButton, fillerButton, doneButton]
-        
         numberPadToolBar!.sizeToFit()
         numberPadToolBar!.barTintColor = UIColor(red: 0.0, green: 87/255, blue: 182/255, alpha: 1.0)
     }
@@ -214,17 +203,11 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         dispatch_after(time, dispatch_get_main_queue()) {
             NSNotificationCenter.defaultCenter().postNotificationName("updateMeals", object: nil)
         }
-        
-
     }
     
     // MARK: Table Delgate Functions
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        let count = nutrientList.count
+        let count = nutrientList.count + 4
 
         return count
     }
@@ -238,12 +221,13 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        
+        //let cell = UITableViewCell()
+        //return cell
         
         if indexPath.row  == 0{
             let foodNameCell = tableView.dequeueReusableCellWithIdentifier("FoodNameCell", forIndexPath: indexPath) as! FoodNameCell
             foodNameCell.layoutMargins = UIEdgeInsetsZero
-            foodNameCell.foodNameLabel.text = food.name
+            foodNameCell.foodNameLabel.text = foodName
             foodNameCell.selectionStyle = UITableViewCellSelectionStyle.None
             foodNameCell.userInteractionEnabled = false
             
@@ -272,22 +256,19 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         }else if indexPath.row  == 3{
             let overviewCell = tableView.dequeueReusableCellWithIdentifier("OverviewCell", forIndexPath: indexPath) as! OverviewCell
             overviewCell.layoutMargins = UIEdgeInsetsZero
-
-            let value1 = Float(measurementsDictionary[overviewIndexPath[0]][servingSize!]!)! * numberOfServings!
-            overviewCell.nutrient1.text = "\(value1)"
-            overviewCell.nutrientUnit1.text = "P" + " " +  "(" + nutrientUnit[overviewIndexPath[0]] + ")"
+            getOverviewValue()
             
-            let value2 = Float(measurementsDictionary[overviewIndexPath[1]][servingSize!]!)! * numberOfServings!
-            overviewCell.nutrient2.text = "\(value2)"
-            overviewCell.nutrientUnit2.text = "K" + " " +  "(" + nutrientUnit[overviewIndexPath[1]] + ")"
+            overviewCell.nutrient1.text = "\(overviewValue[0]*numberOfServings!)"
+            overviewCell.nutrientUnit1.text = "P (mg)"
+            
+            overviewCell.nutrient2.text = "\(overviewValue[1]*numberOfServings!)"
+            overviewCell.nutrientUnit2.text = "K (mg)"
 
-            let value3 = Float(measurementsDictionary[overviewIndexPath[2]][servingSize!]!)! * numberOfServings!
-            overviewCell.nutrient3.text = "\(value3)"
-            overviewCell.nutrientUnit3.text = "Protein" + " " +  "(" + nutrientUnit[overviewIndexPath[2]] + ")"
+            overviewCell.nutrient3.text = "\(overviewValue[2]*numberOfServings!)"
+            overviewCell.nutrientUnit3.text = "Protein (g)"
 
-            let value4 = Float(measurementsDictionary[overviewIndexPath[3]][servingSize!]!)! * numberOfServings!
-            overviewCell.nutrient4.text = "\(value4)"
-            overviewCell.nutrientUnit4.text = "Energy" + " " +  "(" + nutrientUnit[overviewIndexPath[3]] + ")"
+            overviewCell.nutrient4.text = "\(overviewValue[3]*numberOfServings!)"
+            overviewCell.nutrientUnit4.text = "Energy (kcal)"
 
             overviewCell.selectionStyle = UITableViewCellSelectionStyle.None
             overviewCell.userInteractionEnabled = false
@@ -296,19 +277,14 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         }else{
             let nutrientCell = tableView.dequeueReusableCellWithIdentifier("NutrientCell", forIndexPath: indexPath) as! NutrientCell
             nutrientCell.layoutMargins = UIEdgeInsetsZero
-
-            nutrientCell.titleLabel.text = nutrientList[indexPath.row-3] + " " +  "(" + nutrientUnit[indexPath.row-3] + ")"
-            let value = Float(measurementsDictionary[indexPath.row-3][servingSize!]!)! * numberOfServings!
+            nutrientCell.titleLabel.text = nutrientList[indexPath.row-4] + " " +  "(" + nutrientUnit[indexPath.row-4] + ")"
+            let value = Float(measurementsDictionary[indexPath.row-4][servingSize!]!)! * numberOfServings!
             nutrientCell.valueLabel.text = "\(value)"
             nutrientCell.selectionStyle = UITableViewCellSelectionStyle.None
             nutrientCell.userInteractionEnabled = false
             
             return nutrientCell
         }
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
     }
 
     // MARK: Animation Delegate
@@ -373,7 +349,7 @@ extension DetailedViewController: UIViewControllerTransitioningDelegate {
         UIViewControllerAnimatedTransitioning? {
             transition.originFrame = CGRectMake(0 , 0, self.view.frame.width, self.view.frame.height)
             let count = servingSizes.count
-            transition.height = (Double(count)+1) * Double(cellHeight)
+            transition.height = (Double(count)+1) * Double(44)
             transition.presenting = true
             
             return transition
