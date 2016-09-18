@@ -216,7 +216,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 3{
             return 50
         }else{
-            return 40
+            return 44
         }
     }
     
@@ -228,6 +228,11 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             let foodNameCell = tableView.dequeueReusableCellWithIdentifier("FoodNameCell", forIndexPath: indexPath) as! FoodNameCell
             foodNameCell.layoutMargins = UIEdgeInsetsZero
             foodNameCell.foodNameLabel.text = foodName
+            foodNameCell.foodNameLabel!.numberOfLines = 2
+            foodNameCell.foodNameLabel!.minimumScaleFactor = 0.75
+            foodNameCell.foodNameLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            foodNameCell.foodNameLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+            foodNameCell.foodNameLabel!.adjustsFontSizeToFitWidth = true
             foodNameCell.selectionStyle = UITableViewCellSelectionStyle.None
             foodNameCell.userInteractionEnabled = false
             
