@@ -41,7 +41,6 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(foodName)
         self.detailedTableView.delegate = self
         self.detailedTableView.dataSource = self
         self.detailedTableView.layoutMargins = UIEdgeInsetsZero
