@@ -538,10 +538,10 @@
             </objects>
             <point key="canvasLocation" x="1674" y="762"/>
         </scene>
-        <!--Add Food-->
+        <!--DetailedView-->
         <scene sceneID="oeO-dF-jps">
             <objects>
-                <viewController storyboardIdentifier="DetailedView" id="2wL-1j-YQO" customClass="DetailedViewController" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailedView" id="2wL-1j-YQO" userLabel="DetailedView" customClass="DetailedViewController" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yhA-HX-fcz"/>
                         <viewControllerLayoutGuide type="bottom" id="Ant-1L-nfB"/>
