@@ -41,7 +41,6 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(foodName)
         self.detailedTableView.delegate = self
         self.detailedTableView.dataSource = self
         self.detailedTableView.layoutMargins = UIEdgeInsetsZero
@@ -54,7 +53,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         numberOfServings = 1
     
         parseNutrientsArray()
-        
+        customBackButton()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DetailedViewController.updateTable(_:)),name:"updateTable", object: nil)
     }
     
@@ -80,8 +79,8 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
                 }
                 nutrient.food = self.food
                 self.nutrients.append(nutrient)
-            }
-        
+        }
+   
         self.getNutrientList()
         self.servingSizesList()
         self.setUpMeasurementsDictionary()
@@ -92,6 +91,19 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         });
     }
 
+    // MARK: Custom Back Button
+    func customBackButton(){
+        self.navigationItem.hidesBackButton = true;
+        let newBackButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(DetailedViewController.bakcButton(_:)))
+
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    func bakcButton(sender:UIBarButtonItem!){
+        self.sharedContext.deleteObject(food)
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     // MARK: NSNotification func
     // updates serving size that user seleceted
     func updateTable(notification: NSNotification){
