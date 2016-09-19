@@ -20,7 +20,7 @@ class EditEntryViewController: UIViewController, UITableViewDelegate, UITableVie
     var nutrientList = [String]()           // list of nutrients in the food
     var nutrientUnit = [String]()           // units for the nutrients
     var measurementsDictionary = [[String:String]]()
-    weak var delegate:MyProtocol?
+  //  weak var delegate:MyProtocol?
     weak var editViewDelegate: MealsViewController_1?
 
     let cellHeight = 44

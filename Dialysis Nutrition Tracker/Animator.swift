@@ -25,7 +25,7 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning{
         
         servingSizeView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         let initialFrame = presenting ? originFrame : servingSizeView.frame
-        let finalFrame = presenting ? servingSizeView.frame : originFrame
+        _ = presenting ? servingSizeView.frame : originFrame
         
         if presenting {
           //  customView.center = CGPoint(x: 0,y: 0)

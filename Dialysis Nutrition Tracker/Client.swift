@@ -21,7 +21,7 @@ class Client : NSObject{
             "format":           "json",                     // result format
             "q"     :           searchString,               // Terms requested and used in the search
             "sort"  :           "r",                        // Sort the results by food name(n) or by search relevance(r)
-            "max"   :           "75",                        // Maximum rows to return
+            "max"   :           "100",                        // Maximum rows to return
             "offset":           "0"                         // Beginning row in the result set to begin
         ]
         

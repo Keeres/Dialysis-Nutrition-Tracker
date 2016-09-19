@@ -27,7 +27,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     var measurementsDictionary = [[String:String]]()
     var overviewValue : [Float] = [0, 0, 0 ,0]             // index path used retriving nutrient data in overviewCell
 
-    weak var delegate:MyProtocol?
+  //  weak var delegate:MyProtocol?
     
     let transition = Animator()
     var numberPadToolBar: UIToolbar?
@@ -378,8 +378,5 @@ extension DetailedViewController: UIViewControllerTransitioningDelegate {
     }
 }
 
-protocol MyProtocol: class {
-    func addMeal(mealType:Food)
-}
 
 

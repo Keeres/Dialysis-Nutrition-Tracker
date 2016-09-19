@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, MyProtocol {
+class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var mealsTableView_1: UITableView!
     
@@ -139,14 +139,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         
     }()
     
-    // MARK: MyProtocol functions
-
-    func addMeal(meal: Food) {
-
-      //  self.addedFood = meal
-        //self.foods?.append(self.addedFood!)
-    }
-    
     func entryUpdatedServingSize(newServingSize: String, newNumberOfServings:Float, updateIndex:Int) {
 
         self.foods![updateIndex].servingSize = newServingSize
@@ -265,7 +257,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
                 searchViewController.mealType = "none"
             }
             searchViewController.foodIndex = self.foodIndex
-            searchViewController.delegate = self
+         //   searchViewController.delegate = self
             self.navigationController?.pushViewController(searchViewController, animated: true)
         }else{
             
