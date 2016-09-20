@@ -71,7 +71,6 @@ class ServingSizeController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = touches.first {
             if(touch.view!.tag != 5 ){

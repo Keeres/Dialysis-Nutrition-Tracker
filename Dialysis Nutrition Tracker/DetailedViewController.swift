@@ -128,10 +128,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             let measurements = nutrients[i].valueForKey("measurements")?.allObjects
             var dict = [String:String]()
             for measurement in measurements!{
-
-              //  measurementsValue.append(Float(measurement.valueForKey("value") as! String)!)
                 dict[measurement.valueForKey("key") as! String] = measurement.valueForKey("value") as? String
-
             }
             measurementsDictionary.append(dict)
         }

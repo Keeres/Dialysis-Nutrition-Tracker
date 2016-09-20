@@ -12,6 +12,7 @@ import CoreData
 class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var mealsTableView_1: UITableView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var foods:[Food]?               // All Food consumed, out of order in terms of breakfast, lunch, dinner
     var loadFromDisk:Bool?
@@ -23,6 +24,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     var addedFood:Food?
     var index:Int?
     var foodIndex:Int?
+    var dayChange = 0
     
     lazy var sharedContext: NSManagedObjectContext =  {
         return CoreDataStackManager.sharedInstance().managedObjectContext
@@ -38,6 +40,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         self.mealsTableView_1.backgroundColor = UIColor(red: 209.0/255.0, green: 209.0/255.0, blue: 209.0/255.0, alpha: 1.0)
         foodIndex = 0
 
+        getDate()
         let fetched = fetchedResultsController
         fetched.delegate = self
         try! fetched.performFetch()
@@ -151,6 +154,29 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
+    // MARK: Get Date
+    var oneDayfromNow: NSDate {
+        return NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: dayChange, toDate: NSDate(), options: [])!
+    }
+    
+    
+    func getDate(){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM dd, yyyy"
+        let date = dateFormatter.stringFromDate(oneDayfromNow)
+        print(date)
+        dateLabel.text = date
+    }
+    
+    @IBAction func rightButton(sender: AnyObject) {
+        dayChange += 1
+        getDate()
+    }
+    
+    @IBAction func leftButton(sender: AnyObject) {
+        dayChange -= 1
+        getDate()
+    }
     
     // MARK: Tableview Delgates
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -188,17 +214,14 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
 
         if section == 2 {
             footerView?.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
-         //   footerView?.backgroundColor = UIColor.blueColor()
-            let dunamicButton = UIButton(type: UIButtonType.System) as UIButton
+            let dynamicButton = UIButton(type: UIButtonType.System) as UIButton
             
-         //   let dunamicButton = UIButton(frame: CGRectMake(footerView!.center.x, footerView!.center.y, 200, 20))
-            dunamicButton.backgroundColor = UIColor.darkGrayColor()
-            dunamicButton.setTitle("Nutrition Summary", forState: UIControlState.Normal)
-            dunamicButton.frame = CGRectMake(footerView!.center.x/2, footerView!.center.y/2,  tableView.frame.size.width/2, 30)
+            dynamicButton.backgroundColor = UIColor.darkGrayColor()
+            dynamicButton.setTitle("Nutrition Summary", forState: UIControlState.Normal)
+            dynamicButton.frame = CGRectMake(footerView!.center.x/2, footerView!.center.y/2,  tableView.frame.size.width/2, 30)
 
-          //  dunamicButton.addTarget(self, action: Selector("buttonTouched"), forControlEvents: UIControlEvents.TouchUpInside)
-            dunamicButton.addTarget(self, action: #selector(MealsViewController_1.summaryButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-            footerView?.addSubview(dunamicButton)
+            dynamicButton.addTarget(self, action: #selector(MealsViewController_1.summaryButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            footerView?.addSubview(dynamicButton)
         }
 
         

@@ -967,7 +967,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ef9-Yg-fZL">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="36" width="600" height="564"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.001" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1055,7 +1055,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFF-Oq-MvW">
-                                                    <rect key="frame" x="269" y="13" width="62.5" height="17"/>
+                                                    <rect key="frame" x="269" y="13" width="63" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1069,25 +1069,69 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjA-KQ-zZf">
+                                <rect key="frame" x="45" y="64" width="510" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Bi8-6X-qgi"/>
+                                    <constraint firstAttribute="width" constant="510" id="aNq-QE-DpS"/>
+                                    <constraint firstAttribute="height" constant="35" id="sVQ-hL-6zG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Bi8-6X-qgi"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CJ-Ym-o9b">
+                                <rect key="frame" x="0.0" y="64" width="45" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="WVs-YG-IGt"/>
+                                    <constraint firstAttribute="height" constant="35" id="l1a-fl-07T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="〈  "/>
+                                <connections>
+                                    <action selector="leftButton:" destination="QRk-Sz-M0S" eventType="touchUpInside" id="6f6-Tg-KK2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wO-nf-Hh7">
+                                <rect key="frame" x="555" y="64" width="45" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4e3-FC-OzB"/>
+                                    <constraint firstAttribute="width" constant="45" id="gdK-fh-3lO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="〉"/>
+                                <connections>
+                                    <action selector="rightButton:" destination="QRk-Sz-M0S" eventType="touchUpInside" id="PNV-9C-2fd"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ef9-Yg-fZL" firstAttribute="bottom" secondItem="hC0-Y1-D72" secondAttribute="top" id="2UE-Rh-3Vn"/>
-                            <constraint firstAttribute="trailing" secondItem="ef9-Yg-fZL" secondAttribute="trailing" id="4yl-bl-2QZ"/>
-                            <constraint firstItem="ef9-Yg-fZL" firstAttribute="centerY" secondItem="GTK-dU-ufH" secondAttribute="centerY" id="ESa-sN-Byq"/>
-                            <constraint firstItem="ef9-Yg-fZL" firstAttribute="centerX" secondItem="GTK-dU-ufH" secondAttribute="centerX" id="NbZ-Cb-1S7"/>
-                            <constraint firstItem="ef9-Yg-fZL" firstAttribute="top" secondItem="GTK-dU-ufH" secondAttribute="top" id="aFs-1H-4nb"/>
-                            <constraint firstItem="ef9-Yg-fZL" firstAttribute="leading" secondItem="GTK-dU-ufH" secondAttribute="leading" id="nBC-88-4uD"/>
+                            <constraint firstItem="bjA-KQ-zZf" firstAttribute="leading" secondItem="8CJ-Ym-o9b" secondAttribute="trailing" id="2O2-tV-kT6"/>
+                            <constraint firstAttribute="trailing" secondItem="0wO-nf-Hh7" secondAttribute="trailing" id="6rG-Vl-2CS"/>
+                            <constraint firstAttribute="trailing" secondItem="ef9-Yg-fZL" secondAttribute="trailing" id="9s1-7J-qOB"/>
+                            <constraint firstItem="hC0-Y1-D72" firstAttribute="top" secondItem="ef9-Yg-fZL" secondAttribute="bottom" id="Dkf-Qg-Rph"/>
+                            <constraint firstItem="0wO-nf-Hh7" firstAttribute="leading" secondItem="bjA-KQ-zZf" secondAttribute="trailing" id="FAl-uJ-FBF"/>
+                            <constraint firstItem="0wO-nf-Hh7" firstAttribute="top" secondItem="t0E-Lb-Gdl" secondAttribute="bottom" id="HZx-VF-503"/>
+                            <constraint firstItem="8CJ-Ym-o9b" firstAttribute="top" secondItem="t0E-Lb-Gdl" secondAttribute="bottom" id="LHw-jE-fVq"/>
+                            <constraint firstItem="bjA-KQ-zZf" firstAttribute="leading" secondItem="8CJ-Ym-o9b" secondAttribute="trailing" id="MDd-fC-QXZ"/>
+                            <constraint firstItem="ef9-Yg-fZL" firstAttribute="top" secondItem="GTK-dU-ufH" secondAttribute="top" constant="36" id="QpQ-sL-5sR"/>
+                            <constraint firstItem="bjA-KQ-zZf" firstAttribute="top" secondItem="t0E-Lb-Gdl" secondAttribute="bottom" id="Ukc-AG-DkR"/>
+                            <constraint firstItem="8CJ-Ym-o9b" firstAttribute="leading" secondItem="GTK-dU-ufH" secondAttribute="leading" id="ZvT-3Q-pe6"/>
+                            <constraint firstItem="ef9-Yg-fZL" firstAttribute="leading" secondItem="GTK-dU-ufH" secondAttribute="leading" id="cGm-2n-3lR"/>
+                            <constraint firstItem="0wO-nf-Hh7" firstAttribute="leading" secondItem="bjA-KQ-zZf" secondAttribute="trailing" id="tKH-La-NnU"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ESa-sN-Byq"/>
-                                <exclude reference="NbZ-Cb-1S7"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Dialysis Nutrition Tracker" id="67v-ug-am3"/>
                     <connections>
+                        <outlet property="dateLabel" destination="bjA-KQ-zZf" id="QEZ-zJ-Wv4"/>
                         <outlet property="mealsTableView_1" destination="ef9-Yg-fZL" id="xr7-hb-dev"/>
                         <segue destination="BYZ-38-t0r" kind="show" id="66h-V1-Lqo"/>
                         <segue destination="1ar-CR-ewa" kind="show" id="fV4-og-z38"/>
