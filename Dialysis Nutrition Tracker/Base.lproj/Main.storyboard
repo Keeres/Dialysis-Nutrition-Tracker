@@ -1088,10 +1088,10 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="〈  "/>
                                 <connections>
-                                    <action selector="leftButton:" destination="QRk-Sz-M0S" eventType="touchUpInside" id="6f6-Tg-KK2"/>
+                                    <action selector="dateButton:" destination="QRk-Sz-M0S" eventType="touchUpInside" id="WTY-sg-yaU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wO-nf-Hh7">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wO-nf-Hh7">
                                 <rect key="frame" x="555" y="64" width="45" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1101,7 +1101,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="〉"/>
                                 <connections>
-                                    <action selector="rightButton:" destination="QRk-Sz-M0S" eventType="touchUpInside" id="PNV-9C-2fd"/>
+                                    <action selector="dateButton:" destination="QRk-Sz-M0S" eventType="touchUpInside" id="Nfk-MV-6pM"/>
                                 </connections>
                             </button>
                         </subviews>

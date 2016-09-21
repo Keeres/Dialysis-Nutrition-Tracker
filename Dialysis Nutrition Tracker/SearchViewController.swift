@@ -15,7 +15,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var ndbnoList = [String]()
     var mealType = String?()
     var foodIndex = Int?()
-    var date: NSDate?
+    var date: String?
     
  //   weak var delegate:MyProtocol?
     var mealsViewController: MealsViewController_1? = MealsViewController_1()

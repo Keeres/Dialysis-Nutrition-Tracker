@@ -22,7 +22,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     var meals = [[Food]]()          // contains breakfast, lunch, and dinner array
     var nutrientList : [[String]]?
     var addedFood:Food?
-    var date:NSDate?
+    var date:String?
     var foodIndex:Int?
     var dayChange = 0
     
@@ -39,20 +39,10 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         meals = [breakfast, lunch , dinner]
         self.mealsTableView_1.backgroundColor = UIColor(red: 209.0/255.0, green: 209.0/255.0, blue: 209.0/255.0, alpha: 1.0)
         foodIndex = 0
-
-        getDate()
-        let fetched = fetchedResultsController
-        fetched.delegate = self
-        try! fetched.performFetch()
         
-        foods = fetched.fetchedObjects as? [Food]!
-   
-        if foods!.count != 0{
-            foodIndex = foods!.count
-            organizeMeals()
-           // getMaxNutrientCount(foods!)
-        }
-    
+        getDate()
+        performFetch()
+        
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green: 87.0/255.0, blue: 183.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -67,16 +57,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         self.mealsTableView_1.separatorInset  = UIEdgeInsetsZero
     }
     
-    // MARK: Buttonn
-    func summaryButton(sender:UIButton!){
-        let summaryController = storyboard!.instantiateViewControllerWithIdentifier("SummaryView") as! SummaryViewController
-        summaryController.breakfast = self.breakfast
-        summaryController.lunch = self.lunch
-        summaryController.dinner = self.dinner
-    //    summaryController.nutrientList = self.nutrientList!
-        self.navigationController?.pushViewController(summaryController, animated: true)
-    }
-
+ 
     // MARK: Organize Meals
     func organizeMeals(){
         for food in self.foods!{
@@ -90,29 +71,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         }
         meals = [breakfast, lunch, dinner]
     }
-    
-   /* func getMaxNutrientCount(foods:[Food]){
-        var index = 0
-        var maxNurientCount = 0
-        for i in 0..<foods.count{
-            if foods[i].nutrients.count > maxNurientCount{
-                maxNurientCount = foods[i].nutrients.count
-                index = i
-            }
-        }
-        getNutrientList(foods[index].nutrients)
-    }
-    
-    func getNutrientList(nutrients:[Nutrient]){
-        
-        nutrientList = [[String]](count: nutrients.count, repeatedValue: [String](count: 2, repeatedValue: ""))
 
-        for i in 0..<nutrients.count{
-            nutrientList![i][0] = nutrients[i].nutrientName
-            nutrientList![i][1] = nutrients[i].unit
-        }
-    }
-    */
     // MARK: NSNotification func
     // updates serving size that user seleceted
     func updateMeals(notification: NSNotification){
@@ -126,24 +85,74 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.mealsTableView_1.reloadData()
     }
+    
+    // MARK: Date
+    var currentDate: NSDate {
+        return NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: dayChange, toDate: NSDate(), options: [])!
+    }
+    
+    
+    func getDate(){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM dd, yyyy"
+        date = dateFormatter.stringFromDate(currentDate)
+        dateLabel.text = date
+    }
+    
+    
+    
    
     // Mark: Fetch Results
-    lazy var fetchedResultsController: NSFetchedResultsController = {
-        
+    func fetchRequest(date: String) -> NSFetchedResultsController{
         let fetchRequest = NSFetchRequest(entityName: "Food")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
-        fetchRequest.predicate = nil
         
+        fetchRequest.predicate = NSPredicate(format: "(date == %@)", date)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: self.sharedContext,
                                                                   sectionNameKeyPath: nil,
                                                                   cacheName: nil)
         return fetchedResultsController
+    }
+    
+    
+    func performFetch(){
+        let fetched = fetchRequest(date!)
+        fetched.delegate = self
+        try! fetched.performFetch()
         
-    }()
+        foods = fetched.fetchedObjects as? [Food]!
+        print(foods?.count)
+        if foods!.count != 0{
+            foodIndex = foods!.count
+            organizeMeals()
+        }
+    }
+    
+    
+    // MARK: Buttonn
+    func summaryButton(sender:UIButton!){
+        let summaryController = storyboard!.instantiateViewControllerWithIdentifier("SummaryView") as! SummaryViewController
+        summaryController.breakfast = self.breakfast
+        summaryController.lunch = self.lunch
+        summaryController.dinner = self.dinner
+        self.navigationController?.pushViewController(summaryController, animated: true)
+    }
+
+    @IBAction func dateButton(sender: AnyObject) {
+        if sender.tag == 0{
+            dayChange -= 1
+        }else if(sender.tag == 1){
+            dayChange += 1
+        }
+        removeData()
+        getDate()
+        performFetch()
+        mealsTableView_1.reloadData()
+    }
     
     func entryUpdatedServingSize(newServingSize: String, newNumberOfServings:Float, updateIndex:Int) {
-
+        
         self.foods![updateIndex].servingSize = newServingSize
         self.foods![updateIndex].numberOfServings = newNumberOfServings
         foodIndex = self.foods?.count
@@ -154,29 +163,15 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
-    // MARK: Get Date
-    var oneDayfromNow: NSDate {
-        return NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: dayChange, toDate: NSDate(), options: [])!
-    }
     
-    
-    func getDate(){
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM dd, yyyy"
-        date = oneDayfromNow
-        let dateString = dateFormatter.stringFromDate(date!)
-        print(date)
-        dateLabel.text = dateString
-    }
-    
-    @IBAction func rightButton(sender: AnyObject) {
-        dayChange += 1
-        getDate()
-    }
-    
-    @IBAction func leftButton(sender: AnyObject) {
-        dayChange -= 1
-        getDate()
+    func removeData(){
+        for i in 0..<meals.count{
+            meals[i].removeAll()
+        }
+        foods?.removeAll()
+        breakfast.removeAll()
+        lunch.removeAll()
+        dinner.removeAll()
     }
     
     // MARK: Tableview Delgates
@@ -224,8 +219,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             dynamicButton.addTarget(self, action: #selector(MealsViewController_1.summaryButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             footerView?.addSubview(dynamicButton)
         }
-
-        
         
         return footerView
     }
@@ -253,7 +246,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             cell.layoutMargins = UIEdgeInsetsZero
             cell.foodLabel!.text = meals[indexPath.section][indexPath.row].name
             cell.foodLabel!.numberOfLines = 2
-            cell.foodLabel!.minimumScaleFactor = 0.75
+            cell.foodLabel!.minimumScaleFactor = 1
             cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
             cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
             cell.foodLabel!.adjustsFontSizeToFitWidth = true

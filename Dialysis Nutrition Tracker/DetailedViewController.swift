@@ -17,7 +17,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     var numberOfServings: Float?
     var servingSize: String?
     var mealType: String?
-    var date : NSDate?
+    var date : String?
 
     var food:Food!
     var nutrients = [Nutrient]()
