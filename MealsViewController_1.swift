@@ -122,7 +122,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         try! fetched.performFetch()
         
         foods = fetched.fetchedObjects as? [Food]!
-        print(foods?.count)
         if foods!.count != 0{
             foodIndex = foods!.count
             organizeMeals()
@@ -150,9 +149,8 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         performFetch()
         mealsTableView_1.reloadData()
     }
-    
+
     func entryUpdatedServingSize(newServingSize: String, newNumberOfServings:Float, updateIndex:Int) {
-        
         self.foods![updateIndex].servingSize = newServingSize
         self.foods![updateIndex].numberOfServings = newNumberOfServings
         foodIndex = self.foods?.count
@@ -275,16 +273,15 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             }
             searchViewController.foodIndex = self.foodIndex
             searchViewController.date = self.date;
-         //   searchViewController.delegate = self
             self.navigationController?.pushViewController(searchViewController, animated: true)
         }else{
+            let detailedViewController = storyboard!.instantiateViewControllerWithIdentifier("DetailedView") as! DetailedViewController
+            detailedViewController.food = meals[indexPath.section][indexPath.row]
+            detailedViewController.nutrients = meals[indexPath.section][indexPath.row].nutrients
+            detailedViewController.isEdit = true
+            detailedViewController.delegate = self
             
-            let editEntryController = storyboard!.instantiateViewControllerWithIdentifier("EditEntry") as! EditEntryViewController
-            editEntryController.food = meals[indexPath.section][indexPath.row]
-            editEntryController.nutrients = meals[indexPath.section][indexPath.row].nutrients
-            editEntryController.editViewDelegate = self
-            
-            self.navigationController?.pushViewController(editEntryController, animated: true)
+            self.navigationController?.pushViewController(detailedViewController, animated: true)
         }
     }
 }

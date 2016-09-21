@@ -60,7 +60,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("FoodItemCell")! as UITableViewCell
         cell.textLabel!.numberOfLines = 2
-        cell.textLabel!.minimumScaleFactor = 0.75
+        cell.textLabel!.minimumScaleFactor = 1
         cell.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
         cell.textLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         cell.textLabel!.adjustsFontSizeToFitWidth = true
@@ -87,7 +87,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 detailedViewController.foodIndex = self.foodIndex!
                 detailedViewController.nutrientsArray = nutrientsArray!
                 detailedViewController.date = self.date!
-         //       detailedViewController.delegate = self.mealsViewController
+                detailedViewController.isEdit = false
+                detailedViewController.delegate = self.mealsViewController
                 
                 dispatch_async(dispatch_get_main_queue(),{
                     self.navigationController?.pushViewController(detailedViewController, animated: true)

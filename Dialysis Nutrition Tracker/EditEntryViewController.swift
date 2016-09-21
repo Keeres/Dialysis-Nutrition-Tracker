@@ -22,6 +22,7 @@ class EditEntryViewController: UIViewController, UITableViewDelegate, UITableVie
     var measurementsDictionary = [[String:String]]()
   //  weak var delegate:MyProtocol?
     weak var editViewDelegate: MealsViewController_1?
+    var overviewValue : [Float] = [0, 0, 0 ,0]             // index path used retriving nutrient data in overviewCell
 
     let cellHeight = 44
     var frameHeight:CGFloat?
@@ -58,6 +59,7 @@ class EditEntryViewController: UIViewController, UITableViewDelegate, UITableVie
         self.getNutrientList()
         self.servingSizesList()
         self.setUpMeasurementsDictionary()
+        self.getOverviewValue()
     }
     
     // MARK: Set up
@@ -65,7 +67,6 @@ class EditEntryViewController: UIViewController, UITableViewDelegate, UITableVie
     func servingSizesList(){
         // valueForKey return NSSet, use allobject to conver to NSArray
         let measurements = nutrients[0].valueForKey("measurements")?.valueForKey("key")?.allObjects
-        
         for measurement in measurements! {
             servingSizes.append(measurement as! String)
         }
@@ -86,23 +87,23 @@ class EditEntryViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // retreive the list of nutrients from the food
     func getNutrientList(){
-        var index:Int = 0
-        
         for nutrient in nutrients{
             nutrientList.append(nutrient.nutrientName)
             nutrientUnit.append(nutrient.unit)
-            print(nutrient.nutrientName)
-            if nutrient.nutrientName == "Phosphorus, P"{
-                overviewIndexPath[0] = index
-            }else if nutrient.nutrientName == "Potassium, K"{
-                overviewIndexPath[1] = index
-            }else if nutrient.nutrientName == "Protein"{
-                overviewIndexPath[2] = index
-            }else if nutrient.nutrientName == "Energy"{
-                overviewIndexPath[3] = index
+        }
+    }
+    
+    func getOverviewValue(){
+        for i in 0..<nutrientList.count{
+            if nutrientList[i] == "Phosphorus, P"{
+                overviewValue[0] = Float(measurementsDictionary[i][servingSize!]!)!
+            }else if nutrientList[i] == "Potassium, K"{
+                overviewValue[1] = Float(measurementsDictionary[i][servingSize!]!)!
+            }else if nutrientList[i] == "Protein"{
+                overviewValue[2] = Float(measurementsDictionary[i][servingSize!]!)!
+            }else if nutrientList[i] == "Energy"{
+                overviewValue[3] = Float(measurementsDictionary[i][servingSize!]!)!
             }
-            
-            index = index + 1
         }
     }
     

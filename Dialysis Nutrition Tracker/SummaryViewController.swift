@@ -80,17 +80,13 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         var sum = [Float](count: nutrientNames.count, repeatedValue: 0.0)
 
         for food in meal{
-            // for nutrient in food.nutrients{
             for i in 0..<food.nutrients.count{
                 for j in 0..<nutrientNames.count{
                     if food.nutrients[i].nutrientName == nutrientNames[j]{
-                      //  var dict = [String:String]()
                         
                         for measurement in food.nutrients[i].measurements{
-                        //    dict[measurement.valueForKey("key") as! String] = measurement.valueForKey("value") as? String
                             if measurement.valueForKey("key") as! String == food.servingSize{
                                 sum[j] += Float(measurement.valueForKey("value") as! String)!*food.numberOfServings
-                                //print(measurement.valueForKey("value") as? String)
                             }
                         }
                     }

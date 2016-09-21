@@ -18,7 +18,9 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     var servingSize: String?
     var mealType: String?
     var date : String?
-
+    var updateIndex:Int?
+    var isEdit:Bool?
+    
     var food:Food!
     var nutrients = [Nutrient]()
     var servingSizes = [String]()           // serving sizes available for the food
@@ -27,9 +29,8 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     var nutrientsArray = [[String:AnyObject]]()
     var measurementsDictionary = [[String:String]]()
     var overviewValue : [Float] = [0, 0, 0 ,0]             // index path used retriving nutrient data in overviewCell
+    weak var delegate: MealsViewController_1?
 
-  //  weak var delegate:MyProtocol?
-    
     let transition = Animator()
     var numberPadToolBar: UIToolbar?
  
@@ -47,14 +48,30 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         self.detailedTableView.layoutMargins = UIEdgeInsetsZero
         self.detailedTableView.separatorInset  = UIEdgeInsetsZero
         
-        self.navigationItem.title = "Add Food"
+        if(isEdit == true){
+            self.numberOfServings = food.numberOfServings
+            self.servingSize = food.servingSize
+            self.updateIndex = food.index
+            self.foodName = food.name
+            
+            self.getNutrientList()
+            self.servingSizesList()
+            self.setUpMeasurementsDictionary()
+            self.getOverviewValue()
+            self.navigationItem.title = "Edit Entry"
+
+
+        }else{
+            numberOfServings = 1
+            parseNutrientsArray()
+            customBackButton()
+            self.navigationItem.title = "Add Food"
+        }
+        
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         navigationController?.navigationBar.barTintColor = UIColor(red: 0.0/255.0, green: 87.0/255.0, blue: 183.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        numberOfServings = 1
-    
-        parseNutrientsArray()
-        customBackButton()
+      
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DetailedViewController.updateTable(_:)),name:"updateTable", object: nil)
     }
     
@@ -71,6 +88,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
                     print("error parsing measurements")
                     return
                 }
+                print(measurementsList.count)
                 for measurement in measurementsList{
                     let label = measurement["label"] as? String
                     let value = measurement["value"] as? String
@@ -95,12 +113,12 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: Custom Back Button
     func customBackButton(){
         self.navigationItem.hidesBackButton = true;
-        let newBackButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(DetailedViewController.bakcButton(_:)))
+        let newBackButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(DetailedViewController.cancelButton(_:)))
 
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     
-    func bakcButton(sender:UIBarButtonItem!){
+    func cancelButton(sender:UIBarButtonItem!){
         self.sharedContext.deleteObject(food)
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -187,9 +205,23 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     @IBAction func addButton(sender: AnyObject) {
+        
+        if (isEdit != nil) && isEdit == true{
+            finishedEdit()
+        }else{
+            addFood()
+        }
+        let delay = 0.1 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().postNotificationName("updateMeals", object: nil)
+        }
+    }
+    
+    func addFood(){
         food.setValue(self.numberOfServings, forKey: "numberOfServings")
         food.setValue(self.servingSize, forKey: "servingSize")
-
+        
         do {
             try self.sharedContext.save()
         } catch {
@@ -207,12 +239,16 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         mealsViewController.foods?.append(food)
         mealsViewController.foodIndex = mealsViewController.foods?.count
         self.navigationController?.popToViewController(mealsViewController, animated: true)
+    }
+    
+    func finishedEdit(){
+     
+        done()
         
-        let delay = 0.1 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            NSNotificationCenter.defaultCenter().postNotificationName("updateMeals", object: nil)
-        }
+        delegate!.entryUpdatedServingSize(self.servingSize!, newNumberOfServings: self.numberOfServings!, updateIndex: self.updateIndex!)
+        
+        let mealsViewController = self.navigationController?.viewControllers[0] as! MealsViewController_1
+        self.navigationController?.popToViewController(mealsViewController, animated: true)
     }
     
     // MARK: Table Delgate Functions
@@ -231,15 +267,13 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        //let cell = UITableViewCell()
-        //return cell
-        
+    
         if indexPath.row  == 0{
             let foodNameCell = tableView.dequeueReusableCellWithIdentifier("FoodNameCell", forIndexPath: indexPath) as! FoodNameCell
             foodNameCell.layoutMargins = UIEdgeInsetsZero
             foodNameCell.foodNameLabel.text = foodName
             foodNameCell.foodNameLabel!.numberOfLines = 2
-            foodNameCell.foodNameLabel!.minimumScaleFactor = 0.75
+            foodNameCell.foodNameLabel!.minimumScaleFactor = 1
             foodNameCell.foodNameLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
             foodNameCell.foodNameLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
             foodNameCell.foodNameLabel!.adjustsFontSizeToFitWidth = true
