@@ -15,6 +15,7 @@ class Food:NSManagedObject {
     @NSManaged var mealType : String
     @NSManaged var servingSize: String
     @NSManaged var numberOfServings: Float
+    @NSManaged var date:NSDate
     @NSManaged var index:Int
     @NSManaged var nutrients : [Nutrient]
     
@@ -22,7 +23,7 @@ class Food:NSManagedObject {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(name:String, ndbno:String, mealType:String, index:Int, numberOfServings:Float, context:NSManagedObjectContext){
+    init(name:String, ndbno:String, mealType:String, index:Int, numberOfServings:Float, date:NSDate, context:NSManagedObjectContext){
         if let entity =  NSEntityDescription.entityForName("Food", inManagedObjectContext: context){
              super.init(entity: entity, insertIntoManagedObjectContext: context)
             
@@ -31,6 +32,7 @@ class Food:NSManagedObject {
             self.mealType = mealType
             self.index = index
             self.numberOfServings = numberOfServings
+            self.date = date
         }else{
             fatalError("Unable to find Entity name!")
         }

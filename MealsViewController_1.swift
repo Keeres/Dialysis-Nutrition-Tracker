@@ -22,7 +22,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     var meals = [[Food]]()          // contains breakfast, lunch, and dinner array
     var nutrientList : [[String]]?
     var addedFood:Food?
-    var index:Int?
+    var date:NSDate?
     var foodIndex:Int?
     var dayChange = 0
     
@@ -50,7 +50,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         if foods!.count != 0{
             foodIndex = foods!.count
             organizeMeals()
-            getMaxNutrientCount(foods!)
+           // getMaxNutrientCount(foods!)
         }
     
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -91,7 +91,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         meals = [breakfast, lunch, dinner]
     }
     
-    func getMaxNutrientCount(foods:[Food]){
+   /* func getMaxNutrientCount(foods:[Food]){
         var index = 0
         var maxNurientCount = 0
         for i in 0..<foods.count{
@@ -112,7 +112,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             nutrientList![i][1] = nutrients[i].unit
         }
     }
-    
+    */
     // MARK: NSNotification func
     // updates serving size that user seleceted
     func updateMeals(notification: NSNotification){
@@ -163,9 +163,10 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     func getDate(){
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM dd, yyyy"
-        let date = dateFormatter.stringFromDate(oneDayfromNow)
+        date = oneDayfromNow
+        let dateString = dateFormatter.stringFromDate(date!)
         print(date)
-        dateLabel.text = date
+        dateLabel.text = dateString
     }
     
     @IBAction func rightButton(sender: AnyObject) {
@@ -280,6 +281,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
                 searchViewController.mealType = "none"
             }
             searchViewController.foodIndex = self.foodIndex
+            searchViewController.date = self.date;
          //   searchViewController.delegate = self
             self.navigationController?.pushViewController(searchViewController, animated: true)
         }else{

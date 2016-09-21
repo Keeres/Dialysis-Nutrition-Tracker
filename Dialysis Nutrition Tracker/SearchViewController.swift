@@ -15,6 +15,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var ndbnoList = [String]()
     var mealType = String?()
     var foodIndex = Int?()
+    var date: NSDate?
+    
  //   weak var delegate:MyProtocol?
     var mealsViewController: MealsViewController_1? = MealsViewController_1()
 
@@ -84,6 +86,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 detailedViewController.mealType = self.mealType!
                 detailedViewController.foodIndex = self.foodIndex!
                 detailedViewController.nutrientsArray = nutrientsArray!
+                detailedViewController.date = self.date!
          //       detailedViewController.delegate = self.mealsViewController
                 
                 dispatch_async(dispatch_get_main_queue(),{

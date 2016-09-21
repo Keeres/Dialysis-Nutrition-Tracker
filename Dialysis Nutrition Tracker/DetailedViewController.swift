@@ -17,7 +17,8 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     var numberOfServings: Float?
     var servingSize: String?
     var mealType: String?
-    
+    var date : NSDate?
+
     var food:Food!
     var nutrients = [Nutrient]()
     var servingSizes = [String]()           // serving sizes available for the food
@@ -59,7 +60,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func parseNutrientsArray(){
         
-        self.food = Food(name: foodName!, ndbno: foodNdbno!, mealType: self.mealType!, index: self.foodIndex!, numberOfServings:self.numberOfServings!, context: self.sharedContext)
+        self.food = Food(name: foodName!, ndbno: foodNdbno!, mealType: self.mealType!, index: self.foodIndex!, numberOfServings:self.numberOfServings!, date:self.date!, context: self.sharedContext)
             
             for nutrition in nutrientsArray{
                 let name = nutrition["name"] as? String

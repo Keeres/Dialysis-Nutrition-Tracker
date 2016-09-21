@@ -1073,17 +1073,10 @@
                                 <rect key="frame" x="45" y="64" width="510" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Bi8-6X-qgi"/>
-                                    <constraint firstAttribute="width" constant="510" id="aNq-QE-DpS"/>
                                     <constraint firstAttribute="height" constant="35" id="sVQ-hL-6zG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Bi8-6X-qgi"/>
-                                    </mask>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CJ-Ym-o9b">
                                 <rect key="frame" x="0.0" y="64" width="45" height="35"/>
@@ -1114,11 +1107,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bjA-KQ-zZf" firstAttribute="leading" secondItem="8CJ-Ym-o9b" secondAttribute="trailing" id="2O2-tV-kT6"/>
                             <constraint firstAttribute="trailing" secondItem="0wO-nf-Hh7" secondAttribute="trailing" id="6rG-Vl-2CS"/>
                             <constraint firstAttribute="trailing" secondItem="ef9-Yg-fZL" secondAttribute="trailing" id="9s1-7J-qOB"/>
                             <constraint firstItem="hC0-Y1-D72" firstAttribute="top" secondItem="ef9-Yg-fZL" secondAttribute="bottom" id="Dkf-Qg-Rph"/>
-                            <constraint firstItem="0wO-nf-Hh7" firstAttribute="leading" secondItem="bjA-KQ-zZf" secondAttribute="trailing" id="FAl-uJ-FBF"/>
                             <constraint firstItem="0wO-nf-Hh7" firstAttribute="top" secondItem="t0E-Lb-Gdl" secondAttribute="bottom" id="HZx-VF-503"/>
                             <constraint firstItem="8CJ-Ym-o9b" firstAttribute="top" secondItem="t0E-Lb-Gdl" secondAttribute="bottom" id="LHw-jE-fVq"/>
                             <constraint firstItem="bjA-KQ-zZf" firstAttribute="leading" secondItem="8CJ-Ym-o9b" secondAttribute="trailing" id="MDd-fC-QXZ"/>
