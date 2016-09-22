@@ -15,7 +15,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var dateLabel: UILabel!
     
     var foods:[Food]?               // All Food consumed, out of order in terms of breakfast, lunch, dinner
-    var loadFromDisk:Bool?
     var breakfast = [Food]()
     var lunch = [Food]()
     var dinner = [Food]()
@@ -56,7 +55,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         self.mealsTableView_1.layoutMargins = UIEdgeInsetsZero
         self.mealsTableView_1.separatorInset  = UIEdgeInsetsZero
     }
-    
  
     // MARK: Organize Meals
     func organizeMeals(){
@@ -91,7 +89,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         return NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: dayChange, toDate: NSDate(), options: [])!
     }
     
-    
     func getDate(){
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM dd, yyyy"
@@ -99,9 +96,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         dateLabel.text = date
     }
     
-    
-    
-   
     // Mark: Fetch Results
     func fetchRequest(date: String) -> NSFetchedResultsController{
         let fetchRequest = NSFetchRequest(entityName: "Food")
@@ -127,7 +121,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             organizeMeals()
         }
     }
-    
     
     // MARK: Buttonn
     func summaryButton(sender:UIButton!){
@@ -161,7 +154,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
-    
     func removeData(){
         for i in 0..<meals.count{
             meals[i].removeAll()
@@ -190,15 +182,18 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         default:
             headerCell.headerLabel.text = " ";
         }
-        
-        return headerCell
-    }
-   
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        headerCell.contentView.backgroundColor = UIColor(red: 0.0/255.0, green: 87.0/255.0, blue: 183.0/255.0, alpha: 1.0)
 
+        return headerCell.contentView
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return meals[section].count + 1
     }
-  
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
@@ -218,9 +213,8 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             footerView?.addSubview(dynamicButton)
         }
         
-        return footerView
+        return footerView!
     }
-    
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 2{
@@ -229,7 +223,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             return 10
         }
     }
-    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
@@ -282,6 +275,33 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             detailedViewController.delegate = self
             
             self.navigationController?.pushViewController(detailedViewController, animated: true)
+        }
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete{
+            let food = meals[indexPath.section][indexPath.row]
+         
+            switch (indexPath.section) {
+            case 0:
+                breakfast.removeAtIndex(indexPath.row)
+            case 1:
+                lunch.removeAtIndex(indexPath.row)
+            case 2:
+                dinner.removeAtIndex(indexPath.row)
+            default:
+                    print("error")
+            }
+            meals[indexPath.section].removeAtIndex(indexPath.row)
+            sharedContext.deleteObject(food)
+
+            do {
+                try self.sharedContext.save()
+            } catch {
+                print("save to core data failed")
+            }
+
+            mealsTableView_1.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
     }
 }
