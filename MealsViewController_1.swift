@@ -203,14 +203,16 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
 
         if section == 2 {
             footerView?.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
-            let dynamicButton = UIButton(type: UIButtonType.System) as UIButton
+            let summaryButton = UIButton(type: UIButtonType.System) as UIButton
             
-            dynamicButton.backgroundColor = UIColor.darkGrayColor()
-            dynamicButton.setTitle("Nutrition Summary", forState: UIControlState.Normal)
-            dynamicButton.frame = CGRectMake(footerView!.center.x/2, footerView!.center.y/2,  tableView.frame.size.width/2, 30)
-
-            dynamicButton.addTarget(self, action: #selector(MealsViewController_1.summaryButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-            footerView?.addSubview(dynamicButton)
+            summaryButton.backgroundColor = UIColor.darkGrayColor()
+            summaryButton.tintColor = UIColor.whiteColor()
+            summaryButton.setTitle("Nutrition Summary", forState: UIControlState.Normal)
+            summaryButton.frame = CGRectMake(footerView!.center.x/2, footerView!.center.y/2,  tableView.frame.size.width/2, 30)
+            summaryButton.layer.cornerRadius = 5; // this value vary as per your desire
+            summaryButton.clipsToBounds = true;
+            summaryButton.addTarget(self, action: #selector(MealsViewController_1.summaryButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            footerView?.addSubview(summaryButton)
         }
         
         return footerView!
