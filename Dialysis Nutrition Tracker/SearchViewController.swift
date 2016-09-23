@@ -100,10 +100,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // MARK: Buttons
+    let buttonDownImage = UIImage(named: "Button Down")!
+    let buttonUpImage = UIImage(named: "Button")!
     @IBAction func searchButton(sender: AnyObject) {
         foodNames.removeAll()
         ndbnoList.removeAll()
         USDARequest()
     }
+    @IBOutlet weak var standardButton: RadioButton!
+    @IBAction func standardButton(sender: AnyObject) {
+    }
+    
+    @IBOutlet weak var brandedButton: RadioButton!
+    
+    @IBAction func brandedButton(sender: AnyObject) {
+    }
+    
 }
 

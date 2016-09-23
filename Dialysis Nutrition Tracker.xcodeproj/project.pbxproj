@@ -19,6 +19,7 @@
 		AD16600B1D5F936100847B01 /* EditViewOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16600A1D5F936100847B01 /* EditViewOverviewCell.swift */; };
 		AD16600D1D5F936C00847B01 /* EditViewMealTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16600C1D5F936C00847B01 /* EditViewMealTypeCell.swift */; };
 		AD3074FA1D3599D900B4F8EA /* ServingSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */; };
+		AD4F5CE81D95981300283385 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F5CE71D95981300283385 /* RadioButton.swift */; };
 		AD68428F1D5252AE00BE429D /* NutrientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68428E1D5252AE00BE429D /* NutrientCell.swift */; };
 		AD6842951D53990B00BE429D /* MealsViewController_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6842941D53990B00BE429D /* MealsViewController_1.swift */; };
 		AD68429B1D539C4A00BE429D /* AddFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68429A1D539C4A00BE429D /* AddFoodCell.swift */; };
@@ -78,6 +79,7 @@
 		AD16600A1D5F936100847B01 /* EditViewOverviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewOverviewCell.swift; sourceTree = "<group>"; };
 		AD16600C1D5F936C00847B01 /* EditViewMealTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewMealTypeCell.swift; sourceTree = "<group>"; };
 		AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingSizeController.swift; sourceTree = "<group>"; };
+		AD4F5CE71D95981300283385 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		AD68428E1D5252AE00BE429D /* NutrientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientCell.swift; sourceTree = "<group>"; };
 		AD6842941D53990B00BE429D /* MealsViewController_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealsViewController_1.swift; path = ../MealsViewController_1.swift; sourceTree = "<group>"; };
 		AD68429A1D539C4A00BE429D /* AddFoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodCell.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				ADDA3DE31D394FE700D55C9B /* Animator.swift */,
 				ADD961801D8F3ABE004332D6 /* AlertView.swift */,
 				ADD046171D26DA0B009EE361 /* Main.storyboard */,
+				AD4F5CE71D95981300283385 /* RadioButton.swift */,
 				ADD9617E1D8DA174004332D6 /* NutrientList.plist */,
 				ADD0461D1D26DA0B009EE361 /* Assets.xcassets */,
 				ADD0461F1D26DA0B009EE361 /* LaunchScreen.storyboard */,
@@ -436,6 +439,7 @@
 				AD16600D1D5F936C00847B01 /* EditViewMealTypeCell.swift in Sources */,
 				AD68428F1D5252AE00BE429D /* NutrientCell.swift in Sources */,
 				AD165FFC1D5BF2AA00847B01 /* MealsCell.swift in Sources */,
+				AD4F5CE81D95981300283385 /* RadioButton.swift in Sources */,
 				AD6842A31D56418500BE429D /* Model.xcdatamodeld in Sources */,
 				AD689AE81D43B696003C2EE4 /* ServingSizeCell.swift in Sources */,
 				ADD0461C1D26DA0B009EE361 /* Dialysis_Nutrition_Tracker.xcdatamodeld in Sources */,
