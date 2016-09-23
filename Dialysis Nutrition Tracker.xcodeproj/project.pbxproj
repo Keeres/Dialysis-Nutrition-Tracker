@@ -11,13 +11,6 @@
 		AD0D177A1D2EC063000AED3A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D17791D2EC063000AED3A /* DetailedViewController.swift */; };
 		AD165FFC1D5BF2AA00847B01 /* MealsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD165FFB1D5BF2AA00847B01 /* MealsCell.swift */; };
 		AD165FFE1D5D0D0600847B01 /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD165FFD1D5D0D0600847B01 /* OverviewCell.swift */; };
-		AD1660001D5F8B8100847B01 /* EditEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD165FFF1D5F8B8100847B01 /* EditEntryViewController.swift */; };
-		AD1660031D5F930E00847B01 /* EditViewFoodNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1660021D5F930E00847B01 /* EditViewFoodNameCell.swift */; };
-		AD1660051D5F933800847B01 /* EditViewServingSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1660041D5F933800847B01 /* EditViewServingSizeCell.swift */; };
-		AD1660071D5F934900847B01 /* EditViewNumberOfServingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1660061D5F934900847B01 /* EditViewNumberOfServingsCell.swift */; };
-		AD1660091D5F935600847B01 /* EditViewNutrientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1660081D5F935600847B01 /* EditViewNutrientCell.swift */; };
-		AD16600B1D5F936100847B01 /* EditViewOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16600A1D5F936100847B01 /* EditViewOverviewCell.swift */; };
-		AD16600D1D5F936C00847B01 /* EditViewMealTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16600C1D5F936C00847B01 /* EditViewMealTypeCell.swift */; };
 		AD3074FA1D3599D900B4F8EA /* ServingSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */; };
 		AD4F5CE81D95981300283385 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F5CE71D95981300283385 /* RadioButton.swift */; };
 		AD68428F1D5252AE00BE429D /* NutrientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68428E1D5252AE00BE429D /* NutrientCell.swift */; };
@@ -71,13 +64,6 @@
 		AD0D17791D2EC063000AED3A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		AD165FFB1D5BF2AA00847B01 /* MealsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsCell.swift; sourceTree = "<group>"; };
 		AD165FFD1D5D0D0600847B01 /* OverviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCell.swift; sourceTree = "<group>"; };
-		AD165FFF1D5F8B8100847B01 /* EditEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditEntryViewController.swift; sourceTree = "<group>"; };
-		AD1660021D5F930E00847B01 /* EditViewFoodNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewFoodNameCell.swift; sourceTree = "<group>"; };
-		AD1660041D5F933800847B01 /* EditViewServingSizeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewServingSizeCell.swift; sourceTree = "<group>"; };
-		AD1660061D5F934900847B01 /* EditViewNumberOfServingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewNumberOfServingsCell.swift; sourceTree = "<group>"; };
-		AD1660081D5F935600847B01 /* EditViewNutrientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewNutrientCell.swift; sourceTree = "<group>"; };
-		AD16600A1D5F936100847B01 /* EditViewOverviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewOverviewCell.swift; sourceTree = "<group>"; };
-		AD16600C1D5F936C00847B01 /* EditViewMealTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewMealTypeCell.swift; sourceTree = "<group>"; };
 		AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingSizeController.swift; sourceTree = "<group>"; };
 		AD4F5CE71D95981300283385 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		AD68428E1D5252AE00BE429D /* NutrientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientCell.swift; sourceTree = "<group>"; };
@@ -140,19 +126,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AD1660011D5F92FA00847B01 /* EditEntryViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				AD1660021D5F930E00847B01 /* EditViewFoodNameCell.swift */,
-				AD1660041D5F933800847B01 /* EditViewServingSizeCell.swift */,
-				AD1660061D5F934900847B01 /* EditViewNumberOfServingsCell.swift */,
-				AD1660081D5F935600847B01 /* EditViewNutrientCell.swift */,
-				AD16600A1D5F936100847B01 /* EditViewOverviewCell.swift */,
-				AD16600C1D5F936C00847B01 /* EditViewMealTypeCell.swift */,
-			);
-			name = EditEntryViewCells;
-			sourceTree = "<group>";
-		};
 		AD6842981D539BFD00BE429D /* DetailedViewTableCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,13 +197,11 @@
 				ADD046151D26DA0B009EE361 /* SearchViewController.swift */,
 				AD0D17791D2EC063000AED3A /* DetailedViewController.swift */,
 				AD6842981D539BFD00BE429D /* DetailedViewTableCells */,
-				AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */,
 				AD6842941D53990B00BE429D /* MealsViewController_1.swift */,
 				AD6842991D539C2100BE429D /* MealsViewTableCells */,
 				ADEF58201D89F3090068105F /* SummaryViewController.swift */,
 				ADD9617B1D8C773F004332D6 /* SummaryViewCells */,
-				AD165FFF1D5F8B8100847B01 /* EditEntryViewController.swift */,
-				AD1660011D5F92FA00847B01 /* EditEntryViewCells */,
+				AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */,
 				ADDA3DE31D394FE700D55C9B /* Animator.swift */,
 				ADD961801D8F3ABE004332D6 /* AlertView.swift */,
 				ADD046171D26DA0B009EE361 /* Main.storyboard */,
@@ -418,9 +389,6 @@
 				AD68429B1D539C4A00BE429D /* AddFoodCell.swift in Sources */,
 				AD0D17781D2DB080000AED3A /* Food.swift in Sources */,
 				ADB844121D46ADB2000B537F /* NumberOfServingsCell.swift in Sources */,
-				AD1660071D5F934900847B01 /* EditViewNumberOfServingsCell.swift in Sources */,
-				AD1660091D5F935600847B01 /* EditViewNutrientCell.swift in Sources */,
-				AD16600B1D5F936100847B01 /* EditViewOverviewCell.swift in Sources */,
 				AD3074FA1D3599D900B4F8EA /* ServingSizeController.swift in Sources */,
 				ADD046481D26DC13009EE361 /* Constants.swift in Sources */,
 				AD0D177A1D2EC063000AED3A /* DetailedViewController.swift in Sources */,
@@ -428,15 +396,11 @@
 				ADD046461D26DA95009EE361 /* GDCBlackBox.swift in Sources */,
 				ADD0464A1D26DCA8009EE361 /* Client.swift in Sources */,
 				AD68429D1D53AA0400BE429D /* CustomHeaderCell.swift in Sources */,
-				AD1660051D5F933800847B01 /* EditViewServingSizeCell.swift in Sources */,
 				ADD046161D26DA0B009EE361 /* SearchViewController.swift in Sources */,
 				ADEF58221D89F3090068105F /* SummaryViewController.swift in Sources */,
-				AD1660001D5F8B8100847B01 /* EditEntryViewController.swift in Sources */,
 				AD6842A01D5640A100BE429D /* CoreDataStackManager.swift in Sources */,
 				AD689AE61D42B304003C2EE4 /* FoodNameCell.swift in Sources */,
 				ADD9617D1D8C7762004332D6 /* summaryCell.swift in Sources */,
-				AD1660031D5F930E00847B01 /* EditViewFoodNameCell.swift in Sources */,
-				AD16600D1D5F936C00847B01 /* EditViewMealTypeCell.swift in Sources */,
 				AD68428F1D5252AE00BE429D /* NutrientCell.swift in Sources */,
 				AD165FFC1D5BF2AA00847B01 /* MealsCell.swift in Sources */,
 				AD4F5CE81D95981300283385 /* RadioButton.swift in Sources */,

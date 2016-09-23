@@ -139,7 +139,9 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         for measurement in measurements! {
             servingSizes.append(measurement as! String)
         }
-        servingSize = servingSizes[0]
+        if(isEdit! == false){
+            servingSize = servingSizes[0]
+        }
     }
     
     func setUpMeasurementsDictionary(){
@@ -200,7 +202,6 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         servingSizeController.transitioningDelegate = self
         servingSizeController.delegate = self
         servingSizeController.servingSize = self.servingSize
-        servingSizeController.delegateInUse = 0
         self.presentViewController(servingSizeController, animated: true, completion: nil)
     }
 

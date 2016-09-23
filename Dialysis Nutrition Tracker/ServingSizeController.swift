@@ -16,8 +16,6 @@ class ServingSizeController: UIViewController, UITableViewDelegate, UITableViewD
     let cellSize = 44
     var initialTable:Bool?
     weak var delegate: DetailedViewController!
-    weak var editDelegate: EditEntryViewController!
-    var delegateInUse : Int?
     
     @IBOutlet weak var servingSizeTable: UITableView!
     
@@ -60,14 +58,9 @@ class ServingSizeController: UIViewController, UITableViewDelegate, UITableViewD
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
 
-            self.dismissViewControllerAnimated(false, completion: nil)
-            if self.delegateInUse == 0{
-                NSNotificationCenter.defaultCenter().postNotificationName("updateTable", object: nil)
-            }else if self.delegateInUse == 1{
-                NSNotificationCenter.defaultCenter().postNotificationName("reloadTable", object: nil)
-            }
+        self.dismissViewControllerAnimated(false, completion: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("updateTable", object: nil)
             
-
         }
     }
     
@@ -127,13 +120,8 @@ class ServingSizeController: UIViewController, UITableViewDelegate, UITableViewD
                 checked[indexPath.row] = true
             }
             self.servingSize = cell.textLabel?.text
-            
-            if delegateInUse == 0{
-                delegate.updatedServingSize(self.servingSize!)
-            }else if delegateInUse == 1{
-                editDelegate.entryUpdatedServingSize(self.servingSize!)
-            }
-            
+            delegate.updatedServingSize(self.servingSize!)
+           
             dismissView()
         }
     }
