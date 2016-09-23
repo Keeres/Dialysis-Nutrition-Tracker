@@ -14,15 +14,16 @@ class Client : NSObject{
     let APIReportURL = "http://api.nal.usda.gov/ndb/reports/"
 
     
-    func searchFoodItemsUSDADatabase(searchString:String, completionHandler: (success:Bool, foodItemsArray:[[String:AnyObject]]?, error: String?) -> Void) {
+    func searchFoodItemsUSDADatabase(searchString:String, dataSouce:String, completionHandler: (success:Bool, foodItemsArray:[[String:AnyObject]]?, error: String?) -> Void) {
 
         let methodParameters: [String: AnyObject] = [
             "api_key":          "HVBePg5RGhFz8twmpGD2t2BZx7pW6XiTTNpNWwj2",
-            "format":           "json",                     // result format
-            "q"     :           searchString,               // Terms requested and used in the search
-            "sort"  :           "r",                        // Sort the results by food name(n) or by search relevance(r)
-            "max"   :           "100",                        // Maximum rows to return
-            "offset":           "0"                         // Beginning row in the result set to begin
+            "format":           "json",                // result format
+            "ds"    :           dataSouce,             // Data source. Either 'Branded Food Products' or 'Standard Reference
+            "q"     :           searchString,          // Terms requested and used in the search
+            "sort"  :           "r",                   // Sort the results by food name(n) or by search relevance(r)
+            "max"   :           "100",                 // Maximum rows to return
+            "offset":           "0"                    // Beginning row in the result set to begin
         ]
         
         let session = NSURLSession.sharedSession()

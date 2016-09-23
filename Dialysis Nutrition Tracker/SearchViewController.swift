@@ -16,22 +16,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var mealType = String?()
     var foodIndex = Int?()
     var date: String?
+    var dataSource:String?
     
  //   weak var delegate:MyProtocol?
     var mealsViewController: MealsViewController_1? = MealsViewController_1()
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchResultsTableView: UITableView!
-    
+    @IBOutlet weak var standardButton: RadioButton!
+    @IBOutlet weak var brandedButton: RadioButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchResultsTableView.delegate = self
         self.searchResultsTableView.dataSource = self
         self.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        standardButton.isChecked = true
+        dataSource = "Standard Reference"
     }
 
     func USDARequest(){
-        Client.sharedInstance().searchFoodItemsUSDADatabase(searchTextField.text!){(success, foodItemsArray, errorString) in
+        Client.sharedInstance().searchFoodItemsUSDADatabase(searchTextField.text!, dataSouce: dataSource!){(success, foodItemsArray, errorString) in
             if success && foodItemsArray != nil {
                 
                 for foodItem in foodItemsArray!{
@@ -107,13 +112,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         ndbnoList.removeAll()
         USDARequest()
     }
-    @IBOutlet weak var standardButton: RadioButton!
     @IBAction func standardButton(sender: AnyObject) {
+        //standardButton.isChecked = true
+        brandedButton.isChecked = false
+        dataSource = "Standard Reference"
     }
     
-    @IBOutlet weak var brandedButton: RadioButton!
     
     @IBAction func brandedButton(sender: AnyObject) {
+        standardButton.isChecked = false
+       // brandedButton.isChecked = true
+        dataSource = "Branded Food Products"
     }
     
 }

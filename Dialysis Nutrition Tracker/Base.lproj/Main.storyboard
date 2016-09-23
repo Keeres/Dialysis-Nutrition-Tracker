@@ -147,6 +147,7 @@
                         <outlet property="brandedButton" destination="2M8-dW-SV1" id="6SH-vz-bIe"/>
                         <outlet property="searchResultsTableView" destination="Baf-eI-Bpd" id="5aG-eq-EHu"/>
                         <outlet property="searchTextField" destination="sbN-rZ-bv0" id="TwO-bq-pS9"/>
+                        <outlet property="standardButton" destination="hAh-Kp-iPN" id="ngd-6j-DYh"/>
                         <segue destination="2wL-1j-YQO" kind="show" id="KZx-3z-BBb"/>
                     </connections>
                 </viewController>

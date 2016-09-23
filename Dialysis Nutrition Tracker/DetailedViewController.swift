@@ -88,7 +88,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
                     print("error parsing measurements")
                     return
                 }
-                print(measurementsList.count)
+
                 for measurement in measurementsList{
                     let label = measurement["label"] as? String
                     let value = measurement["value"] as? String
