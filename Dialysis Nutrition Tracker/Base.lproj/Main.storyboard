@@ -145,6 +145,7 @@
                     <navigationItem key="navigationItem" title="Search" id="Qh0-Hh-DAU"/>
                     <connections>
                         <outlet property="brandedButton" destination="2M8-dW-SV1" id="6SH-vz-bIe"/>
+                        <outlet property="searchButton" destination="a0b-JM-YK6" id="DdD-u2-zfW"/>
                         <outlet property="searchResultsTableView" destination="Baf-eI-Bpd" id="5aG-eq-EHu"/>
                         <outlet property="searchTextField" destination="sbN-rZ-bv0" id="TwO-bq-pS9"/>
                         <outlet property="standardButton" destination="hAh-Kp-iPN" id="ngd-6j-DYh"/>

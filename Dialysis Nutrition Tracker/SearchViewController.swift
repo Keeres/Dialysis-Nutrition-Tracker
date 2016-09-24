@@ -17,7 +17,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var foodIndex = Int?()
     var date: String?
     var dataSource:String?
-    
+    let reachability = Reachability()
+
  //   weak var delegate:MyProtocol?
     var mealsViewController: MealsViewController_1? = MealsViewController_1()
 
@@ -25,6 +26,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var searchResultsTableView: UITableView!
     @IBOutlet weak var standardButton: RadioButton!
     @IBOutlet weak var brandedButton: RadioButton!
+    @IBOutlet weak var searchButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         standardButton.isChecked = true
         dataSource = "Standard Reference"
+        checkInternetConnection()
+    }
+    
+    func checkInternetConnection(){
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            searchButton.enabled = false
+            print("Internet connection FAILED")
+            AlertView.displayError(self, title:"No Internet Connection", error: "Make sure your device is connected to the internet.")
+        }
     }
 
     func USDARequest(){
@@ -51,7 +64,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 });
                 
             } else {
-                AlertView.displayError(self, error: errorString!)
+                AlertView.displayError(self, title: "Alert", error: errorString!)
             }
         }
     }
@@ -99,7 +112,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.navigationController?.pushViewController(detailedViewController, animated: true)
                 });
             }else{
-                AlertView.displayError(self, error: errorString!)
+                AlertView.displayError(self, title: "Alert", error: errorString!)
             }
         }
     }

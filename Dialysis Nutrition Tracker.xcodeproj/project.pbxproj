@@ -13,6 +13,7 @@
 		AD165FFE1D5D0D0600847B01 /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD165FFD1D5D0D0600847B01 /* OverviewCell.swift */; };
 		AD3074FA1D3599D900B4F8EA /* ServingSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */; };
 		AD4F5CE81D95981300283385 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F5CE71D95981300283385 /* RadioButton.swift */; };
+		AD4F5CEF1D96E7AD00283385 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F5CEE1D96E7AD00283385 /* Reachability.swift */; };
 		AD68428F1D5252AE00BE429D /* NutrientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68428E1D5252AE00BE429D /* NutrientCell.swift */; };
 		AD6842951D53990B00BE429D /* MealsViewController_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6842941D53990B00BE429D /* MealsViewController_1.swift */; };
 		AD68429B1D539C4A00BE429D /* AddFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68429A1D539C4A00BE429D /* AddFoodCell.swift */; };
@@ -66,6 +67,7 @@
 		AD165FFD1D5D0D0600847B01 /* OverviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCell.swift; sourceTree = "<group>"; };
 		AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingSizeController.swift; sourceTree = "<group>"; };
 		AD4F5CE71D95981300283385 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		AD4F5CEE1D96E7AD00283385 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		AD68428E1D5252AE00BE429D /* NutrientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutrientCell.swift; sourceTree = "<group>"; };
 		AD6842941D53990B00BE429D /* MealsViewController_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealsViewController_1.swift; path = ../MealsViewController_1.swift; sourceTree = "<group>"; };
 		AD68429A1D539C4A00BE429D /* AddFoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodCell.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */,
 				ADDA3DE31D394FE700D55C9B /* Animator.swift */,
 				ADD961801D8F3ABE004332D6 /* AlertView.swift */,
+				AD4F5CEE1D96E7AD00283385 /* Reachability.swift */,
 				ADD046171D26DA0B009EE361 /* Main.storyboard */,
 				AD4F5CE71D95981300283385 /* RadioButton.swift */,
 				ADD9617E1D8DA174004332D6 /* NutrientList.plist */,
@@ -397,6 +400,7 @@
 				ADD0464A1D26DCA8009EE361 /* Client.swift in Sources */,
 				AD68429D1D53AA0400BE429D /* CustomHeaderCell.swift in Sources */,
 				ADD046161D26DA0B009EE361 /* SearchViewController.swift in Sources */,
+				AD4F5CEF1D96E7AD00283385 /* Reachability.swift in Sources */,
 				ADEF58221D89F3090068105F /* SummaryViewController.swift in Sources */,
 				AD6842A01D5640A100BE429D /* CoreDataStackManager.swift in Sources */,
 				AD689AE61D42B304003C2EE4 /* FoodNameCell.swift in Sources */,

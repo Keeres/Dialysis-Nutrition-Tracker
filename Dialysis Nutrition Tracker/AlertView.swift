@@ -9,8 +9,8 @@
 import UIKit
 
 class AlertView: NSObject {
-    class func displayError(view:UIViewController, error:String){
-        let alert = UIAlertController(title: "Alert", message: error, preferredStyle: UIAlertControllerStyle.Alert)
+    class func displayError(view:UIViewController, title:String, error:String){
+        let alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         dispatch_async(dispatch_get_main_queue(), {
             view.presentViewController(alert, animated: true, completion: nil)
