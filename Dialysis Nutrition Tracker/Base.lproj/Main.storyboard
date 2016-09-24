@@ -275,7 +275,13 @@
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="top" secondItem="Doc-Od-KPa" secondAttribute="bottom" id="zA4-wZ-LUq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Summary" id="pwa-Ps-1Jh"/>
+                    <navigationItem key="navigationItem" title="Summary" id="pwa-Ps-1Jh">
+                        <barButtonItem key="rightBarButtonItem" title="ⓘ" id="pfn-uT-FTc">
+                            <connections>
+                                <action selector="infoButton:" destination="Ubj-6t-ybg" id="Vrd-E0-36n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="breakfastButton" destination="RCR-Wz-JIT" id="Bh5-bB-ZqC"/>
                         <outlet property="dinnerButton" destination="oY9-fA-aeh" id="S5L-V2-Yxg"/>

@@ -138,6 +138,10 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.summaryTable.reloadData()
         }
     }
+    @IBAction func infoButton(sender: AnyObject) {
+        let message = "The diet restriction varies for each dialysis patient. Please consult a nutritionist to set a goal for your daily limit."
+        AlertView.displayError(self, title: "Important Message", error: message)
+    }
 
     // MARK: Table View Delegates
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

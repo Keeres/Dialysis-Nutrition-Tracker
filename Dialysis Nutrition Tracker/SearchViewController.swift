@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
 
     var foodSearchResults = [[String:AnyObject]]()
     var foodNames = [String]()
@@ -33,6 +33,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.searchResultsTableView.delegate = self
         self.searchResultsTableView.dataSource = self
         self.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        searchTextField.delegate = self
         standardButton.isChecked = true
         dataSource = "Standard Reference"
         checkInternetConnection()
@@ -120,22 +121,41 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: Buttons
     let buttonDownImage = UIImage(named: "Button Down")!
     let buttonUpImage = UIImage(named: "Button")!
+    
     @IBAction func searchButton(sender: AnyObject) {
-        foodNames.removeAll()
-        ndbnoList.removeAll()
-        USDARequest()
+        if searchTextField.text == ""{
+            AlertView.displayError(self, title: "Alert", error: "Please enter a search term")
+        }else{
+            searchTextField.resignFirstResponder()
+            foodNames.removeAll()
+            ndbnoList.removeAll()
+            USDARequest()
+        }
     }
+    
     @IBAction func standardButton(sender: AnyObject) {
         //standardButton.isChecked = true
         brandedButton.isChecked = false
         dataSource = "Standard Reference"
     }
     
-    
     @IBAction func brandedButton(sender: AnyObject) {
         standardButton.isChecked = false
        // brandedButton.isChecked = true
         dataSource = "Branded Food Products"
+    }
+    
+    //MARK: TextView Delegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField.text == ""{
+            AlertView.displayError(self, title: "Alert", error: "Please enter a search term")
+        }else{
+            textField.resignFirstResponder()
+            foodNames.removeAll()
+            ndbnoList.removeAll()
+            USDARequest()
+        }
+        return true
     }
     
 }
