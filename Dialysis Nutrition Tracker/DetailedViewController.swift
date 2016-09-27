@@ -236,6 +236,8 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             mealsViewController.lunch.append(self.food)
         }else if self.food.mealType == "dinner" {
             mealsViewController.dinner.append(self.food)
+        }else if self.food.mealType == "snacks" {
+            mealsViewController.snacks.append(self.food)
         }
         mealsViewController.foods?.append(food)
         mealsViewController.foodIndex = mealsViewController.foods?.count

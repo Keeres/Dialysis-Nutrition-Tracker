@@ -14,11 +14,12 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var mealsTableView_1: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var foods:[Food]?               // All Food consumed, out of order in terms of breakfast, lunch, dinner
+    var foods:[Food]?               // All Food consumed, out of order in terms of breakfast, lunch, dinner, snacks
     var breakfast = [Food]()
     var lunch = [Food]()
     var dinner = [Food]()
-    var meals = [[Food]]()          // contains breakfast, lunch, and dinner array
+    var snacks = [Food]()
+    var meals = [[Food]]()          // contains breakfast, lunch, dinner, and snacks array
     var nutrientList : [[String]]?
     var addedFood:Food?
     var date:String?
@@ -35,7 +36,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         
         mealsTableView_1.delegate = self
         mealsTableView_1.dataSource = self
-        meals = [breakfast, lunch , dinner]
+        meals = [breakfast, lunch , dinner, snacks]
         self.mealsTableView_1.backgroundColor = UIColor(red: 209.0/255.0, green: 209.0/255.0, blue: 209.0/255.0, alpha: 1.0)
         foodIndex = 0
         
@@ -63,17 +64,19 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
                 self.breakfast.append(food)
             }else if food.mealType == "lunch"{
                 self.lunch.append(food)
-            }else {
+            }else if food.mealType == "dinner"{
                 self.dinner.append(food)
+            }else{
+                self.snacks.append(food)
             }
         }
-        meals = [breakfast, lunch, dinner]
+        meals = [breakfast, lunch, dinner, snacks]
     }
 
     // MARK: NSNotification func
     // updates serving size that user seleceted
     func updateMeals(notification: NSNotification){
-        meals = [breakfast, lunch, dinner]
+        meals = [breakfast, lunch, dinner, snacks]
 
         dispatch_async(dispatch_get_main_queue(),{
             self.mealsTableView_1.reloadData()
@@ -128,6 +131,8 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         summaryController.breakfast = self.breakfast
         summaryController.lunch = self.lunch
         summaryController.dinner = self.dinner
+        summaryController.snacks = self.snacks
+
         self.navigationController?.pushViewController(summaryController, animated: true)
     }
 
@@ -162,11 +167,12 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         breakfast.removeAll()
         lunch.removeAll()
         dinner.removeAll()
+        snacks.removeAll()
     }
     
     // MARK: Tableview Delgates
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -179,6 +185,8 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             headerCell.headerLabel.text = "Lunch";
         case 2:
             headerCell.headerLabel.text = "Dinner";
+        case 3:
+            headerCell.headerLabel.text = "Snacks";
         default:
             headerCell.headerLabel.text = " ";
         }
@@ -263,6 +271,8 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
                 searchViewController.mealType = "lunch"
             case 2:
                 searchViewController.mealType = "dinner"
+            case 3:
+                searchViewController.mealType = "snacks"
             default:
                 searchViewController.mealType = "none"
             }
@@ -291,6 +301,8 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
                 lunch.removeAtIndex(indexPath.row)
             case 2:
                 dinner.removeAtIndex(indexPath.row)
+            case 2:
+                snacks.removeAtIndex(indexPath.row)
             default:
                     print("error")
             }

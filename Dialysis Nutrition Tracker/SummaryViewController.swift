@@ -21,9 +21,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var breakfast = [Food]()
     var lunch = [Food]()
     var dinner = [Food]()
+    var snacks = [Food]()
     var breakfastSummary = [Float]()
     var lunchSummary = [Float]()
     var dinnerSummary = [Float]()
+    var snacksSummary = [Float]()
     var summary = [Float]()
     var nutrientNames = [String]()
     var nutrientUnits = [String]()
@@ -46,6 +48,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         breakfastSummary = summaryCalc(breakfast)
         lunchSummary = summaryCalc(lunch)
         dinnerSummary = summaryCalc(dinner)
+        snacksSummary = summaryCalc(snacks)
         foodCount(ButtonType.Total.rawValue)  // Display summary for all meals as default
         totalButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
 
@@ -105,10 +108,10 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         case .Dinner:
             summary = dinnerSummary
         case .Snack:
-            summary = breakfastSummary
+            summary = snacksSummary
         case .Total:
             for i in 0..<summary.count{
-                summary[i] = breakfastSummary[i] + lunchSummary[i] + dinnerSummary[i]
+                summary[i] = breakfastSummary[i] + lunchSummary[i] + dinnerSummary[i] + snacksSummary[i]
             }
         }
     }
