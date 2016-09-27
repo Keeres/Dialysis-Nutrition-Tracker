@@ -29,7 +29,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     lazy var sharedContext: NSManagedObjectContext =  {
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,9 +154,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
                 food.numberOfServings = newNumberOfServings
             }
         }
-    //    self.foods![updateIndex].servingSize = newServingSize
-    //    self.foods![updateIndex].numberOfServings = newNumberOfServings
-      //  foodIndex = self.foods?.count
         do {
             try self.sharedContext.save()
         } catch {

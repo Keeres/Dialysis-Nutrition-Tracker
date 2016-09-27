@@ -18,8 +18,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var date: String?
     var dataSource:String?
     let reachability = Reachability()
-
- //   weak var delegate:MyProtocol?
     var mealsViewController: MealsViewController_1? = MealsViewController_1()
 
     @IBOutlet weak var searchTextField: UITextField!
@@ -134,14 +132,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func standardButton(sender: AnyObject) {
-        //standardButton.isChecked = true
         brandedButton.isChecked = false
         dataSource = "Standard Reference"
     }
     
     @IBAction func brandedButton(sender: AnyObject) {
         standardButton.isChecked = false
-       // brandedButton.isChecked = true
         dataSource = "Branded Food Products"
     }
     
@@ -157,6 +153,5 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         return true
     }
-    
 }
 
