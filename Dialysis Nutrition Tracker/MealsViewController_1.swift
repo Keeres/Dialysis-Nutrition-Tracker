@@ -149,9 +149,15 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func entryUpdatedServingSize(newServingSize: String, newNumberOfServings:Float, updateIndex:Int) {
-        self.foods![updateIndex].servingSize = newServingSize
-        self.foods![updateIndex].numberOfServings = newNumberOfServings
-        foodIndex = self.foods?.count
+        for food in foods!{
+            if food.index == updateIndex{
+                food.servingSize = newServingSize
+                food.numberOfServings = newNumberOfServings
+            }
+        }
+    //    self.foods![updateIndex].servingSize = newServingSize
+    //    self.foods![updateIndex].numberOfServings = newNumberOfServings
+      //  foodIndex = self.foods?.count
         do {
             try self.sharedContext.save()
         } catch {
