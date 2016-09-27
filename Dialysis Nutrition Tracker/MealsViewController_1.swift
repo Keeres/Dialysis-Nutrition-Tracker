@@ -209,7 +209,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
         footerView?.backgroundColor = UIColor(red: 209.0/255.0, green: 209.0/255.0, blue: 209.0/255.0, alpha: 1.0)
 
-        if section == 2 {
+        if section == 3 {
             footerView?.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
             let summaryButton = UIButton(type: UIButtonType.System) as UIButton
             
@@ -227,7 +227,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 2{
+        if section == 3{
             return 50
         }else{
             return 10
@@ -301,7 +301,7 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
                 lunch.removeAtIndex(indexPath.row)
             case 2:
                 dinner.removeAtIndex(indexPath.row)
-            case 2:
+            case 3:
                 snacks.removeAtIndex(indexPath.row)
             default:
                     print("error")
