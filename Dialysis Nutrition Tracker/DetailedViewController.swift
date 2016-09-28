@@ -43,10 +43,10 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.detailedTableView.delegate = self
-        self.detailedTableView.dataSource = self
-        self.detailedTableView.layoutMargins = UIEdgeInsetsZero
-        self.detailedTableView.separatorInset  = UIEdgeInsetsZero
+        detailedTableView.delegate = self
+        detailedTableView.dataSource = self
+        detailedTableView.layoutMargins = UIEdgeInsetsZero
+        detailedTableView.separatorInset  = UIEdgeInsetsZero
         
         if(isEdit == true){
             self.numberOfServings = food.numberOfServings
@@ -54,10 +54,10 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             self.updateIndex = food.index
             self.foodName = food.name
             
-            self.getNutrientList()
-            self.servingSizesList()
-            self.setUpMeasurementsDictionary()
-            self.getOverviewValue()
+            getNutrientList()
+            servingSizesList()
+            setUpMeasurementsDictionary()
+            getOverviewValue()
             self.navigationItem.title = "Edit Entry"
 
 

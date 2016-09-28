@@ -37,6 +37,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         checkInternetConnection()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        searchResultsTableView.allowsSelection = true
+
+    }
+    
     func checkInternetConnection(){
         if Reachability.isConnectedToNetwork() == true {
             print("Internet connection OK")
@@ -91,8 +96,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        searchResultsTableView.allowsSelection = false
+        searchResultsTableView.deselectRowAtIndexPath(indexPath, animated: true)
         USDANutritionReuqest(ndbnoList[indexPath.row], foodName: foodNames[indexPath.row])
     }
+
     
     func USDANutritionReuqest(foodNdbno:String, foodName:String){
         Client.sharedInstance().getFoodNutrientUSDADatabase(foodNdbno) {(success, nutrientsArray, errorString) in
@@ -107,7 +115,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 detailedViewController.date = self.date!
                 detailedViewController.isEdit = false
                 detailedViewController.delegate = self.mealsViewController
-                
+
                 dispatch_async(dispatch_get_main_queue(),{
                     self.navigationController?.pushViewController(detailedViewController, animated: true)
                 });
