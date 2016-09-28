@@ -28,9 +28,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchResultsTableView.delegate = self
-        self.searchResultsTableView.dataSource = self
-        self.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        searchResultsTableView.delegate = self
+        searchResultsTableView.dataSource = self
+        searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         searchTextField.delegate = self
         standardButton.isChecked = true
         dataSource = "Standard Reference"
@@ -85,8 +85,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 44;//Choose your custom row height
+        return 44
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

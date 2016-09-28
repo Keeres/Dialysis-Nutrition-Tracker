@@ -379,7 +379,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func keyboardWillShow(note : NSNotification) -> Void{
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        performUIUpdatesOnMain(){
    
             UIView.animateWithDuration(((note.userInfo! as NSDictionary).objectForKey(UIKeyboardAnimationCurveUserInfoKey)?.doubleValue)!, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                 self.view.frame = CGRectOffset(self.view.frame, 0, 0)

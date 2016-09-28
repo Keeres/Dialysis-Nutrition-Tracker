@@ -34,7 +34,6 @@
 		ADD0462C1D26DA0B009EE361 /* Dialysis_Nutrition_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD0462B1D26DA0B009EE361 /* Dialysis_Nutrition_TrackerTests.swift */; };
 		ADD046371D26DA0B009EE361 /* Dialysis_Nutrition_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046361D26DA0B009EE361 /* Dialysis_Nutrition_TrackerUITests.swift */; };
 		ADD046461D26DA95009EE361 /* GDCBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046451D26DA95009EE361 /* GDCBlackBox.swift */; };
-		ADD046481D26DC13009EE361 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046471D26DC13009EE361 /* Constants.swift */; };
 		ADD0464A1D26DCA8009EE361 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD046491D26DCA8009EE361 /* Client.swift */; };
 		ADD9617D1D8C7762004332D6 /* summaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD9617C1D8C7762004332D6 /* summaryCell.swift */; };
 		ADD9617F1D8DA174004332D6 /* NutrientList.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADD9617E1D8DA174004332D6 /* NutrientList.plist */; };
@@ -94,7 +93,6 @@
 		ADD046361D26DA0B009EE361 /* Dialysis_Nutrition_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialysis_Nutrition_TrackerUITests.swift; sourceTree = "<group>"; };
 		ADD046381D26DA0B009EE361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADD046451D26DA95009EE361 /* GDCBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GDCBlackBox.swift; sourceTree = "<group>"; };
-		ADD046471D26DC13009EE361 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADD046491D26DCA8009EE361 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		ADD9617C1D8C7762004332D6 /* summaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = summaryCell.swift; sourceTree = "<group>"; };
 		ADD9617E1D8DA174004332D6 /* NutrientList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NutrientList.plist; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				ADD046451D26DA95009EE361 /* GDCBlackBox.swift */,
-				ADD046471D26DC13009EE361 /* Constants.swift */,
 				ADD046491D26DCA8009EE361 /* Client.swift */,
 			);
 			name = API;
@@ -393,7 +390,6 @@
 				AD0D17781D2DB080000AED3A /* Food.swift in Sources */,
 				ADB844121D46ADB2000B537F /* NumberOfServingsCell.swift in Sources */,
 				AD3074FA1D3599D900B4F8EA /* ServingSizeController.swift in Sources */,
-				ADD046481D26DC13009EE361 /* Constants.swift in Sources */,
 				AD0D177A1D2EC063000AED3A /* DetailedViewController.swift in Sources */,
 				ADD046461D26DA95009EE361 /* GDCBlackBox.swift in Sources */,
 				AD2D195C1D98651E00A9B9D8 /* MealsViewController_1.swift in Sources */,
