@@ -136,7 +136,6 @@ class ServingSizeController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
     // Buttons
     @IBAction func cancelButton(sender: AnyObject) {
         dismissView()

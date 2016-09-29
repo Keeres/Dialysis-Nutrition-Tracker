@@ -25,6 +25,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var standardButton: RadioButton!
     @IBOutlet weak var brandedButton: RadioButton!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var activityView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +36,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchTextField.delegate = self
         standardButton.isChecked = true
         dataSource = "Standard Reference"
+        activityView.alpha = 0.0
         self.reach = Reachability.reachabilityForInternetConnection()
         checkInternetConnection()
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(SearchViewController.reachabilityChanged(_:)),
                                                          name: kReachabilityChangedNotification,
@@ -70,6 +73,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             AlertView.displayError(self, title:"No Internet Connection", error: "Make sure your device is connected to the internet.")
         }
     }
+    
     func USDARequest(){
         Client.sharedInstance().searchFoodItemsUSDADatabase(searchTextField.text!, dataSouce: dataSource!){(success, foodItemsArray, errorString) in
             if success && foodItemsArray != nil {
@@ -83,6 +87,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 dispatch_async(dispatch_get_main_queue(),{
                     self.searchResultsTableView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                    self.activityView.alpha = 0.0
                 });
                 
             } else {
@@ -154,6 +160,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if searchTextField.text == ""{
             AlertView.displayError(self, title: "Alert", error: "Please enter a search term")
         }else{
+            self.activityView.alpha = 1.0
+            activityIndicator.startAnimating()
             searchTextField.resignFirstResponder()
             foodNames.removeAll()
             ndbnoList.removeAll()

@@ -126,7 +126,7 @@
             startingLineNumber = "49"
             endingLineNumber = "49"
             landmarkName = "dismissView()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -222,7 +222,7 @@
             startingLineNumber = "63"
             endingLineNumber = "63"
             landmarkName = "dismissView()"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dialysis Nutrition Tracker/SearchViewController.swift"
-            timestampString = "496811353.193789"
+            timestampString = "496859948.968192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
