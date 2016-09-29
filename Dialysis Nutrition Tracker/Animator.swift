@@ -19,7 +19,7 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning{
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let containerView = transitionContext.containerView()!
+        let containerView = transitionContext.containerView()
         let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
         let servingSizeView = presenting ? toView : transitionContext.viewForKey(UITransitionContextFromViewKey)!
         

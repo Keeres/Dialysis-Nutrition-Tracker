@@ -17,7 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var foodIndex = Int?()
     var date: String?
     var dataSource:String?
-    let reachability = Reachability()
+    var reach: Reachability?
     var mealsViewController: MealsViewController_1? = MealsViewController_1()
 
     @IBOutlet weak var searchTextField: UITextField!
@@ -34,16 +34,35 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchTextField.delegate = self
         standardButton.isChecked = true
         dataSource = "Standard Reference"
+        self.reach = Reachability.reachabilityForInternetConnection()
         checkInternetConnection()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(SearchViewController.reachabilityChanged(_:)),
+                                                         name: kReachabilityChangedNotification,
+                                                         object: nil)
+        
+        self.reach!.startNotifier()
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         searchResultsTableView.allowsSelection = true
-
+    }
+    
+    func reachabilityChanged(notification: NSNotification) {
+        if self.reach!.isReachableViaWiFi() || self.reach!.isReachableViaWWAN() {
+            print("Internet connection OK")
+            searchButton.enabled = true
+        } else {
+            print("Internet connection failed")
+            AlertView.displayError(self, title:"Internet Connection Lost", error: "Make sure your device is connected to the internet.")
+            searchButton.enabled = false
+        }
     }
     
     func checkInternetConnection(){
-        if Reachability.isConnectedToNetwork() == true {
+        if self.reach!.isReachable(){
             print("Internet connection OK")
         } else {
             searchButton.enabled = false
@@ -51,7 +70,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             AlertView.displayError(self, title:"No Internet Connection", error: "Make sure your device is connected to the internet.")
         }
     }
-
     func USDARequest(){
         Client.sharedInstance().searchFoodItemsUSDADatabase(searchTextField.text!, dataSouce: dataSource!){(success, foodItemsArray, errorString) in
             if success && foodItemsArray != nil {
@@ -96,12 +114,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        searchResultsTableView.allowsSelection = false
-        searchResultsTableView.deselectRowAtIndexPath(indexPath, animated: true)
-        USDANutritionReuqest(ndbnoList[indexPath.row], foodName: foodNames[indexPath.row])
+        if self.reach!.isReachable() == false{
+            AlertView.displayError(self, title:"No Internet Connection", error: "Make sure your device is connected to the internet.")
+        }else{
+            searchResultsTableView.allowsSelection = false
+            searchResultsTableView.deselectRowAtIndexPath(indexPath, animated: true)
+            USDANutritionReuqest(ndbnoList[indexPath.row], foodName: foodNames[indexPath.row])
+        }
     }
 
-    
     func USDANutritionReuqest(foodNdbno:String, foodName:String){
         Client.sharedInstance().getFoodNutrientUSDADatabase(foodNdbno) {(success, nutrientsArray, errorString) in
             if success && nutrientsArray != nil{
