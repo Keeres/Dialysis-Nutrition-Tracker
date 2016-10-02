@@ -95,7 +95,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 });
                 
             } else {
-                AlertView.displayError(self, title: "Alert", error: errorString!)
+                performUIUpdatesOnMain{
+                    AlertView.displayError(self, title: "Alert", error: errorString!)
+                    self.activityIndicator.stopAnimating()
+                    self.activityView.alpha = 0.0
+                }
             }
         }
     }

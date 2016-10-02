@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Dialysis Nutrition Tracker/SearchViewController.swift"
-            timestampString = "496861021.790279"
+            timestampString = "497136169.791321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
