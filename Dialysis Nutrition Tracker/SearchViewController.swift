@@ -32,12 +32,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
+        searchResultsTableView.rowHeight = UITableViewAutomaticDimension
+        searchResultsTableView.estimatedRowHeight = 68.0
         searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         searchTextField.delegate = self
         standardButton.isChecked = true
         dataSource = "Standard Reference"
         activityView.alpha = 0.0
         activityIndicator.layer.cornerRadius = 10
+        
         self.reach = Reachability.reachabilityForInternetConnection()
         checkInternetConnection()
 
@@ -112,11 +116,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("FoodItemCell")! as UITableViewCell
-        cell.textLabel!.numberOfLines = 2
-        cell.textLabel!.minimumScaleFactor = 1
-        cell.textLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        cell.textLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-        cell.textLabel!.adjustsFontSizeToFitWidth = true
         cell.textLabel?.text = foodNames[indexPath.row]
         
         return cell

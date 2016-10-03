@@ -35,6 +35,9 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
         
         mealsTableView_1.delegate = self
         mealsTableView_1.dataSource = self
+        mealsTableView_1.rowHeight = UITableViewAutomaticDimension
+        mealsTableView_1.estimatedRowHeight = 68.0
+
         meals = [breakfast, lunch , dinner, snacks]
         self.mealsTableView_1.backgroundColor = UIColor(red: 209.0/255.0, green: 209.0/255.0, blue: 209.0/255.0, alpha: 1.0)
         foodIndex = 0
@@ -248,12 +251,6 @@ class MealsViewController_1: UIViewController, UITableViewDelegate, UITableViewD
             let cell = tableView.dequeueReusableCellWithIdentifier("MealsCell")! as! MealsCell
             cell.layoutMargins = UIEdgeInsetsZero
             cell.foodLabel!.text = meals[indexPath.section][indexPath.row].name
-            cell.foodLabel!.numberOfLines = 2
-            cell.foodLabel!.minimumScaleFactor = 1
-            cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
-            cell.foodLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-            cell.foodLabel!.adjustsFontSizeToFitWidth = true
-            
             cell.servingSizeLabel.text = meals[indexPath.section][indexPath.row].servingSize
             cell.numberOfServingsLabel.text = "\(meals[indexPath.section][indexPath.row].numberOfServings)"
             cell.selectionStyle = UITableViewCellSelectionStyle.None

@@ -47,7 +47,9 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         detailedTableView.dataSource = self
         detailedTableView.layoutMargins = UIEdgeInsetsZero
         detailedTableView.separatorInset  = UIEdgeInsetsZero
-        
+        detailedTableView.rowHeight = UITableViewAutomaticDimension
+        detailedTableView.estimatedRowHeight = 68.0
+
         if(isEdit == true){
             self.numberOfServings = food.numberOfServings
             self.servingSize = food.servingSize
@@ -265,7 +267,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 3{
             return 50
         }else{
-            return 44
+            return detailedTableView.rowHeight
         }
     }
     
@@ -275,11 +277,6 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
             let foodNameCell = tableView.dequeueReusableCellWithIdentifier("FoodNameCell", forIndexPath: indexPath) as! FoodNameCell
             foodNameCell.layoutMargins = UIEdgeInsetsZero
             foodNameCell.foodNameLabel.text = foodName
-            foodNameCell.foodNameLabel!.numberOfLines = 2
-            foodNameCell.foodNameLabel!.minimumScaleFactor = 1
-            foodNameCell.foodNameLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
-            foodNameCell.foodNameLabel!.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-            foodNameCell.foodNameLabel!.adjustsFontSizeToFitWidth = true
             foodNameCell.selectionStyle = UITableViewCellSelectionStyle.None
             foodNameCell.userInteractionEnabled = false
             
