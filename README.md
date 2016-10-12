@@ -6,7 +6,7 @@ dialysis patients and provide an overall summary for total nutrients consumed fo
 ## Installation
 
 1. Clone or download the repository to your computer.
-2. Open the project folder and open Pitch Perfect.xcodeproj using XCode
+2. Open the project folder and open DialysisNutrionTracker.xcodeproj with XCode in Swift 2.3
 3. Run using either an iPhone device or simulator. Be sure the XCode is up to date
 
 ## Usage
@@ -17,8 +17,6 @@ dialysis patients and provide an overall summary for total nutrients consumed fo
 4. Tap Add button to add food to meal
 5. Tap the left or right arrow key to adjust the date
 
-## Credits
 
-This app was part of Udacity's' iOS Developer Nanodegree Porgram.
 
 
