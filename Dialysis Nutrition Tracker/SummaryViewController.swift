@@ -29,7 +29,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     var summary = [Float]()
     var nutrientNames = [String]()
     var nutrientUnits = [String]()
-
+    
+    var overviewValueSummary = Array(count: 4, repeatedValue: Array(count: 4, repeatedValue: Float(0.0)))
+    var overviewValue:[Float] = [0.0, 0.0, 0.0, 0.0]
+    
+    
     var count = 0
     enum ButtonType: Int { case Breakfast = 0, Lunch, Dinner, Snack, Total}
 
@@ -49,6 +53,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         lunchSummary = summaryCalc(lunch)
         dinnerSummary = summaryCalc(dinner)
         snacksSummary = summaryCalc(snacks)
+        overviewValueSummary[0] = overviewCalc(breakfast)
+        overviewValueSummary[1] = overviewCalc(lunch)
+        overviewValueSummary[2] = overviewCalc(dinner)
+        overviewValueSummary[3] = overviewCalc(snacks)
+
         foodCount(ButtonType.Total.rawValue)  // Display summary for all meals as default
         totalButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
 
@@ -94,24 +103,69 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                         }
                     }
                 }
+                           }
+        }
+        return sum
+    }
+    
+    func overviewCalc(meal:[Food]) -> [Float]{
+        var sum:[Float] = [0.0, 0.0, 0.0 ,0.0]
+        
+        for food in meal{
+            for i in 0..<food.nutrients.count{
+                if food.nutrients[i].nutrientName == "Phosphorus, P"{
+                    for measurement in food.nutrients[i].measurements{
+                        if measurement.valueForKey("key") as! String == food.servingSize{
+                            sum[0] += Float(measurement.valueForKey("value") as! String)!*food.numberOfServings
+                        }
+                    }
+                }else if food.nutrients[i].nutrientName == "Potassium, K"{
+                    for measurement in food.nutrients[i].measurements{
+                        if measurement.valueForKey("key") as! String == food.servingSize{
+                            sum[1] += Float(measurement.valueForKey("value") as! String)!*food.numberOfServings
+                        }
+                    }
+                }else if food.nutrients[i].nutrientName == "Protein"{
+                    for measurement in food.nutrients[i].measurements{
+                        if measurement.valueForKey("key") as! String == food.servingSize{
+                            sum[2] += Float(measurement.valueForKey("value") as! String)!*food.numberOfServings
+                        }
+                    }
+                }else if food.nutrients[i].nutrientName == "Energy"{
+                    for measurement in food.nutrients[i].measurements{
+                        if measurement.valueForKey("key") as! String == food.servingSize{
+                            sum[3] += Float(measurement.valueForKey("value") as! String)!*food.numberOfServings
+                        }
+                    }
+                }
             }
         }
         return sum
     }
     
+    
+    
     func foodCount(mealType:Int){
         switch (ButtonType(rawValue: mealType)!) {
         case .Breakfast:
             summary = breakfastSummary
+            overviewValue = overviewValueSummary[0]
         case .Lunch:
             summary = lunchSummary
+            overviewValue = overviewValueSummary[1]
         case .Dinner:
             summary = dinnerSummary
+            overviewValue = overviewValueSummary[2]
         case .Snack:
             summary = snacksSummary
+            overviewValue = overviewValueSummary[3]
         case .Total:
             for i in 0..<summary.count{
                 summary[i] = breakfastSummary[i] + lunchSummary[i] + dinnerSummary[i] + snacksSummary[i]
+            }
+            for i in 0..<4{
+                overviewValue[i] = overviewValueSummary[0][i] + overviewValueSummary[1][i]
+                overviewValue[i] += overviewValueSummary[2][i] + overviewValueSummary[3][i]
             }
         }
     }
@@ -154,12 +208,25 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         if indexPath.row  == 3{
             let overviewCell = tableView.dequeueReusableCellWithIdentifier("SummaryOverviewCell", forIndexPath: indexPath) as! SummaryOverviewCell
+            overviewCell.Nutrient1.text = "\(overviewValue[0])"
+            overviewCell.Unit1.text = "P (mg)"
             
+            overviewCell.Nutrient2.text = "\(overviewValue[1])"
+            overviewCell.Unit2.text = "K (mg)"
+            
+            overviewCell.Nutrient3.text = "\(overviewValue[2])"
+            overviewCell.Unit3.text = "Protein (g)"
+            
+            overviewCell.Nutrient4.text = "\(overviewValue[3])"
+            overviewCell.Unit4.text = "Energy (kcal)"
+            
+            overviewCell.selectionStyle = UITableViewCellSelectionStyle.None
+            overviewCell.userInteractionEnabled = false
             return overviewCell
         }else{
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("SummaryCell")! as! SummaryCell
-        cell.layoutMargins = UIEdgeInsetsZero
+            let cell = tableView.dequeueReusableCellWithIdentifier("SummaryCell")! as! SummaryCell
+            cell.layoutMargins = UIEdgeInsetsZero
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.titleLabel.text = nutrientNames[indexPath.row]
             cell.valueLabel.text = "\(summary[indexPath.row]) " + nutrientUnits[indexPath.row]

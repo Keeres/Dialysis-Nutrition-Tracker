@@ -283,9 +283,9 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="LPl-Bb-1gw" secondAttribute="trailing" constant="239" id="6dZ-P2-e0T"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="LPl-Bb-1gw" secondAttribute="bottom" constant="6.5" id="CsS-aw-hMI"/>
                                                 <constraint firstItem="Rtv-Wk-Ont" firstAttribute="leading" secondItem="XxD-87-z44" secondAttribute="leadingMargin" constant="16.5" id="ap4-tr-7r6"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="LPl-Bb-1gw" secondAttribute="trailing" constant="6" id="uJV-MY-B5D"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Rtv-Wk-Ont" secondAttribute="bottom" constant="6.5" id="w8o-Gj-giF"/>
                                             </constraints>
                                         </tableViewCellContentView>

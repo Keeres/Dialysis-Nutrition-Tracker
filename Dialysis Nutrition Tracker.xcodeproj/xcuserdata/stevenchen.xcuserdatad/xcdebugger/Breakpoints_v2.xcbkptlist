@@ -289,5 +289,161 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dialysis Nutrition Tracker/SummaryViewController.swift"
+            timestampString = "498689990.76958"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "SummaryViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dialysis_Nutrition_Tracker.SummaryViewController.overviewValue.getter : Swift.Array&lt;Swift.Float&gt;"
+                  moduleName = "Dialysis Nutrition Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stevenchen/Documents/Dialysis%20Nutrition%20Tracker/Dialysis%20Nutrition%20Tracker/SummaryViewController.swift"
+                  timestampString = "498689990.97596"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dialysis_Nutrition_Tracker.SummaryViewController.overviewValue.setter : Swift.Array&lt;Swift.Float&gt;"
+                  moduleName = "Dialysis Nutrition Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stevenchen/Documents/Dialysis%20Nutrition%20Tracker/Dialysis%20Nutrition%20Tracker/SummaryViewController.swift"
+                  timestampString = "498689990.977623"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dialysis_Nutrition_Tracker.SummaryViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Dialysis_Nutrition_Tracker.SummaryViewController"
+                  moduleName = "Dialysis Nutrition Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stevenchen/Documents/Dialysis%20Nutrition%20Tracker/Dialysis%20Nutrition%20Tracker/SummaryViewController.swift"
+                  timestampString = "498689990.979026"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "788">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dialysis_Nutrition_Tracker.SummaryViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Dialysis_Nutrition_Tracker.SummaryViewController&gt;"
+                  moduleName = "Dialysis Nutrition Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stevenchen/Documents/Dialysis%20Nutrition%20Tracker/Dialysis%20Nutrition%20Tracker/SummaryViewController.swift"
+                  timestampString = "498689990.980299"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "631">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dialysis Nutrition Tracker/SummaryViewController.swift"
+            timestampString = "498689992.383305"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "SummaryViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dialysis_Nutrition_Tracker.SummaryViewController.overviewValue.getter : Swift.Array&lt;Swift.Float&gt;"
+                  moduleName = "Dialysis Nutrition Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stevenchen/Documents/Dialysis%20Nutrition%20Tracker/Dialysis%20Nutrition%20Tracker/SummaryViewController.swift"
+                  timestampString = "498689992.386308"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dialysis_Nutrition_Tracker.SummaryViewController.overviewValue.setter : Swift.Array&lt;Swift.Float&gt;"
+                  moduleName = "Dialysis Nutrition Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stevenchen/Documents/Dialysis%20Nutrition%20Tracker/Dialysis%20Nutrition%20Tracker/SummaryViewController.swift"
+                  timestampString = "498689992.388099"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dialysis_Nutrition_Tracker.SummaryViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Dialysis_Nutrition_Tracker.SummaryViewController"
+                  moduleName = "Dialysis Nutrition Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stevenchen/Documents/Dialysis%20Nutrition%20Tracker/Dialysis%20Nutrition%20Tracker/SummaryViewController.swift"
+                  timestampString = "498689992.391376"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "788">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dialysis_Nutrition_Tracker.SummaryViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Dialysis_Nutrition_Tracker.SummaryViewController&gt;"
+                  moduleName = "Dialysis Nutrition Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/stevenchen/Documents/Dialysis%20Nutrition%20Tracker/Dialysis%20Nutrition%20Tracker/SummaryViewController.swift"
+                  timestampString = "498689992.39359"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "631">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
