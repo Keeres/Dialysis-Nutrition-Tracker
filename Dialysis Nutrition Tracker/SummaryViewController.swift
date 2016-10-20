@@ -152,12 +152,19 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        if indexPath.row  == 3{
+            let overviewCell = tableView.dequeueReusableCellWithIdentifier("SummaryOverviewCell", forIndexPath: indexPath) as! SummaryOverviewCell
+            
+            return overviewCell
+        }else{
+
         let cell = tableView.dequeueReusableCellWithIdentifier("SummaryCell")! as! SummaryCell
         cell.layoutMargins = UIEdgeInsetsZero
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
-        cell.titleLabel.text = nutrientNames[indexPath.row]
-        cell.valueLabel.text = "\(summary[indexPath.row]) " + nutrientUnits[indexPath.row]
-        
-        return cell
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.titleLabel.text = nutrientNames[indexPath.row]
+            cell.valueLabel.text = "\(summary[indexPath.row]) " + nutrientUnits[indexPath.row]
+            
+            return cell
+        }
     }
 }

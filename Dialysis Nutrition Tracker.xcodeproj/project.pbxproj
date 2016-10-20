@@ -11,6 +11,7 @@
 		AD0D177A1D2EC063000AED3A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0D17791D2EC063000AED3A /* DetailedViewController.swift */; };
 		AD165FFC1D5BF2AA00847B01 /* MealsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD165FFB1D5BF2AA00847B01 /* MealsCell.swift */; };
 		AD165FFE1D5D0D0600847B01 /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD165FFD1D5D0D0600847B01 /* OverviewCell.swift */; };
+		AD16B6261DB95BB9002F356C /* SummaryOverviewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16B6251DB95BB9002F356C /* SummaryOverviewCellTableViewCell.swift */; };
 		AD2D195C1D98651E00A9B9D8 /* MealsViewController_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D195B1D98651E00A9B9D8 /* MealsViewController_1.swift */; };
 		AD3074FA1D3599D900B4F8EA /* ServingSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */; };
 		AD4F5CE81D95981300283385 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F5CE71D95981300283385 /* RadioButton.swift */; };
@@ -65,6 +66,7 @@
 		AD0D17791D2EC063000AED3A /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		AD165FFB1D5BF2AA00847B01 /* MealsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsCell.swift; sourceTree = "<group>"; };
 		AD165FFD1D5D0D0600847B01 /* OverviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCell.swift; sourceTree = "<group>"; };
+		AD16B6251DB95BB9002F356C /* SummaryOverviewCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryOverviewCellTableViewCell.swift; sourceTree = "<group>"; };
 		AD2D195B1D98651E00A9B9D8 /* MealsViewController_1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsViewController_1.swift; sourceTree = "<group>"; };
 		AD3074F91D3599D900B4F8EA /* ServingSizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingSizeController.swift; sourceTree = "<group>"; };
 		AD4F5CE71D95981300283385 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				ADD9617C1D8C7762004332D6 /* summaryCell.swift */,
+				AD16B6251DB95BB9002F356C /* SummaryOverviewCellTableViewCell.swift */,
 			);
 			name = SummaryViewCells;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				AD6842A01D5640A100BE429D /* CoreDataStackManager.swift in Sources */,
 				AD689AE61D42B304003C2EE4 /* FoodNameCell.swift in Sources */,
 				ADD9617D1D8C7762004332D6 /* summaryCell.swift in Sources */,
+				AD16B6261DB95BB9002F356C /* SummaryOverviewCellTableViewCell.swift in Sources */,
 				AD68428F1D5252AE00BE429D /* NutrientCell.swift in Sources */,
 				AD165FFC1D5BF2AA00847B01 /* MealsCell.swift in Sources */,
 				AD4F5CE81D95981300283385 /* RadioButton.swift in Sources */,
