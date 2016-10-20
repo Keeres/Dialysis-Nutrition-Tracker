@@ -405,7 +405,7 @@
                             <constraint firstItem="RCR-Wz-JIT" firstAttribute="leading" secondItem="Ung-fn-T0b" secondAttribute="leading" id="JiO-nk-Inq"/>
                             <constraint firstItem="oY9-fA-aeh" firstAttribute="width" secondItem="RCR-Wz-JIT" secondAttribute="width" id="PzZ-2T-FgW"/>
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="width" secondItem="RCR-Wz-JIT" secondAttribute="width" id="Qpg-Nw-f0D"/>
-                            <constraint firstItem="UUL-P0-XUX" firstAttribute="top" secondItem="1dW-ob-VDa" secondAttribute="bottom" constant="67" id="R1R-jY-dUg"/>
+                            <constraint firstItem="UUL-P0-XUX" firstAttribute="top" secondItem="1dW-ob-VDa" secondAttribute="bottom" id="R1R-jY-dUg"/>
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="top" secondItem="Doc-Od-KPa" secondAttribute="bottom" id="SBG-9m-pVg"/>
                             <constraint firstItem="Sjm-f2-tE5" firstAttribute="leading" secondItem="oY9-fA-aeh" secondAttribute="trailing" id="Yt9-0D-XzG"/>
                             <constraint firstItem="UXa-fq-Nk1" firstAttribute="top" secondItem="Sjm-f2-tE5" secondAttribute="bottom" id="gck-iy-vWV"/>
@@ -440,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1AR-SH-0Bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1147" y="790"/>
+            <point key="canvasLocation" x="1146.4000000000001" y="789.35532233883066"/>
         </scene>
         <!--DetailedView-->
         <scene sceneID="oeO-dF-jps">
