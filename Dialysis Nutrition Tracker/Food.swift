@@ -16,7 +16,7 @@ class Food:NSManagedObject {
     @NSManaged var servingSize: String
     @NSManaged var numberOfServings: Float
     @NSManaged var date:String
-    @NSManaged var index:Int
+    @NSManaged var index:NSNumber
     @NSManaged var nutrients : [Nutrient]
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {

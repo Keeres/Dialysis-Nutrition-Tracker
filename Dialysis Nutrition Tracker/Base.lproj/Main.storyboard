@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for a food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbN-rZ-bv0">
@@ -49,7 +49,8 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IpB-9b-3hg">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IpB-9b-3hg">
+                                <frame key="frameInset" minY="307" width="37" height="37"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CSH-kp-hhX">
                                         <frame key="frameInset" width="37" height="37"/>
@@ -58,6 +59,7 @@
                                         <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="CSH-kp-hhX"/>
@@ -135,35 +137,84 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="IpB-9b-3hg" secondAttribute="trailing" constant="147" id="0Hx-0z-FVL"/>
                             <constraint firstItem="a0b-JM-YK6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="1Ag-TL-WI3"/>
+                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Gb-nm-cuy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpB-9b-3hg" secondAttribute="bottom" constant="216" id="6N0-Pv-jUm"/>
+                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6Q9-0b-CFi"/>
                             <constraint firstItem="Baf-eI-Bpd" firstAttribute="top" secondItem="hAh-Kp-iPN" secondAttribute="bottom" constant="4" id="9pd-jt-k6T"/>
+                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AiJ-Vr-8o8"/>
                             <constraint firstItem="2M8-dW-SV1" firstAttribute="top" secondItem="sbN-rZ-bv0" secondAttribute="bottom" constant="10" id="BVB-hG-MGj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IpB-9b-3hg" secondAttribute="trailing" constant="126" id="Ljc-6T-LAI"/>
                             <constraint firstItem="sbN-rZ-bv0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="MFX-yw-jfx"/>
                             <constraint firstItem="sbN-rZ-bv0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="OKC-62-pGa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpB-9b-3hg" secondAttribute="bottom" constant="375" id="OWl-c1-rFc">
+                                <variation key="heightClass=regular" constant="350"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="Baf-eI-Bpd" secondAttribute="trailing" id="P3x-iQ-ULh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Baf-eI-Bpd" secondAttribute="bottom" id="TMT-0b-khr"/>
-                            <constraint firstItem="IpB-9b-3hg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="159" id="UGC-Kg-XJK"/>
-                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WAP-PB-h0K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2M8-dW-SV1" secondAttribute="trailing" constant="49" id="WYY-GA-hyw"/>
                             <constraint firstItem="Baf-eI-Bpd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xwz-D7-mim"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpB-9b-3hg" secondAttribute="bottom" constant="261" id="YRi-8S-Wxx"/>
+                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ajs-WJ-27R"/>
                             <constraint firstItem="Baf-eI-Bpd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gRx-JP-qrR"/>
                             <constraint firstItem="hAh-Kp-iPN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gSR-ud-ZGg"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpB-9b-3hg" secondAttribute="bottom" constant="315" id="hQ1-Dg-bUY"/>
+                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gqn-PF-z37"/>
+                            <constraint firstItem="IpB-9b-3hg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="125" id="iSw-ZG-WZX"/>
+                            <constraint firstItem="IpB-9b-3hg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="125" id="mAS-Qe-wyZ">
+                                <variation key="heightClass=regular" constant="153"/>
+                            </constraint>
                             <constraint firstItem="hAh-Kp-iPN" firstAttribute="top" secondItem="sbN-rZ-bv0" secondAttribute="bottom" constant="10" id="n2g-KO-nI6"/>
                             <constraint firstItem="a0b-JM-YK6" firstAttribute="leading" secondItem="sbN-rZ-bv0" secondAttribute="trailing" constant="8" id="qUm-IK-XAp"/>
                             <constraint firstAttribute="trailing" secondItem="Baf-eI-Bpd" secondAttribute="trailing" id="r1M-nh-tbc"/>
                             <constraint firstAttribute="trailing" secondItem="a0b-JM-YK6" secondAttribute="trailing" constant="13" id="sWI-za-5R1"/>
                             <constraint firstItem="Baf-eI-Bpd" firstAttribute="top" secondItem="2M8-dW-SV1" secondAttribute="bottom" constant="4" id="v6L-dW-z4S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IpB-9b-3hg" secondAttribute="trailing" constant="125" id="zGX-Ij-TtY">
+                                <variation key="heightClass=regular" constant="153"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="IpB-9b-3hg"/>
                             </mask>
+                            <mask key="constraints">
+                                <exclude reference="6Q9-0b-CFi"/>
+                                <exclude reference="Ljc-6T-LAI"/>
+                                <exclude reference="ajs-WJ-27R"/>
+                                <exclude reference="iSw-ZG-WZX"/>
+                                <exclude reference="mAS-Qe-wyZ"/>
+                                <exclude reference="zGX-Ij-TtY"/>
+                                <exclude reference="6N0-Pv-jUm"/>
+                                <exclude reference="OWl-c1-rFc"/>
+                                <exclude reference="YRi-8S-Wxx"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="6Q9-0b-CFi"/>
+                                <include reference="ajs-WJ-27R"/>
+                                <exclude reference="mAS-Qe-wyZ"/>
+                                <exclude reference="zGX-Ij-TtY"/>
+                                <exclude reference="OWl-c1-rFc"/>
+                            </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="IpB-9b-3hg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4Gb-nm-cuy"/>
+                                <include reference="Ljc-6T-LAI"/>
+                                <exclude reference="gqn-PF-z37"/>
+                                <include reference="iSw-ZG-WZX"/>
+                                <exclude reference="6N0-Pv-jUm"/>
+                                <include reference="YRi-8S-Wxx"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="Ljc-6T-LAI"/>
+                                <exclude reference="iSw-ZG-WZX"/>
+                                <exclude reference="YRi-8S-Wxx"/>
                             </mask>
                         </variation>
                     </view>
@@ -192,7 +243,7 @@
                         <viewControllerLayoutGuide type="bottom" id="UUL-P0-XUX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ung-fn-T0b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCR-Wz-JIT">
@@ -239,10 +290,10 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryCell" id="fcE-Mg-rbR" customClass="SummaryCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="545" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fcE-Mg-rbR" id="XxD-87-z44">
-                                            <frame key="frameInset" width="600" height="43"/>
+                                            <frame key="frameInset" width="545" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPl-Bb-1gw">
@@ -269,10 +320,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryOverviewCell" id="SNQ-cM-HtD" customClass="SummaryOverviewCell" customModule="Dialysis_Nutrition_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="545" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SNQ-cM-HtD" id="ELZ-8n-C1h">
-                                            <frame key="frameInset" width="600" height="43"/>
+                                            <frame key="frameInset" width="545" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kOs-3l-PYP">
@@ -421,7 +472,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ant-1L-nfB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5hX-1z-xXG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1mS-qh-Th1">
@@ -736,7 +787,7 @@
                         <viewControllerLayoutGuide type="bottom" id="OCE-96-Tx0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aud-ik-QiD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="5" contentMode="scaleToFill" misplaced="YES" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m3o-d5-4dC">
@@ -836,7 +887,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hC0-Y1-D72"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GTK-dU-ufH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ef9-Yg-fZL">

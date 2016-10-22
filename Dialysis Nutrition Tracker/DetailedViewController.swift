@@ -53,7 +53,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
         if(isEdit == true){
             self.numberOfServings = food.numberOfServings
             self.servingSize = food.servingSize
-            self.updateIndex = food.index
+            self.updateIndex = Int(food.index)
             self.foodName = food.name
             
             getNutrientList()
@@ -88,6 +88,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 guard let measurementsList = nutrition["measures"] as? [[String:AnyObject]] else {
                     print("error parsing measurements")
+                    AlertView.displayError(self, title: "Alert", error: "Oops, an error has occured. Please try again.")
                     return
                 }
 

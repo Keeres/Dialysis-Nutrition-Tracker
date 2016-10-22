@@ -50,7 +50,7 @@ class Client : NSObject{
                         
                     } catch {
                         displayError("Could not parse the data as JSON: '\(data)'")
-                        completionHandler(success:false, foodItemsArray: nil, error: "Server error. Please try again laster")
+                        completionHandler(success:false, foodItemsArray: nil, error: "Server error. Please try again later")
 
                         return
                     }
@@ -104,27 +104,26 @@ class Client : NSObject{
                     do {
                         parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
                     } catch {
-                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again laster")
+                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again later")
                         return
                     }
               //      print(parsedResult)
                     guard let report = parsedResult["report"] as? [String: AnyObject] else {
                         print("nutrient report not found")
-                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again laster")
+                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again later")
                         
                         return
                     }
                     
                     guard let food = report["food"] as? [String:AnyObject] else {
                         print("error retriving food")
-                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again laster")
-
+                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again later")
                         return
                     }
 
                     guard let nutrients = food["nutrients"] as? [[String:AnyObject]] else {
                         print("error retriving nutrients")
-                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again laster")
+                        completionHandler(success:false, nutrientsArray: nil, error: "Server error. Please try again later")
 
                         return
                     }
