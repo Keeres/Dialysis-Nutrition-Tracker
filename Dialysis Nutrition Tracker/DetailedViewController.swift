@@ -354,7 +354,11 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
     var oldTextField = ""
     
     func done(){
+        
         let cell = detailedTableView.cellForRowAtIndexPath( NSIndexPath(forRow: 2, inSection: 0)) as! NumberOfServingsCell
+        if cell.NumberOfServingsTextField.text == ""{
+            cell.NumberOfServingsTextField.text = oldTextField
+        }
         numberOfServings = Float(cell.NumberOfServingsTextField.text!)!
         self.detailedTableView.reloadData()
             cell.NumberOfServingsTextField.resignFirstResponder()
@@ -370,7 +374,7 @@ class DetailedViewController: UIViewController, UITableViewDelegate, UITableView
          let cell = detailedTableView.cellForRowAtIndexPath( NSIndexPath(forRow: 2, inSection: 0)) as! NumberOfServingsCell
         
         oldTextField =  cell.NumberOfServingsTextField.text!
-        textField.text = ""
+       // textField.text = ""
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DetailedViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
     }

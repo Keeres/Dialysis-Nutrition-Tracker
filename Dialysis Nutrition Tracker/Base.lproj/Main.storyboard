@@ -51,7 +51,8 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IpB-9b-3hg">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IpB-9b-3hg">
+                                <frame key="frameInset" minX="165" minY="315" width="37" height="37"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CSH-kp-hhX">
                                         <frame key="frameInset" width="37" height="37"/>
@@ -141,27 +142,25 @@
                             <constraint firstItem="a0b-JM-YK6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="1Ag-TL-WI3"/>
                             <constraint firstItem="Baf-eI-Bpd" firstAttribute="top" secondItem="hAh-Kp-iPN" secondAttribute="bottom" constant="4" id="9pd-jt-k6T"/>
                             <constraint firstItem="2M8-dW-SV1" firstAttribute="top" secondItem="sbN-rZ-bv0" secondAttribute="bottom" constant="10" id="BVB-hG-MGj"/>
+                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I8e-t9-HLe"/>
                             <constraint firstItem="IpB-9b-3hg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="149" id="LMM-ND-jgA"/>
                             <constraint firstItem="sbN-rZ-bv0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="MFX-yw-jfx"/>
                             <constraint firstItem="sbN-rZ-bv0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="OKC-62-pGa"/>
                             <constraint firstAttribute="trailing" secondItem="Baf-eI-Bpd" secondAttribute="trailing" id="P3x-iQ-ULh"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpB-9b-3hg" secondAttribute="bottom" constant="315" id="RD2-tv-90v"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Baf-eI-Bpd" secondAttribute="bottom" id="TMT-0b-khr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2M8-dW-SV1" secondAttribute="trailing" constant="49" id="WYY-GA-hyw"/>
                             <constraint firstItem="Baf-eI-Bpd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xwz-D7-mim"/>
-                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gAB-Xg-rOc"/>
                             <constraint firstItem="Baf-eI-Bpd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gRx-JP-qrR"/>
                             <constraint firstItem="hAh-Kp-iPN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gSR-ud-ZGg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpB-9b-3hg" secondAttribute="bottom" constant="315" id="hQ1-Dg-bUY"/>
                             <constraint firstItem="hAh-Kp-iPN" firstAttribute="top" secondItem="sbN-rZ-bv0" secondAttribute="bottom" constant="10" id="n2g-KO-nI6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IpB-9b-3hg" secondAttribute="trailing" constant="157" id="pGs-CF-ATx"/>
                             <constraint firstItem="a0b-JM-YK6" firstAttribute="leading" secondItem="sbN-rZ-bv0" secondAttribute="trailing" constant="8" id="qUm-IK-XAp"/>
                             <constraint firstAttribute="trailing" secondItem="Baf-eI-Bpd" secondAttribute="trailing" id="r1M-nh-tbc"/>
-                            <constraint firstItem="IpB-9b-3hg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="165" id="s2z-Je-L47"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IpB-9b-3hg" secondAttribute="trailing" constant="157" id="rEe-UY-gCZ"/>
+                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="s3y-Pc-BlJ"/>
                             <constraint firstAttribute="trailing" secondItem="a0b-JM-YK6" secondAttribute="trailing" constant="13" id="sWI-za-5R1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IpB-9b-3hg" secondAttribute="bottom" constant="315" id="szf-gR-1ek"/>
-                            <constraint firstItem="IpB-9b-3hg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tW7-KY-OZO">
-                                <variation key="widthClass=compact" constant="-4"/>
-                            </constraint>
                             <constraint firstItem="Baf-eI-Bpd" firstAttribute="top" secondItem="2M8-dW-SV1" secondAttribute="bottom" constant="4" id="v6L-dW-z4S"/>
                         </constraints>
                         <variation key="default">
@@ -169,13 +168,9 @@
                                 <exclude reference="IpB-9b-3hg"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="RD2-tv-90v"/>
-                                <exclude reference="szf-gR-1ek"/>
                                 <exclude reference="LMM-ND-jgA"/>
-                                <exclude reference="gAB-Xg-rOc"/>
                                 <exclude reference="pGs-CF-ATx"/>
-                                <exclude reference="s2z-Je-L47"/>
-                                <exclude reference="tW7-KY-OZO"/>
+                                <exclude reference="szf-gR-1ek"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -183,13 +178,9 @@
                                 <include reference="IpB-9b-3hg"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="RD2-tv-90v"/>
-                                <exclude reference="szf-gR-1ek"/>
                                 <exclude reference="LMM-ND-jgA"/>
-                                <include reference="gAB-Xg-rOc"/>
                                 <exclude reference="pGs-CF-ATx"/>
-                                <include reference="s2z-Je-L47"/>
-                                <include reference="tW7-KY-OZO"/>
+                                <exclude reference="szf-gR-1ek"/>
                             </mask>
                         </variation>
                     </view>
