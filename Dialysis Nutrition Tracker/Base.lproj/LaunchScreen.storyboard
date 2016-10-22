@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Dialysis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ik-yL-NpR">
@@ -25,9 +26,6 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="4db-cC-Vyn"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVJ-B4-Kav">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Ecm-za-gxI"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="31"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -36,12 +34,11 @@
                         <color key="backgroundColor" red="0.0" green="0.34083716780000001" blue="0.71723658379999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7Ik-yL-NpR" firstAttribute="centerX" secondItem="qVJ-B4-Kav" secondAttribute="centerX" id="Bil-jG-XL4"/>
+                            <constraint firstItem="4db-cC-Vyn" firstAttribute="centerX" secondItem="qVJ-B4-Kav" secondAttribute="centerX" id="TQP-NA-Hfy"/>
                             <constraint firstItem="4db-cC-Vyn" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="132" id="V8W-xH-sTb"/>
                             <constraint firstItem="7Ik-yL-NpR" firstAttribute="top" secondItem="4db-cC-Vyn" secondAttribute="bottom" constant="84" id="i9F-fP-d9O"/>
-                            <constraint firstItem="qVJ-B4-Kav" firstAttribute="top" secondItem="7Ik-yL-NpR" secondAttribute="bottom" constant="16" id="lFw-ml-lLl"/>
-                            <constraint firstItem="4db-cC-Vyn" firstAttribute="centerX" secondItem="qVJ-B4-Kav" secondAttribute="centerX" id="nfl-zz-Uct"/>
                             <constraint firstItem="qVJ-B4-Kav" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qSq-t7-0UB"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="qVJ-B4-Kav" secondAttribute="bottom" constant="239" id="zW4-jt-6P1"/>
+                            <constraint firstItem="qVJ-B4-Kav" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="375" id="sKW-cT-Ljy"/>
                         </constraints>
                     </view>
                 </viewController>
